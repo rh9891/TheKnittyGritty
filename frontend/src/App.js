@@ -1,9 +1,15 @@
 import React, { Fragment } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <Fragment>
-      <h1>The Knitty Gritty</h1>
+      <Header />
+      <main>
+        <h1>The Knitty Gritty</h1>
+      </main>
+      <Footer />
     </Fragment>
   );
 };
