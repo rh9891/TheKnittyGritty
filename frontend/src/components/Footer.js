@@ -1,7 +1,18 @@
 import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
 
 const Footer = () => {
-  return <footer>The Knitty Gritty Footer</footer>;
+  return (
+    <footer>
+      <Container>
+        <Row>
+          <Col className="text-center py-3">
+            Copyright &copy; The Knitty Gritty
+          </Col>
+        </Row>
+      </Container>
+    </footer>
+  );
 };
 
 export default Footer;
