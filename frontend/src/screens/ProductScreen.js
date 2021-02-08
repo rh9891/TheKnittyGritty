@@ -28,6 +28,18 @@ const ProductScreen = ({ match }) => {
               />
             </ListGroup.Item>
             <ListGroup.Item>{product.description}</ListGroup.Item>
+            <ListGroup.Item>
+              <li>Weight: {product.product_details.weight}</li>
+              <li>Length: {product.product_details.length}</li>
+              <li>Gauge: {product.product_details.gauge}</li>
+              <li>
+                Knitting Needle Size: {product.product_details.knitting_needle}
+              </li>
+              <li>Crochet Hook Size: {product.product_details.crochet_hook}</li>
+              <li>
+                Recommended Care: {product.product_details.recommended_care}
+              </li>
+            </ListGroup.Item>
           </ListGroup>
         </Col>
         <Col md={3}>

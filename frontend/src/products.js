@@ -5,6 +5,14 @@ const products = [
     image: "/images/wild-mustard.jpg",
     description:
       "100% super kid mohair from Scotland.Though less fluffier than the usual mohair-silk blend, Carroll Coorie is incredibly soft with a gentle halo and an exquisite shimmer that has the density and drape of alpaca with a natural luster.",
+    product_details: {
+      weight: "50 grams",
+      length: "137 yards",
+      gauge: "6-6.5 stitches per inch, sportweight",
+      knitting_needle: "US 3 or 4 (3.25-3.5 mm)",
+      crochet_hook: "D or E (3.25-3.5 mm)",
+      recommended_care: "Hand wash cold, lay flat to dry.",
+    },
     content: "Mohair",
     category: "Yarn",
     price: 19.5,
@@ -18,6 +26,14 @@ const products = [
     image: "/images/blossom-pink.jpg",
     description:
       "100% wool. Woolf Wooly Wool is a single-ply super bulky blend with a soft and gentle beauty. Great for making sweaters, warm wraps, toasty blankets and cozy hats.",
+    product_details: {
+      weight: "200 grams",
+      length: "109 yards",
+      gauge: "1.875-2.125 stitches per inch, super bulky",
+      knitting_needle: "US 15 or 17 (10 or 12 mm)",
+      crochet_hook: "N to P (10 or 12 mm)",
+      recommended_care: "Hand wash, lay flat to dry.",
+    },
     content: "Wool",
     category: "Yarn",
     price: 28.5,
@@ -31,6 +47,14 @@ const products = [
     image: "/images/dark-iris.jpg",
     description:
       "Made up of 43% baby alpaca, 42% extra fine merino, and 15% linen. Austen Alpaca is a very special yarn, full of gentle charm and natural beauty. The linen is undyed, casting the entire palette in a soft, tweedy haze.",
+    product_details: {
+      weight: "100 grams",
+      length: "219 yards",
+      gauge: "5-5.5 stitches per inch, light worsted",
+      knitting_needle: "US 6 to 8 (4-5 mm)",
+      crochet_hook: "F or H (4-5 mm)",
+      recommended_care: "Hand wash cold, lay flat to dry.",
+    },
     content: "Alpaca/Merino/Linen",
     category: "Yarn",
     price: 23.5,
@@ -44,6 +68,14 @@ const products = [
     image: "/images/heather.jpg",
     description:
       "75% extra fine merino wool and 25% cashmere. Kipling Cashmere is a classic plied yarn. With a quarter of its components being cashmere, it is incredibly soft and supple. The remaining elements are of extra fine merino wool, so it is elastic and durable. A light worsted weight, Kipling Cashmere is perfect for everything and everyone, gentle for babies and sensitive skin.",
+    product_details: {
+      weight: "100 grams",
+      length: "218 yards",
+      gauge: "5-5.5 stitches per inch, light worsted",
+      knitting_needle: "US 5 to 7 (3.75-4.5 mm)",
+      crochet_hook: "E to G (3.75-4.5 mm)",
+      recommended_care: "Hand wash cold, lay flat to dry.",
+    },
     content: "Merino/Cashmere",
     category: "Yarn",
     price: 30.6,
@@ -57,6 +89,14 @@ const products = [
     image: "/images/aqua-cove.jpg",
     description:
       "100% merino wool. Wilde Worsted Twist is a classic 2-ply farm yarn. It is as soft as a baby lamb's ear and perfect for cowls, scarves, hats, mittens, sweaters, and blankets.",
+    product_details: {
+      weight: "100 grams",
+      length: "164 yards",
+      gauge: "4.5-5 stitches per inch, worsted weight",
+      knitting_needle: "US 7 to 8 (4.5-5 mm)",
+      crochet_hook: "G to H (4.5-5 mm)",
+      recommended_care: "Hand wash cold, lay flat to dry.",
+    },
     content: "Merino",
     category: "Yarn",
     price: 22.0,
@@ -70,6 +110,14 @@ const products = [
     image: "/images/high-tide.jpg",
     description:
       "50% fine highland wool, 35% alpaca, and 15% linen. Lawrence Linen is a fingering weight blend of fine wool, alpaca, and linen. The yarn is windswept and elegant, hearty and beautiful. These fibers are spectacular for knitting, crocheting, and weaving and can be used for garments, blankets, accessories, and housewares.",
+    product_details: {
+      weight: "100 grams",
+      length: "439 yards",
+      gauge: "6.5-7.5 stitches per inch, fingering weight",
+      knitting_needle: "US 2 to 5 (3-3.75 mm)",
+      crochet_hook: "C to E (2.75-3.5 mm)",
+      recommended_care: "Hand wash, lay flat to dry.",
+    },
     content: "Wool/Alpaca/Linen",
     category: "Yarn",
     price: 17.5,
