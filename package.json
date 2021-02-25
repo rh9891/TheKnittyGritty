@@ -1,0 +1,22 @@
+{
+  "name": "theknittygritty",
+  "version": "1.0.0",
+  "description": "Full-stack eCommerce application that utilizes React, Redux, Express, and MongoDB.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rh9891/TheKnittyGritty.git"
+  },
+  "author": "Romie Hecdivert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rh9891/TheKnittyGritty/issues"
+  },
+  "homepage": "https://github.com/rh9891/TheKnittyGritty#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
