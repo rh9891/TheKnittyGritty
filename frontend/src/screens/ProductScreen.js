@@ -1,11 +1,21 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 import Rating from "../components/Rating";
-import products from "../products";
+import axios from "axios";
 
 const ProductScreen = ({ match }) => {
-  const product = products.find((product) => product._id === match.params.id);
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${match.params.id}`);
+
+      setProduct(data);
+    };
+
+    fetchProduct();
+  }, []);
 
   return (
     <Fragment>
@@ -29,16 +39,12 @@ const ProductScreen = ({ match }) => {
             </ListGroup.Item>
             <ListGroup.Item>{product.description}</ListGroup.Item>
             <ListGroup.Item>
-              <li>Weight: {product.product_details.weight}</li>
-              <li>Length: {product.product_details.length}</li>
-              <li>Gauge: {product.product_details.gauge}</li>
-              <li>
-                Knitting Needle Size: {product.product_details.knitting_needle}
-              </li>
-              <li>Crochet Hook Size: {product.product_details.crochet_hook}</li>
-              <li>
-                Recommended Care: {product.product_details.recommended_care}
-              </li>
+              <li>Weight: {product.details.weight}</li>
+              <li>Length: {product.details.length}</li>
+              <li>Gauge: {product.details.gauge}</li>
+              <li>Knitting Needle Size: {product.details.knitting_needle}</li>
+              <li>Crochet Hook Size: {product.details.crochet_hook}</li>
+              <li>Recommended Care: {product.details.recommended_care}</li>
             </ListGroup.Item>
           </ListGroup>
         </Col>
