@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: "1",
     name: "Carroll Coorie",
     image: "/images/wild-mustard.jpg",
     description:
@@ -19,7 +18,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "2",
     name: "Woolf Wooly Wool",
     image: "/images/blossom-pink.jpg",
     description:
@@ -38,7 +36,6 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: "3",
     name: "Austen Alpaca",
     image: "/images/dark-iris.jpg",
     description:
@@ -57,7 +54,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "4",
     name: "Kipling Cashmere",
     image: "/images/heather.jpg",
     description:
@@ -76,7 +72,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "5",
     name: "Wilde Worsted Twist",
     image: "/images/aqua-cove.jpg",
     description:
@@ -95,7 +90,6 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: "6",
     name: "Lawrence Linen",
     image: "/images/high-tide.jpg",
     description:
