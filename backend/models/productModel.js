@@ -26,11 +26,11 @@ const productSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    brand: {
+    content: {
       type: String,
       required: true,
     },
-    content: {
+    category: {
       type: String,
       required: true,
     },
