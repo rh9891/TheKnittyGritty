@@ -39,12 +39,12 @@ const ProductScreen = ({ match }) => {
             </ListGroup.Item>
             <ListGroup.Item>{product.description}</ListGroup.Item>
             <ListGroup.Item>
-              <li>Weight: {product.details.weight}</li>
-              <li>Length: {product.details.length}</li>
-              <li>Gauge: {product.details.gauge}</li>
-              <li>Knitting Needle Size: {product.details.knitting_needle}</li>
-              <li>Crochet Hook Size: {product.details.crochet_hook}</li>
-              <li>Recommended Care: {product.details.recommended_care}</li>
+              <li>Weight: {product.weight}</li>
+              <li>Length: {product.length}</li>
+              <li>Gauge: {product.gauge}</li>
+              <li>Knitting Needle Size: {product.knitting_needle}</li>
+              <li>Crochet Hook Size: {product.crochet_hook}</li>
+              <li>Recommended Care: {product.recommended_care}</li>
             </ListGroup.Item>
           </ListGroup>
         </Col>
@@ -55,7 +55,7 @@ const ProductScreen = ({ match }) => {
                 <Row>
                   <Col>Price:</Col>
                   <Col>
-                    <strong>${product.price.toFixed(2)}</strong>
+                    <strong>{product.price}</strong>
                   </Col>
                 </Row>
               </ListGroup.Item>
