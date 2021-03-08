@@ -38,6 +38,24 @@ const productSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    weight: {
+      type: String,
+    },
+    length: {
+      type: String,
+    },
+    gauge: {
+      type: String,
+    },
+    knitting_needle: {
+      type: String,
+    },
+    crochet_hook: {
+      type: String,
+    },
+    recommended_care: {
+      type: String,
+    },
     reviews: [reviewSchema],
     rating: {
       type: Number,
