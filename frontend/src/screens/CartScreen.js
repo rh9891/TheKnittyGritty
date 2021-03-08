@@ -33,6 +33,10 @@ const CartScreen = ({ match, location, history }) => {
     console.log("Item has been successfully removed.");
   };
 
+  const checkoutHandler = () => {
+    console.log("You have placed an order.");
+  };
+
   return (
     <Fragment>
       <Row>
@@ -99,6 +103,16 @@ const CartScreen = ({ match, location, history }) => {
                 {cartItems
                   .reduce((acc, item) => acc + item.qty * item.price, 0)
                   .toFixed(2)}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Button
+                  type="button"
+                  className="btn-block"
+                  disabled={cartItems.length === 0}
+                  onClick={checkoutHandler}
+                >
+                  Place Order
+                </Button>
               </ListGroup.Item>
             </ListGroup>
           </Card>
