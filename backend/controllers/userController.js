@@ -24,7 +24,19 @@ const authUser = asyncHandler(async (req, res) => {
 
 // Route to get user profile. GET request to "/api/users/profile". Private route.
 const getUserProfile = asyncHandler(async (req, res) => {
-  res.send("User profile accessed successfully.");
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    res.json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    });
+  } else {
+    res.status(401);
+    throw new Error("Invalid email address or password.");
+  }
 });
 
 export { authUser, getUserProfile };
