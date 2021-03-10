@@ -16,8 +16,8 @@ const RegisterScreen = ({ location, history }) => {
 
   const dispatch = useDispatch();
 
-  const userRegister = useSelector((state) => state.userRegister);
-  const { loading, error, userInfo } = userRegister;
+  const userLogin = useSelector((state) => state.userLogin);
+  const { loading, error, userInfo } = userLogin;
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
@@ -25,7 +25,7 @@ const RegisterScreen = ({ location, history }) => {
     if (userInfo) {
       history.push(redirect);
     }
-  }, [history, userInfo, redirect]);
+  }, [history, userInfo]);
 
   const submitHandler = (event) => {
     event.preventDefault();
