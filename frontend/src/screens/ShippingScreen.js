@@ -8,8 +8,10 @@ const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
 
+  const [name, setName] = useState(shippingAddress.name);
   const [address, setAddress] = useState(shippingAddress.address);
   const [city, setCity] = useState(shippingAddress.city);
+  const [state, setState] = useState(shippingAddress.state);
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
   const [country, setCountry] = useState(shippingAddress.country);
 
@@ -17,14 +19,26 @@ const ShippingScreen = ({ history }) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    dispatch(saveShippingAddress({ address, city, postalCode, country }));
+    dispatch(
+      saveShippingAddress({ name, address, city, state, postalCode, country })
+    );
     history.push("/payment");
   };
 
   return (
     <FormContainer>
-      <h1>Shipping</h1>
+      <h1>Shipping Information</h1>
       <Form onSubmit={submitHandler}>
+        <Form.Group controlId="name">
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            type="text"
+            value={name}
+            required
+            onChange={(event) => setName(event.target.value)}
+          ></Form.Control>
+        </Form.Group>
+
         <Form.Group controlId="address">
           <Form.Label>Address</Form.Label>
           <Form.Control
@@ -42,6 +56,16 @@ const ShippingScreen = ({ history }) => {
             value={city}
             required
             onChange={(event) => setCity(event.target.value)}
+          ></Form.Control>
+        </Form.Group>
+
+        <Form.Group controlId="state">
+          <Form.Label>State</Form.Label>
+          <Form.Control
+            type="text"
+            value={state}
+            required
+            onChange={(event) => setState(event.target.value)}
           ></Form.Control>
         </Form.Group>
 
