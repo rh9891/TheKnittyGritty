@@ -29,7 +29,7 @@ const PaymentScreen = ({ history }) => {
       <h1>Payment Method</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group>
-          <Form.Label as="legend">Select Method</Form.Label>
+          <Form.Label as="legend">Choose a payment method.</Form.Label>
         </Form.Group>
         <Col>
           <Form.Check
@@ -38,7 +38,7 @@ const PaymentScreen = ({ history }) => {
             id="PayPal"
             name="paymentMethod"
             value="PayPal"
-            checked
+            checked={paymentMethod === "PayPal"}
             onChange={(event) => setPaymentMethod(event.target.value)}
           ></Form.Check>
 
@@ -48,7 +48,7 @@ const PaymentScreen = ({ history }) => {
             id="Stripe"
             name="paymentMethod"
             value="Stripe"
-            checked
+            checked={paymentMethod === "Stripe"}
             onChange={(event) => setPaymentMethod(event.target.value)}
           ></Form.Check>
         </Col>
