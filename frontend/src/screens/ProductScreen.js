@@ -24,6 +24,15 @@ const ProductScreen = ({ history, match }) => {
 
   const { loading, error, product } = productDetails;
 
+  // Formats currency using Internalization API.
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+  });
+
+  product.priceDisplay = formatter.format(product.price);
+
   useEffect(() => {
     dispatch(listProductDetails(match.params.id));
   }, [dispatch, match]);
@@ -75,7 +84,7 @@ const ProductScreen = ({ history, match }) => {
                   <Row>
                     <Col>Price:</Col>
                     <Col>
-                      <strong>${product.price}</strong>
+                      <strong>{product.priceDisplay}</strong>
                     </Col>
                   </Row>
                 </ListGroup.Item>
