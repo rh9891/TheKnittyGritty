@@ -8,6 +8,36 @@ import CheckoutSteps from "../components/CheckoutSteps";
 const PlaceOrderScreen = () => {
   const cart = useSelector((state) => state.cart);
 
+  // Formats currency using Internalization API.
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+  });
+
+  // Calculate prices.
+  cart.itemsPrice = cart.cartItems.reduce(
+    (acc, item) => acc + item.price * item.qty,
+    0
+  );
+
+  cart.itemsPriceDisplay = formatter.format(cart.itemsPrice);
+
+  cart.shippingPrice = cart.itemsPrice > 100 ? 0 : 10;
+
+  cart.shippingPriceDisplay = formatter.format(cart.shippingPrice);
+
+  cart.taxPrice = Number((0.15 * cart.itemsPrice).toFixed(2));
+
+  cart.taxPriceDisplay = formatter.format(cart.taxPrice);
+
+  cart.totalPrice =
+    Number(cart.itemsPrice) +
+    Number(cart.shippingPrice) +
+    Number(cart.taxPrice);
+
+  cart.totalPriceDisplay = formatter.format(cart.totalPrice);
+
   const placeOrderHandler = () => {
     console.log("You have successfully placed an order.");
   };
@@ -21,7 +51,7 @@ const PlaceOrderScreen = () => {
             <ListGroup.Item>
               <h1>Confirm Order</h1>
               <p className="text-secondary">
-                Wool you check your order details? Click "Place Order" to
+                Wool you please check your order details? Click "Place Order" to
                 complete purchase.
               </p>
             </ListGroup.Item>
@@ -70,7 +100,8 @@ const PlaceOrderScreen = () => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          {item.qty} x ${item.price.toFixed(2)} = $
+                          {(item.qty * item.price).toFixed(2)}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -91,28 +122,28 @@ const PlaceOrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>${cart.itemsPrice}</Col>
+                  <Col>{cart.itemsPriceDisplay}</Col>
                 </Row>
               </ListGroup.Item>
 
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping & Handling</Col>
-                  <Col>${cart.shippingPrice}</Col>
+                  <Col>{cart.shippingPriceDisplay}</Col>
                 </Row>
               </ListGroup.Item>
 
               <ListGroup.Item>
                 <Row>
                   <Col>Estimated Tax</Col>
-                  <Col>${cart.taxPrice}</Col>
+                  <Col>{cart.taxPriceDisplay}</Col>
                 </Row>
               </ListGroup.Item>
 
               <ListGroup.Item>
                 <Row>
                   <Col>Order Total</Col>
-                  <Col>${cart.totalPrice}</Col>
+                  <Col>{cart.totalPriceDisplay}</Col>
                 </Row>
               </ListGroup.Item>
 
@@ -120,7 +151,7 @@ const PlaceOrderScreen = () => {
                 <Button
                   type="button"
                   className="btn-block"
-                  disabled={cart.cartItems === 0}
+                  disabled={cart.cartItems.length === 0}
                   onClick={placeOrderHandler}
                 >
                   Place Order
