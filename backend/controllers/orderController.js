@@ -46,7 +46,9 @@ const getOrderByID = asyncHandler(async (req, res) => {
     res.json(order);
   } else {
     res.status(404);
-    throw new Error("Sorry. Order was not found.");
+    throw new Error(
+      "We could not retrieve any details for that order number. Please check that you have entered it correctly and try again."
+    );
   }
 });
 
