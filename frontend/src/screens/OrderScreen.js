@@ -26,14 +26,10 @@ const OrderScreen = ({ match }) => {
     <Message variant="danger">{error}</Message>
   ) : (
     <Fragment>
-      <h1>View Order Details</h1>
+      <h1>Order Ref. No. {order._id}</h1>
       <Row>
         <Col md={8}>
           <ListGroup variant="flush">
-            <ListGroup.Item>
-              <h1>Order Ref. No. {order._id}</h1>
-            </ListGroup.Item>
-
             <ListGroup.Item>
               <h2>Order Placed:</h2>
               {order.createdAt.slice(0, 10)}
