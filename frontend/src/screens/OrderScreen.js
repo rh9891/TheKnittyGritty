@@ -15,8 +15,10 @@ const OrderScreen = ({ match }) => {
   const { order, loading, error } = orderDetails;
 
   useEffect(() => {
-    dispatch(getOrderDetails(orderID));
-  }, []);
+    if (!order || order._id !== orderID) {
+      dispatch(getOrderDetails(orderID));
+    }
+  }, [order, orderID]);
 
   return loading ? (
     <Loader />
