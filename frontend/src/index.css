@@ -25,3 +25,20 @@ h3 {
 a.dropdown-item {
   font-family: "Montserrat", sans-serif;
 }
+
+.newsletter-signup-message {
+  text-align: center;
+  align-items: center;
+}
+
+.carousel-caption-heading {
+  color: aliceblue;
+  font-weight: 800;
+  font-size: 3rem;
+}
+
+.carousel-caption-subtitle {
+  color: aliceblue;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
