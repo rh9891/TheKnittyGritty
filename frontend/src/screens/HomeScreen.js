@@ -29,7 +29,7 @@ const HomeScreen = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://images.pexels.com/photos/5691913/pexels-photo-5691913.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            src="images/girl-and-grandmother-knitting.jpg"
             alt="Happy girl and grandmother having fun with knitting"
           />
           <Carousel.Caption>
@@ -42,7 +42,7 @@ const HomeScreen = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://images.pexels.com/photos/3693214/pexels-photo-3693214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            src="images/teal-yarn.jpg"
             alt="Close up photo of teal yarn"
           />
 
@@ -56,7 +56,7 @@ const HomeScreen = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://images.pexels.com/photos/5691905/pexels-photo-5691905.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+            src="images/woman-knitting-pink-yarn.jpg"
             alt="Faceless woman knitting pink yarn with needles"
           />
 
