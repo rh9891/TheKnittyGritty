@@ -33,6 +33,15 @@ const OrderScreen = ({ match }) => {
             </ListGroup.Item>
 
             <ListGroup.Item>
+              <h2>Order Placed:</h2>
+              {order.createdAt.slice(0, 10)}
+              <h2>Ordered By:</h2>
+              {order.user.name}
+              <br />
+              <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
+            </ListGroup.Item>
+
+            <ListGroup.Item>
               <h2>Shipping Address</h2>
               <p>
                 {order.shippingAddress.name}
@@ -48,7 +57,12 @@ const OrderScreen = ({ match }) => {
 
             <ListGroup.Item>
               <h2>Payment Method</h2>
-              {order.paymentMethod}
+              <p>{order.paymentMethod}</p>
+              {order.isPaid ? (
+                <Message variant="success">Paid on {order.paidAt}</Message>
+              ) : (
+                <Message variant="danger">Payment Not Yet Processed</Message>
+              )}
             </ListGroup.Item>
 
             <ListGroup.Item>
