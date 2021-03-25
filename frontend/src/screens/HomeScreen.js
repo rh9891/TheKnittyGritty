@@ -43,7 +43,7 @@ const HomeScreen = () => {
           <img
             className="d-block w-100"
             src="images/teal-yarn.jpg"
-            alt="Close up photo of teal yarn"
+            alt="Close up of teal yarn"
           />
 
           <Carousel.Caption>
