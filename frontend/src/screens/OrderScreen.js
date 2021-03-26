@@ -1,11 +1,13 @@
 import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
+import { PayPalButton } from "react-paypal-button-v2";
 import { Link } from "react-router-dom";
 import { Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import { getOrderDetails } from "../actions/orderActions";
+import { getOrderDetails, payOrder } from "../actions/orderActions";
+import { ORDER_PAY_RESET } from "../constants/orderConstants";
 
 const OrderScreen = ({ match }) => {
   const orderID = match.params.id;
@@ -33,9 +35,8 @@ const OrderScreen = ({ match }) => {
       document.body.appendChild(script);
     };
 
-    addPayPalScript();
-
     if (!order || successPay || order._id !== orderID) {
+      dispatch({ type: ORDER_PAY_RESET });
       dispatch(getOrderDetails(orderID));
     } else if (!order.isPaid) {
       if (!window.paypal) {
@@ -45,6 +46,11 @@ const OrderScreen = ({ match }) => {
       }
     }
   }, [dispatch, order, orderID, successPay]);
+
+  const successPaymentHandler = (paymentResult) => {
+    console.log(paymentResult);
+    dispatch(payOrder(orderID, paymentResult));
+  };
 
   return loading ? (
     <Loader />
@@ -62,7 +68,7 @@ const OrderScreen = ({ match }) => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Billing Information</h2>
+              <h2>Contact Information</h2>
               {order.user.name}
               <br />
               <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
@@ -95,10 +101,12 @@ const OrderScreen = ({ match }) => {
               <h2>Payment Method</h2>
               <p>{order.paymentMethod}</p>
               {order.isPaid ? (
-                <Message variant="success">Paid on {order.paidAt}.</Message>
+                <Message variant="success">
+                  Paid on {order.paidAt.slice(0, 10)}.
+                </Message>
               ) : (
                 <Message variant="danger">
-                  Payment has not yet been processed.
+                  Payment is unpaid and has not been processed.
                 </Message>
               )}
             </ListGroup.Item>
@@ -174,6 +182,19 @@ const OrderScreen = ({ match }) => {
                   <Col>${order.totalPrice.toFixed(2)}</Col>
                 </Row>
               </ListGroup.Item>
+              {!order.isPaid && (
+                <ListGroup.Item>
+                  {loadingPay && <Loader />}
+                  {!sdkReady ? (
+                    <Loader />
+                  ) : (
+                    <PayPalButton
+                      amount={order.totalPrice}
+                      onSuccess={successPaymentHandler}
+                    />
+                  )}
+                </ListGroup.Item>
+              )}
             </ListGroup>
           </Card>
         </Col>
