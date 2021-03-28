@@ -79,7 +79,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
 
 // Route to get user (currently logged in) order. GET request to "/api/myorders". Private route.
 const getUserOrders = asyncHandler(async (req, res) => {
-  const orders = await Order.find({ user: req.user_id });
+  const orders = await Order.find({ user: req.user._id });
 
   res.json(orders);
 });
