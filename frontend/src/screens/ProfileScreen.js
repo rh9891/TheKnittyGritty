@@ -122,14 +122,14 @@ const ProfileScreen = ({ location, history }) => {
                 <th>Order Ref. No.</th>
                 <th>Date</th>
                 <th>Total</th>
-                <th>Paid</th>
-                <th>Delivery</th>
+                <th>Payment Date</th>
+                <th>Delivery Date</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
               {orders.map((order) => (
-                <tr key={order._id}>
+                <tr className="table-light" key={order._id}>
                   <td>{order._id}</td>
                   <td>{order.createdAt.substring(0, 10)}</td>
                   <td>{order.totalPrice}</td>
@@ -137,14 +137,20 @@ const ProfileScreen = ({ location, history }) => {
                     {order.isPaid ? (
                       order.paidAt.substring(0, 10)
                     ) : (
-                      <i className="fas fa-times" style={{ color: "red" }}></i>
+                      <i
+                        className="fas fa-exclamation-circle"
+                        style={{ color: "#ffce67" }}
+                      ></i>
                     )}
                   </td>
                   <td>
                     {order.isDelivered ? (
                       order.deliveredAt.substring(0, 10)
                     ) : (
-                      <i className="fas fa-times" style={{ color: "red" }}></i>
+                      <i
+                        className="fas fa-exclamation-circle"
+                        style={{ color: "#ffce67" }}
+                      ></i>
                     )}
                   </td>
                   <td>
