@@ -26,8 +26,8 @@ const ProfileScreen = ({ location, history }) => {
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   const { success } = userUpdateProfile;
 
-  const userListOrder = useSelector((state) => state.userListOrder);
-  const { loading: loadingOrders, error: errorOrders, orders } = userListOrder;
+  const orderUserList = useSelector((state) => state.orderUserList);
+  const { loading: loadingOrders, error: errorOrders, orders } = orderUserList;
 
   useEffect(() => {
     if (!userInfo) {
@@ -119,11 +119,11 @@ const ProfileScreen = ({ location, history }) => {
           <Table striped bordered hover responsive className="table-sm">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>DATE</th>
-                <th>TOTAL</th>
-                <th>PAID</th>
-                <th>DELIVERED</th>
+                <th>Order Ref. No.</th>
+                <th>Date</th>
+                <th>Total</th>
+                <th>Paid</th>
+                <th>Delivery</th>
                 <th></th>
               </tr>
             </thead>
@@ -149,7 +149,9 @@ const ProfileScreen = ({ location, history }) => {
                   </td>
                   <td>
                     <LinkContainer to={`/order/${order._id}`}>
-                      <Button variant="primary">Order Details</Button>
+                      <Button className="btn-sm" variant="primary">
+                        See Invoice
+                      </Button>
                     </LinkContainer>
                   </td>
                 </tr>
