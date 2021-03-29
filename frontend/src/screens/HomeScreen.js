@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Row,
@@ -7,6 +7,7 @@ import {
   Button,
   InputGroup,
   FormControl,
+  Modal,
 } from "react-bootstrap";
 import Product from "../components/Product";
 import Loader from "../components/Loader";
@@ -22,6 +23,11 @@ const HomeScreen = () => {
   useEffect(() => {
     dispatch(listProducts());
   }, [dispatch]);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <Fragment>
@@ -81,12 +87,44 @@ const HomeScreen = () => {
           <FormControl
             placeholder="Enter Your Email"
             aria-label="Email Address"
+            type="email"
             aria-describedby="basic-addon2"
           />
           <InputGroup.Append>
-            <Button variant="primary">Sign Up Now</Button>
+            <Button variant="primary" onClick={handleShow}>
+              Sign Up Now
+            </Button>
           </InputGroup.Append>
         </InputGroup>
+
+        <Modal
+          show={show}
+          onHide={handleClose}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header className="bg-primary" closeButton>
+            <Modal.Title className="text-white">
+              <strong>Thank You (From the Bottom of Our Yarn Stash)</strong>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p className="text-primary">
+              You've been added to our mailing list and will now be among the
+              first to hear about our new arrivals, sale events, and exclusive
+              offers.
+            </p>
+            <p className="text-primary">
+              As a thank you for signing up, check your inbox to enjoy{" "}
+              <strong>15% off</strong> your next purchase.
+            </p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={handleClose}>
+              Shop Now
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Fragment>
 
       <h1>Latest Products</h1>
