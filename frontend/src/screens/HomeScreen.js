@@ -6,7 +6,7 @@ import {
   Carousel,
   Button,
   InputGroup,
-  FormControl,
+  Form,
   Modal,
 } from "react-bootstrap";
 import Product from "../components/Product";
@@ -24,10 +24,20 @@ const HomeScreen = () => {
     dispatch(listProducts());
   }, [dispatch]);
 
+  const [validated, setValidated] = useState(false);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
+  };
 
   return (
     <Fragment>
@@ -83,19 +93,47 @@ const HomeScreen = () => {
           When You Sign Up For Our Newsletter
         </h2>
 
-        <InputGroup className="mb-3">
-          <FormControl
-            placeholder="Enter Your Email"
-            aria-label="Email Address"
-            type="email"
-            aria-describedby="basic-addon2"
-          />
-          <InputGroup.Append>
-            <Button variant="primary" onClick={handleShow}>
-              Sign Up Now
-            </Button>
-          </InputGroup.Append>
-        </InputGroup>
+        {/* <Form noValidate validated={validated} onSubmit={handleSubmit}>
+          <InputGroup className="mb-3">
+            <FormControl
+              required
+              placeholder="theknittygritty@example.com"
+              aria-label="Email Address"
+              type="email"
+              aria-describedby="basic-addon2"
+            />
+            <InputGroup.Append hasValidation>
+              <Button type="submit" variant="primary">
+                Sign Up Now
+              </Button>
+            </InputGroup.Append>
+          </InputGroup>
+        </Form> */}
+
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+          <Form.Row>
+            <Form.Group as={Col} md="2" />
+            <Form.Group as={Col} md="6">
+              <Form.Control
+                required
+                type="email"
+                placeholder="Enter email..."
+              />
+              <Form.Control.Feedback type="invalid">
+                Please enter a valid email address.
+              </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group as={Col} md="2">
+              <InputGroup>
+                <InputGroup.Append>
+                  <Button type="submit" variant="primary">
+                    Sign Up Now
+                  </Button>
+                </InputGroup.Append>
+              </InputGroup>
+            </Form.Group>
+          </Form.Row>
+        </Form>
 
         <Modal
           show={show}
