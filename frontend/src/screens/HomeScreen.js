@@ -24,19 +24,47 @@ const HomeScreen = () => {
     dispatch(listProducts());
   }, [dispatch]);
 
-  const [validated, setValidated] = useState(false);
   const [show, setShow] = useState(false);
+  const [form, setForm] = useState({});
+  const [errors, setErrors] = useState({});
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const setField = (field, value) => {
+    setForm({
+      ...form,
+      [field]: value,
+    });
+    if (!!errors[field])
+      setErrors({
+        ...errors,
+        [field]: null,
+      });
+  };
+
+  const findFormErrors = () => {
+    const { email } = form;
+    const newErrors = {};
+
+    if (!email || email === "")
+      newErrors.email = "Please enter a valid email address.";
+
+    return newErrors;
+  };
+
   const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
+    const newErrors = findFormErrors();
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+    } else {
       event.preventDefault();
-      event.stopPropagation();
+      form.reset();
+      handleShow();
     }
-    setValidated(true);
   };
 
   return (
@@ -93,38 +121,22 @@ const HomeScreen = () => {
           When You Sign Up For Our Newsletter
         </h2>
 
-        {/* <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <InputGroup className="mb-3">
-            <FormControl
-              required
-              placeholder="theknittygritty@example.com"
-              aria-label="Email Address"
-              type="email"
-              aria-describedby="basic-addon2"
-            />
-            <InputGroup.Append hasValidation>
-              <Button type="submit" variant="primary">
-                Sign Up Now
-              </Button>
-            </InputGroup.Append>
-          </InputGroup>
-        </Form> */}
-
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form noValidate onSubmit={handleSubmit}>
           <Form.Row>
             <Form.Group as={Col} md="2" />
             <Form.Group as={Col} md="6">
               <Form.Control
-                required
-                type="email"
-                placeholder="Enter email..."
+                type="text"
+                placeholder="theknittygritty@example.com"
+                onChange={(event) => setField("email", event.target.value)}
+                isInvalid={!!errors.email}
               />
               <Form.Control.Feedback type="invalid">
-                Please enter a valid email address.
+                {errors.email}
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group as={Col} md="2">
-              <InputGroup>
+              <InputGroup className="mb-3">
                 <InputGroup.Append>
                   <Button type="submit" variant="primary">
                     Sign Up Now
