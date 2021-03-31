@@ -42,3 +42,12 @@ a.dropdown-item {
   font-weight: 600;
   font-size: 1.2rem;
 }
+
+@media all and (max-width: 500px) {
+  .carousel-caption-heading {
+    font-size: 2rem;
+  }
+  .carousel-caption-subtitle {
+    font-size: 0.8rem;
+  }
+}

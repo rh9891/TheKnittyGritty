@@ -1,14 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Row,
-  Col,
-  Carousel,
-  Button,
-  InputGroup,
-  Form,
-  Modal,
-} from "react-bootstrap";
+import { Row, Col, Carousel, Button, Form, Modal } from "react-bootstrap";
 import Product from "../components/Product";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -126,8 +118,8 @@ const HomeScreen = () => {
 
         <Form noValidate onSubmit={handleSubmit}>
           <Form.Row>
-            <Form.Group as={Col} md="2" />
-            <Form.Group as={Col} md="6">
+            <Form.Group as={Col} xs="1" md="2" />
+            <Form.Group as={Col} xs="6" md="6">
               <Form.Control
                 type="text"
                 placeholder="theknittygritty@example.com"
@@ -138,15 +130,12 @@ const HomeScreen = () => {
                 {errors.email}
               </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} md="2">
-              <InputGroup className="mb-3">
-                <InputGroup.Append>
-                  <Button type="submit" variant="primary">
-                    Sign Up Now
-                  </Button>
-                </InputGroup.Append>
-              </InputGroup>
+            <Form.Group as={Col} xs="4" md="2">
+              <Button type="submit" variant="primary">
+                Sign Up Now
+              </Button>
             </Form.Group>
+            <Form.Group as={Col} xs="1" md="2" />
           </Form.Row>
         </Form>
 
@@ -188,7 +177,7 @@ const HomeScreen = () => {
       ) : (
         <Row>
           {products.map((product) => (
-            <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+            <Col key={product._id} sm={10} md={6} lg={4} xl={3}>
               <h3>
                 <Product product={product} />
               </h3>
