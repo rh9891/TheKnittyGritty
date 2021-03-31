@@ -48,6 +48,9 @@ const HomeScreen = () => {
     const newErrors = {};
 
     if (!email || email === "")
+      newErrors.email =
+        "Please input an email address. We promise to never share your email with anyone else.";
+    else if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) === false)
       newErrors.email = "Please enter a valid email address.";
 
     return newErrors;
