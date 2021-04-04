@@ -29,7 +29,8 @@
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.2"
+    "mongoose": "^5.12.2",
+    "react-bootstrap-dialog": "^0.13.0"
   },
   "devDependencies": {
     "concurrently": "^6.0.0",
