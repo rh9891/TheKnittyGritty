@@ -109,7 +109,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 
   if (user) {
     await user.remove();
-    res.json({ message: "User has been successfully removed." });
+    res.json({ message: `User ${user._id} has been successfully removed.` });
   } else {
     res.status(404);
     throw new Error("User not found.");

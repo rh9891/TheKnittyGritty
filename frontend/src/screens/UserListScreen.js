@@ -27,9 +27,7 @@ const UserListScreen = ({ history }) => {
   }, [dispatch, history, successDelete, userInfo]);
 
   const deleteHandler = (id) => {
-    if (window.confirm("Are you sure?")) {
-      dispatch(deleteUser(id));
-    }
+    dispatch(deleteUser(id));
   };
 
   return (
@@ -85,6 +83,9 @@ const UserListScreen = ({ history }) => {
                     className="btn-sm"
                     disabled={userInfo._id === user._id}
                     onClick={() => deleteHandler(user._id)}
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Are you sure you want to delete this user?"
                   >
                     <i className="fas fa-trash"></i>
                   </Button>
