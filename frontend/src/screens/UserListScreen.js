@@ -80,6 +80,7 @@ const UserListScreen = ({ history }) => {
                   </LinkContainer>
 
                   <OverlayTrigger
+                    rootClose
                     trigger="click"
                     placement="left"
                     overlay={
@@ -104,6 +105,7 @@ const UserListScreen = ({ history }) => {
                             marginRight: "1rem",
                             marginBottom: ".5rem",
                           }}
+                          onClick={() => document.body.click()}
                         >
                           Cancel
                         </Button>
