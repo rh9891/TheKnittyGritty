@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { LinkContainer } from "react-router-bootstrap";
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, Popover, OverlayTrigger } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
@@ -78,17 +78,59 @@ const UserListScreen = ({ history }) => {
                       ></i>
                     </Button>
                   </LinkContainer>
-                  <Button
-                    variant="danger"
-                    className="btn-sm"
-                    disabled={userInfo._id === user._id}
-                    onClick={() => deleteHandler(user._id)}
-                    data-toggle="tooltip"
-                    data-placement="top"
-                    title="Are you sure you want to delete this user?"
+
+                  <OverlayTrigger
+                    trigger="click"
+                    placement="left"
+                    overlay={
+                      <Popover
+                        id="popover-basic"
+                        style={{
+                          position: "relative",
+                          justifyContent: "space-evenly",
+                        }}
+                      >
+                        <Popover.Title as="h3">Are you sure?</Popover.Title>
+                        <Popover.Content>
+                          This user will be deleted immediately. You cannot undo
+                          this action.
+                        </Popover.Content>
+                        <Button
+                          variant="secondary"
+                          className="btn-sm"
+                          style={{
+                            position: "relative",
+                            marginLeft: "1.5rem",
+                            marginRight: "1rem",
+                            marginBottom: ".5rem",
+                          }}
+                        >
+                          Cancel
+                        </Button>
+                        <Button
+                          variant="primary"
+                          className="btn-sm"
+                          style={{
+                            position: "relative",
+                            marginLeft: ".5rem",
+                            marginRight: "1rem",
+                            marginBottom: ".5rem",
+                          }}
+                          onClick={() => deleteHandler(user._id)}
+                        >
+                          Yes, Delete User
+                        </Button>
+                      </Popover>
+                    }
                   >
-                    <i className="fas fa-trash"></i>
-                  </Button>
+                    <Button
+                      variant="danger"
+                      className="btn-sm"
+                      disabled={userInfo._id === user._id}
+                    >
+                      <i className="fas fa-trash"></i>
+                    </Button>
+                  </OverlayTrigger>
                 </td>
               </tr>
             ))}
