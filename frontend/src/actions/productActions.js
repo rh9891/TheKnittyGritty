@@ -12,7 +12,6 @@ import {
   PRODUCT_CREATE_REQUEST,
   PRODUCT_CREATE_SUCCESS,
   PRODUCT_CREATE_FAIL,
-  PRODUCT_CREATE_RESET,
 } from "../constants/productConstants";
 
 export const listProducts = () => async (dispatch) => {
@@ -105,7 +104,7 @@ export const createProduct = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`/api/products/`, {}, config);
+    const { data } = await axios.post(`/api/products/`, {}, config);
 
     dispatch({
       type: PRODUCT_CREATE_SUCCESS,
