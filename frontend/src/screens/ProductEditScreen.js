@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import FormContainer from "../components/FormContainer";
-import { listProductDetails } from "../actions/productActions";
+import { listProductDetails, updateProduct } from "../actions/productActions";
+import { PRODUCT_UPDATE_RESET } from "../constants/productConstants";
 
 const ProductEditScreen = ({ match, history }) => {
   const productID = match.params.id;
@@ -29,30 +30,58 @@ const ProductEditScreen = ({ match, history }) => {
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
 
+  const productUpdate = useSelector((state) => state.productUpdate);
+  const {
+    loading: loadingUpdate,
+    error: errorUpdate,
+    success: successUpdate,
+  } = productUpdate;
+
   useEffect(() => {
-    if (!product.name || product._id !== productID) {
-      dispatch(listProductDetails(productID));
+    if (successUpdate) {
+      dispatch({ type: PRODUCT_UPDATE_RESET });
+      history.push("/admin/productlist");
     } else {
-      setName(product.name);
-      setPrice(product.price);
-      setDescription(product.description);
-      setImage(product.image);
-      setCategory(product.category);
-      setContent(product.content);
-      setWeight(product.weight);
-      setLength(product.length);
-      setGauge(product.gauge);
-      setKnittingNeedle(product.knitting_needle);
-      setCrochetHook(product.crochet_hook);
-      setRecommendedCare(product.recommended_care);
-      setCountInStock(product.countInStock);
+      if (!product.name || product._id !== productID) {
+        dispatch(listProductDetails(productID));
+      } else {
+        setName(product.name);
+        setPrice(product.price);
+        setDescription(product.description);
+        setImage(product.image);
+        setCategory(product.category);
+        setContent(product.content);
+        setWeight(product.weight);
+        setLength(product.length);
+        setGauge(product.gauge);
+        setKnittingNeedle(product.knitting_needle);
+        setCrochetHook(product.crochet_hook);
+        setRecommendedCare(product.recommended_care);
+        setCountInStock(product.countInStock);
+      }
     }
-  }, [dispatch, history, productID, product]);
+  }, [dispatch, history, productID, product, successUpdate]);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    // Function to update product.
-    console.log("You have successfully updated the product.");
+    dispatch(
+      updateProduct({
+        _id: productID,
+        name,
+        price,
+        description,
+        image,
+        category,
+        content,
+        weight,
+        length,
+        gauge,
+        knittingNeedle,
+        crochetHook,
+        recommendedCare,
+        countInStock,
+      })
+    );
   };
 
   return (
@@ -62,6 +91,8 @@ const ProductEditScreen = ({ match, history }) => {
       </Link>
       <FormContainer>
         <h1>Edit Product</h1>
+        {loadingUpdate && <Loader />}
+        {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
         {loading ? (
           <Loader />
         ) : error ? (
