@@ -77,6 +77,25 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
   }
 });
 
+// Route to update order status as delivered. GET request to "/api/orders/:id/deliver". Private/Admin route.
+const updateOrderToDelivered = asyncHandler(async (req, res) => {
+  const order = await Order.findById(req.params.id);
+
+  if (order) {
+    order.isDelivered = true;
+    order.deliveredAt = Date.now();
+
+    const updatedOrder = await order.save();
+
+    res.json(updatedOrder);
+  } else {
+    res.status(404);
+    throw new Error(
+      "We could not retrieve any details for that order number. Please check that you have entered it correctly and try again."
+    );
+  }
+});
+
 // Route to get user (currently logged in) order. GET request to "/api/myorders". Private route.
 const getUserOrders = asyncHandler(async (req, res) => {
   const orders = await Order.find({ user: req.user._id });
@@ -94,6 +113,7 @@ export {
   addOrderItems,
   getOrderByID,
   updateOrderToPaid,
+  updateOrderToDelivered,
   getUserOrders,
   getOrders,
 };
