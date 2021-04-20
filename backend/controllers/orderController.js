@@ -52,7 +52,7 @@ const getOrderByID = asyncHandler(async (req, res) => {
   }
 });
 
-// Route to update order status as paid. GET request to "/api/orders/:id/pay". Private route.
+// Route to update order status as paid. PUT request to "/api/orders/:id/pay". Private route.
 const updateOrderToPaid = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
 
@@ -77,7 +77,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
   }
 });
 
-// Route to update order status as delivered. GET request to "/api/orders/:id/deliver". Private/Admin route.
+// Route to update order status as delivered. PUT request to "/api/orders/:id/deliver". Private/Admin route.
 const updateOrderToDelivered = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
 
