@@ -1,5 +1,6 @@
 import asyncHandler from "express-async-handler";
 import Product from "../models/productModel.js";
+import Order from "../models/orderModel.js";
 
 // Route to fetch all products. GET request to "/api/products". Public route.
 const getProducts = asyncHandler(async (req, res) => {
@@ -106,7 +107,25 @@ const createProductReview = asyncHandler(async (req, res) => {
 
   const product = await Product.findById(req.params.id);
 
+  const orders = await Order.find({ user: req.user._id });
+
+  const orderItems = [].concat.apply(
+    [],
+    orders.map((order) =>
+      order.orderItems.map((item) => item.product.toString())
+    )
+  );
+
   if (product) {
+    const alreadyPurchased = orderItems.includes(product._id.toString());
+
+    if (!alreadyPurchased) {
+      res.status(400);
+      throw new Error(
+        "You are only permitted to review items that you have purchased."
+      );
+    }
+
     const alreadyReviewed = product.reviews.find(
       (review) => review.user.toString() === req.user._id.toString()
     );
@@ -132,6 +151,7 @@ const createProductReview = asyncHandler(async (req, res) => {
       product.reviews.length;
 
     await product.save();
+
     res
       .status(201)
       .json({ message: "Product review has been successfully added." });
