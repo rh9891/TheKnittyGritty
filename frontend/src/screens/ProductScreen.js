@@ -185,47 +185,57 @@ const ProductScreen = ({ history, match }) => {
                   </ListGroup.Item>
                 ))}
                 <ListGroup.Item>
-                  <h2>Write a Customer Review</h2>
-                  {errorProductReview && (
-                    <Message variant="danger">{errorProductReview}</Message>
-                  )}
-                  {userInfo ? (
-                    <Form onSubmit={submitHandler}>
-                      <Form.Group controlId="rating">
-                        <Form.Label>Rating</Form.Label>
-                        <Form.Control
-                          as="select"
-                          value={rating}
-                          onChange={(event) => setRating(event.target.value)}
-                        >
-                          <option value="">
-                            How would you rate the product?
-                          </option>
-                          <option value="1">⭐ Poor</option>
-                          <option value="2">⭐⭐ Fair</option>
-                          <option value="3">⭐⭐⭐ Good</option>
-                          <option value="4">⭐⭐⭐⭐ Very Good</option>
-                          <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
-                        </Form.Control>
-                      </Form.Group>
-                      <Form.Group controlId="comment">
-                        <Form.Label>Comment</Form.Label>
-                        <Form.Control
-                          as="textarea"
-                          row="3"
-                          value={comment}
-                          onChange={(event) => setComment(event.target.value)}
-                        ></Form.Control>
-                      </Form.Group>
-                      <Button type="submit" variant="primary">
-                        Submit
-                      </Button>
-                    </Form>
-                  ) : (
-                    <Message variant="primary">
-                      Oops! Please <Link to="/login">log in</Link> to write a
-                      review.
-                    </Message>
+                  {!product.reviews.some(
+                    (review) => review.user === userInfo._id
+                  ) && (
+                    <Fragment>
+                      <h2>Write a Customer Review</h2>
+                      {errorProductReview && (
+                        <Message variant="danger">{errorProductReview}</Message>
+                      )}
+                      {userInfo ? (
+                        <Form onSubmit={submitHandler}>
+                          <Form.Group controlId="rating">
+                            <Form.Label>Rating</Form.Label>
+                            <Form.Control
+                              as="select"
+                              value={rating}
+                              onChange={(event) =>
+                                setRating(event.target.value)
+                              }
+                            >
+                              <option value="">
+                                How would you rate the product?
+                              </option>
+                              <option value="1">⭐ Poor</option>
+                              <option value="2">⭐⭐ Fair</option>
+                              <option value="3">⭐⭐⭐ Good</option>
+                              <option value="4">⭐⭐⭐⭐ Very Good</option>
+                              <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                            </Form.Control>
+                          </Form.Group>
+                          <Form.Group controlId="comment">
+                            <Form.Label>Comment</Form.Label>
+                            <Form.Control
+                              as="textarea"
+                              row="3"
+                              value={comment}
+                              onChange={(event) =>
+                                setComment(event.target.value)
+                              }
+                            ></Form.Control>
+                          </Form.Group>
+                          <Button type="submit" variant="primary">
+                            Submit
+                          </Button>
+                        </Form>
+                      ) : (
+                        <Message variant="primary">
+                          Oops! Please <Link to="/login">log in</Link> to write
+                          a review.
+                        </Message>
+                      )}
+                    </Fragment>
                   )}
                 </ListGroup.Item>
               </ListGroup>
