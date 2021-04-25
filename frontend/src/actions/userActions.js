@@ -26,6 +26,7 @@ import {
   USER_UPDATE_FAIL,
 } from "../constants/userConstants";
 import { ORDER_USER_LIST_RESET } from "../constants/orderConstants";
+import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -71,6 +72,7 @@ export const logout = () => (dispatch) => {
   dispatch({ type: USER_DETAILS_RESET });
   dispatch({ type: ORDER_USER_LIST_RESET });
   dispatch({ type: USER_LIST_RESET });
+  dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
   document.location.href = "/login";
 };
 
