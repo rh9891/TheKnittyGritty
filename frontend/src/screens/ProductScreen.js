@@ -9,6 +9,7 @@ import {
   Card,
   Button,
   Form,
+  Modal,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
@@ -20,9 +21,12 @@ import {
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
 
 const ProductScreen = ({ history, match }) => {
+  const [show, setShow] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const dispatch = useDispatch();
 
@@ -49,7 +53,7 @@ const ProductScreen = ({ history, match }) => {
 
   useEffect(() => {
     if (successProductReview) {
-      alert("Review Submitted.");
+      handleShow();
       setRating(0);
       setComment("");
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
@@ -241,6 +245,32 @@ const ProductScreen = ({ history, match }) => {
               </ListGroup>
             </Col>
           </Row>
+
+          <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header className="bg-primary" closeButton>
+              <Modal.Title className="text-white">
+                <strong>Thank You For Your Feedback!</strong>
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p className="text-primary">
+                Thank you for taking the time to review our product and provide
+                us with your feedback. We love our customers dearly and hearing
+                what you have to say is helpful to us in bettering our customer
+                service and improving our products.
+              </p>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="primary" onClick={handleClose}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </Fragment>
       )}
     </Fragment>
