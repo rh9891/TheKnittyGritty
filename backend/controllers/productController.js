@@ -6,10 +6,26 @@ import Order from "../models/orderModel.js";
 const getProducts = asyncHandler(async (req, res) => {
   const keyword = req.query.keyword
     ? {
-        name: {
-          $regex: req.query.keyword,
-          $options: "i",
-        },
+        $or: [
+          {
+            name: {
+              $regex: req.query.keyword,
+              $options: "i",
+            },
+          },
+          {
+            content: {
+              $regex: req.query.keyword,
+              $options: "i",
+            },
+          },
+          {
+            category: {
+              $regex: req.query.keyword,
+              $options: "i",
+            },
+          },
+        ],
       }
     : {};
 
