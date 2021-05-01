@@ -181,6 +181,12 @@ const HomeScreen = ({ match }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <Fragment>
+          {products.length === 0 && (
+            <div>
+              Yarn it! We can't quite find what you're looking for. Would you
+              like to search for something else?
+            </div>
+          )}
           <Row>
             {products.map((product) => (
               <Col key={product._id} sm={10} md={6} lg={4} xl={3}>
