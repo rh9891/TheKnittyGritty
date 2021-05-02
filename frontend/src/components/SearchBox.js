@@ -13,6 +13,7 @@ const SearchBox = () => {
     } else {
       history.push("/");
     }
+    setKeyword("");
   };
 
   return (
@@ -20,6 +21,7 @@ const SearchBox = () => {
       <Form.Control
         type="text"
         name="q"
+        value={keyword}
         onChange={(event) => setKeyword(event.target.value)}
         className="mr-sm-2 ml-sm-5"
         placeholder="Search"
