@@ -122,10 +122,7 @@ export const productTopRatedReducer = (state = { products: [] }, action) => {
     case PRODUCT_TOP_RATED_REQUEST:
       return { loading: true, products: [] };
     case PRODUCT_TOP_RATED_SUCCESS:
-      return {
-        loading: false,
-        products: action.payload,
-      };
+      return { loading: false, products: action.payload };
     case PRODUCT_TOP_RATED_FAIL:
       return { loading: false, error: action.payload };
     default:
