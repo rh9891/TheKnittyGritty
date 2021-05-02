@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
-const SearchBox = ({ history }) => {
+const SearchBox = () => {
   const [keyword, setKeyword] = useState("");
+  const history = useHistory();
 
   const submitHandler = (event) => {
     event.preventDefault();
