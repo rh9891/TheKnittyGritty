@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect } from "react";
-import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
@@ -7,6 +6,7 @@ import Loader from "../components/Loader";
 import Paginate from "../components/Paginate";
 import Message from "../components/Message";
 import Carousel from "../components/Carousel";
+import Meta from "../components/Meta";
 import { listProducts } from "../actions/productActions";
 
 const HomeScreen = ({ match }) => {
@@ -25,17 +25,7 @@ const HomeScreen = ({ match }) => {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>The Knitty Gritty Home</title>
-        <meta
-          name="description"
-          content="Spinning a good yarn and providing purls of wisdom."
-        />
-        <meta
-          name="keywords"
-          content="yarn, knitting, knit, stitching, wool, needle, fabric, weave, pattern"
-        />
-      </Helmet>
+      <Meta />
       {!keyword && <Carousel />}
       <h1>Latest Products</h1>
       {loading ? (
