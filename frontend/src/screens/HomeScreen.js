@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
@@ -26,7 +27,13 @@ const HomeScreen = ({ match }) => {
   return (
     <Fragment>
       <Meta />
-      {!keyword && <Carousel />}
+      {!keyword ? (
+        <Carousel />
+      ) : (
+        <Link to="/" className="btn btn-primary my-3">
+          Go Back
+        </Link>
+      )}
       <h1>Latest Products</h1>
       {loading ? (
         <Loader />
