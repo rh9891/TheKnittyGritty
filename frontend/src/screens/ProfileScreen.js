@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Row, Col, Table } from "react-bootstrap";
+import { Form, Button, Row, Col, Table, Toast } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
@@ -33,7 +33,7 @@ const ProfileScreen = ({ location, history }) => {
     if (!userInfo) {
       history.push("/login");
     } else {
-      if (!user || !user.name || success) {
+      if (!user || !user.name) {
         dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails("profile"));
         dispatch(listUserOrders());
@@ -59,12 +59,20 @@ const ProfileScreen = ({ location, history }) => {
     <Row>
       <Col md={3}>
         <h2>User Profile</h2>
-        {message && <Message variant="danger">{message}</Message>}
-        {error && <Message variant="danger">{error}</Message>}
+        {message && (
+          <Toast className="text-white bg-danger">
+            <Toast.Body>{message}</Toast.Body>
+          </Toast>
+        )}
+        {error && (
+          <Toast className="text-white bg-danger">
+            <Toast.Body>{error}</Toast.Body>
+          </Toast>
+        )}
         {success && (
-          <Message variant="success">
-            User profile has been successfully updated.
-          </Message>
+          <Toast className="text-white bg-secondary">
+            <Toast.Body>User profile has been successfully updated.</Toast.Body>
+          </Toast>
         )}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>

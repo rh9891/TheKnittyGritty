@@ -179,6 +179,8 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       payload: data,
     });
 
+    dispatch(getUserDetails("profile"));
+
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
