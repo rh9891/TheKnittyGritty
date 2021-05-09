@@ -9,6 +9,9 @@ import { listUserOrders } from "../actions/orderActions";
 import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 
 const ProfileScreen = ({ location, history }) => {
+  const [show, setShow] = useState(true);
+  const toggleShow = () => setShow(!show);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -70,7 +73,14 @@ const ProfileScreen = ({ location, history }) => {
           </Toast>
         )}
         {success && (
-          <Toast className="text-white bg-secondary">
+          <Toast
+            onClose={{ toggleShow }}
+            show={show}
+            className="text-white bg-secondary"
+          >
+            <Toast.Header>
+              <strong className="mr-auto">Profile Updated</strong>
+            </Toast.Header>
             <Toast.Body>User profile has been successfully updated.</Toast.Body>
           </Toast>
         )}
