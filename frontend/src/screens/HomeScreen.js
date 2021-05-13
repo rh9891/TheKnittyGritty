@@ -43,8 +43,8 @@ const HomeScreen = ({ match }) => {
         <Fragment>
           {products.length === 0 && (
             <div>
-              Yarn it! We can't quite find what you're looking for. Would you
-              like to search for something else?
+              Yarn it! We can't quite find what you're looking for. Wool you try
+              searching for something else?
             </div>
           )}
           <Row>

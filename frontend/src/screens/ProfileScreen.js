@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Row, Col, Table, Toast } from "react-bootstrap";
+import { Form, Button, Row, Col, Table } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
@@ -9,9 +9,6 @@ import { listUserOrders } from "../actions/orderActions";
 import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 
 const ProfileScreen = ({ location, history }) => {
-  const [show, setShow] = useState(true);
-  const toggleShow = () => setShow(!show);
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,9 +34,10 @@ const ProfileScreen = ({ location, history }) => {
       history.push("/login");
     } else {
       if (!user || !user.name) {
-        dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails("profile"));
         dispatch(listUserOrders());
+      } else if (success) {
+        setTimeout(() => dispatch({ type: USER_UPDATE_PROFILE_RESET }), 3000);
       } else {
         setName(user.name);
         setEmail(user.email);
@@ -62,27 +60,12 @@ const ProfileScreen = ({ location, history }) => {
     <Row>
       <Col md={3}>
         <h2>User Profile</h2>
-        {message && (
-          <Toast className="text-white bg-danger">
-            <Toast.Body>{message}</Toast.Body>
-          </Toast>
-        )}
-        {error && (
-          <Toast className="text-white bg-danger">
-            <Toast.Body>{error}</Toast.Body>
-          </Toast>
-        )}
+        {message && <Message variant="danger">{message}</Message>}
+        {error && <Message variant="danger">{error}</Message>}
         {success && (
-          <Toast
-            onClose={{ toggleShow }}
-            show={show}
-            className="text-white bg-secondary"
-          >
-            <Toast.Header>
-              <strong className="mr-auto">Profile Updated</strong>
-            </Toast.Header>
-            <Toast.Body>User profile has been successfully updated.</Toast.Body>
-          </Toast>
+          <Message variant="primary">
+            User profile has been successfully updated.
+          </Message>
         )}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
