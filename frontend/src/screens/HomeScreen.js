@@ -6,7 +6,7 @@ import Product from "../components/Product";
 import Loader from "../components/Loader";
 import Paginate from "../components/Paginate";
 import Message from "../components/Message";
-import Carousel from "../components/Carousel";
+import LandingCarousel from "../components/LandingCarousel";
 import Meta from "../components/Meta";
 import { listProducts } from "../actions/productActions";
 
@@ -28,13 +28,12 @@ const HomeScreen = ({ match }) => {
     <Fragment>
       <Meta />
       {!keyword ? (
-        <Carousel />
+        <LandingCarousel />
       ) : (
         <Link to="/" className="btn btn-primary my-3">
           Go Back
         </Link>
       )}
-      <h1>Latest Products</h1>
       {loading ? (
         <Loader />
       ) : error ? (
