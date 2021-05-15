@@ -11,14 +11,14 @@ import Meta from "../components/Meta";
 import { listProducts } from "../actions/productActions";
 
 const HomeScreen = ({ match }) => {
-  const keyword = match.params.keyword;
+  const dispatch = useDispatch();
 
   const pageNumber = match.params.pageNumber || 1;
 
-  const dispatch = useDispatch();
-
   const productList = useSelector((state) => state.productList);
-  const { loading, error, products, page, pages } = productList;
+  const { loading, error, products, pages, page } = productList;
+
+  const keyword = match.params.keyword;
 
   useEffect(() => {
     dispatch(listProducts(keyword, pageNumber));
@@ -27,9 +27,12 @@ const HomeScreen = ({ match }) => {
   return (
     <Fragment>
       <Meta />
-      {!keyword ? (
-        <LandingCarousel />
-      ) : (
+      {!keyword && (
+        <Fragment>
+          <LandingCarousel />
+        </Fragment>
+      )}
+      {keyword && (
         <Link to="/" className="btn btn-primary my-3">
           Go Back
         </Link>
