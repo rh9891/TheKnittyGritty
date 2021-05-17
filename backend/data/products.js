@@ -72,10 +72,10 @@ const products = [
     numReviews: 12,
   },
   {
-    name: "Wilde Worsted Twist",
+    name: "Wilde Wool Twist",
     image: "/images/aqua-cove.jpg",
     description:
-      "100% merino wool. Wilde Worsted Twist is a classic 2-ply farm yarn. It is as soft as a baby lamb's ear and perfect for cowls, scarves, hats, mittens, sweaters, and blankets.",
+      "100% merino wool. Wilde Wool Twist is a classic 2-ply farm yarn. It is as soft as a baby lamb's ear and perfect for cowls, scarves, hats, mittens, sweaters, and blankets.",
     weight: "100 grams",
     length: "164 yards",
     gauge: "4.5-5 stitches per inch, worsted weight",
@@ -91,7 +91,7 @@ const products = [
   },
   {
     name: "Lawrence Linen",
-    image: "/images/high-tide.jpg",
+    image: "/images/lawrence-linen.jpg",
     description:
       "50% fine highland wool, 35% alpaca, and 15% linen. Lawrence Linen is a fingering weight blend of fine wool, alpaca, and linen. The yarn is windswept and elegant, hearty and beautiful. These fibers are spectacular for knitting, crocheting, and weaving and can be used for garments, blankets, accessories, and housewares.",
     weight: "100 grams",
@@ -106,6 +106,24 @@ const products = [
     countInStock: 0,
     rating: 4,
     numReviews: 12,
+  },
+  {
+    name: "Milton Merino",
+    image: "/images/milton-merino.jpg",
+    description:
+      "100% merino wool. Milton Merino is a yarn full of beauty and joy that is hand-spun 100% merino wool dipped into an abundance of inspiring color It knits up at a chunky or bulky weight and is great for making blankets, sweaters, and super cozy winter accessories.",
+    weight: "100 grams",
+    length: "82 yards",
+    gauge: "2.5-3 stitches per inch, chinky or bulky weight",
+    knitting_needle: "US 10 to 11 (6-8 mm)",
+    crochet_hook: "J to L (6-8 mm)",
+    recommended_care: "Machine wash cold, tumble dry low.",
+    content: "Merino",
+    category: "Yarn",
+    price: 33.0,
+    countInStock: 11,
+    rating: 4.5,
+    numReviews: 10,
   },
 ];
 
