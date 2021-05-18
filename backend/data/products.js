@@ -55,7 +55,7 @@ const products = [
   },
   {
     name: "Kipling Cashmere",
-    image: "/images/heather.jpg",
+    image: "/images/kipling-cashmere.jpg",
     description:
       "75% extra fine merino wool and 25% cashmere. Kipling Cashmere is a classic plied yarn. With a quarter of its components being cashmere, it is incredibly soft and supple. The remaining elements are of extra fine merino wool, so it is elastic and durable. A light worsted weight, Kipling Cashmere is perfect for everything and everyone, gentle for babies and sensitive skin.",
     weight: "100 grams",
@@ -72,8 +72,8 @@ const products = [
     numReviews: 12,
   },
   {
-    name: "Wilde Wool Twist",
-    image: "/images/aqua-cove.jpg",
+    name: "Wilde Wool",
+    image: "/images/wilde-wool.jpg",
     description:
       "100% merino wool. Wilde Wool Twist is a classic 2-ply farm yarn. It is as soft as a baby lamb's ear and perfect for cowls, scarves, hats, mittens, sweaters, and blankets.",
     weight: "100 grams",
