@@ -1,7 +1,7 @@
 const products = [
   {
     name: "Carroll Coorie",
-    image: "/images/wild-mustard.jpg",
+    image: "/images/carroll-coorie.jpg",
     description:
       "100% super kid mohair from Scotland.Though less fluffier than the usual mohair-silk blend, Carroll Coorie is incredibly soft with a gentle halo and an exquisite shimmer that has the density and drape of alpaca with a natural luster.",
     weight: "50 grams",
@@ -18,10 +18,10 @@ const products = [
     numReviews: 12,
   },
   {
-    name: "Woolf Wooly Wool",
-    image: "/images/blossom-pink.jpg",
+    name: "Woolf Wooly",
+    image: "/images/woolf-wooly.jpg",
     description:
-      "100% wool. Woolf Wooly Wool is a single-ply super bulky blend with a soft and gentle beauty. Great for making sweaters, warm wraps, toasty blankets and cozy hats.",
+      "100% wool. Woolf Wooly is a single-ply super bulky blend with a soft and gentle beauty. Great for making sweaters, warm wraps, toasty blankets and cozy hats.",
     weight: "200 grams",
     length: "109 yards",
     gauge: "1.875-2.125 stitches per inch, super bulky",
@@ -37,7 +37,7 @@ const products = [
   },
   {
     name: "Austen Alpaca",
-    image: "/images/dark-iris.jpg",
+    image: "/images/austen-alpaca.jpg",
     description:
       "Made up of 43% baby alpaca, 42% extra fine merino, and 15% linen. Austen Alpaca is a very special yarn, full of gentle charm and natural beauty. The linen is undyed, casting the entire palette in a soft, tweedy haze.",
     weight: "100 grams",
@@ -72,10 +72,10 @@ const products = [
     numReviews: 12,
   },
   {
-    name: "Wilde Wool",
-    image: "/images/wilde-wool.jpg",
+    name: "Wilde Wooly",
+    image: "/images/wilde-wooly.jpg",
     description:
-      "100% merino wool. Wilde Wool Twist is a classic 2-ply farm yarn. It is as soft as a baby lamb's ear and perfect for cowls, scarves, hats, mittens, sweaters, and blankets.",
+      "100% merino wool. Wilde Wooly is a classic 2-ply farm yarn. It is as soft as a baby lamb's ear and perfect for cowls, scarves, hats, mittens, sweaters, and blankets.",
     weight: "100 grams",
     length: "164 yards",
     gauge: "4.5-5 stitches per inch, worsted weight",
