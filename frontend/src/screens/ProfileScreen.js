@@ -7,6 +7,7 @@ import Loader from "../components/Loader";
 import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import { listUserOrders } from "../actions/orderActions";
 import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
+import { dateFormatter } from "../helpers/dateFormatter";
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState("");
@@ -132,11 +133,11 @@ const ProfileScreen = ({ location, history }) => {
               {orders.map((order) => (
                 <tr className="table-light" key={order._id}>
                   <td>{order._id}</td>
-                  <td>{order.createdAt.substring(0, 10)}</td>
+                  <td>{dateFormatter(order.createdAt)}</td>
                   <td>${order.totalPrice}</td>
                   <td>
                     {order.isPaid ? (
-                      order.paidAt.substring(0, 10)
+                      dateFormatter(order.paidAt)
                     ) : (
                       <i
                         className="fas fa-exclamation-circle"
@@ -146,7 +147,7 @@ const ProfileScreen = ({ location, history }) => {
                   </td>
                   <td>
                     {order.isDelivered ? (
-                      order.deliveredAt.substring(0, 10)
+                      dateFormatter(order.deliveredAt)
                     ) : (
                       <i
                         className="fas fa-exclamation-circle"

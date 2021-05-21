@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { listOrders } from "../actions/orderActions";
+import { dateFormatter } from "../helpers/dateFormatter";
 
 const OrderListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -48,11 +49,11 @@ const OrderListScreen = ({ history }) => {
               <tr key={order._id}>
                 <td>{order._id}</td>
                 <td>{order.user && order.user.name}</td>
-                <td>{order.createdAt.substring(0, 10)}</td>
+                <td>{dateFormatter(order.createdAt)}</td>
                 <td>${order.totalPrice}</td>
                 <td>
                   {order.isPaid ? (
-                    order.paidAt.substring(0, 10)
+                    dateFormatter(order.paidAt)
                   ) : (
                     <i
                       className="far fa-times-circle"
@@ -62,7 +63,7 @@ const OrderListScreen = ({ history }) => {
                 </td>
                 <td>
                   {order.deliveredAt ? (
-                    order.deliveredAt.substring(0, 10)
+                    dateFormatter(order.deliveredAt)
                   ) : (
                     <i
                       className="far fa-times-circle"

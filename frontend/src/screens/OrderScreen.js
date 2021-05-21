@@ -15,6 +15,7 @@ import {
   ORDER_PAY_RESET,
   ORDER_DELIVER_RESET,
 } from "../constants/orderConstants";
+import { dateFormatter } from "../helpers/dateFormatter";
 
 const OrderScreen = ({ match, history }) => {
   const orderID = match.params.id;
@@ -86,7 +87,7 @@ const OrderScreen = ({ match, history }) => {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h2>Order Placed:</h2>
-              {order.createdAt.slice(0, 10)}
+              {dateFormatter(order.createdAt)}
             </ListGroup.Item>
 
             <ListGroup.Item>
@@ -110,7 +111,7 @@ const OrderScreen = ({ match, history }) => {
               </p>
               {order.isDelivered ? (
                 <Message variant="success">
-                  Delivered on {order.deliveredAt.slice(0, 10)}.
+                  Delivered on {dateFormatter(order.deliveredAt)}.
                 </Message>
               ) : (
                 <Message variant="danger">
@@ -124,7 +125,7 @@ const OrderScreen = ({ match, history }) => {
               <p>{order.paymentMethod}</p>
               {order.isPaid ? (
                 <Message variant="success">
-                  Paid on {order.paidAt.slice(0, 10)}.
+                  Paid on {dateFormatter(order.paidAt)}.
                 </Message>
               ) : (
                 <Message variant="danger">

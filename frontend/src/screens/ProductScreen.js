@@ -20,6 +20,7 @@ import {
   createProductReview,
 } from "../actions/productActions";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
+import { dateFormatter } from "../helpers/dateFormatter";
 
 const ProductScreen = ({ history, match }) => {
   const [show, setShow] = useState(false);
@@ -186,7 +187,7 @@ const ProductScreen = ({ history, match }) => {
                   <ListGroup.Item key={review._id}>
                     <strong>{review.name}</strong>
                     <Rating value={review.rating} />
-                    <p>{review.createdAt.substring(0, 10)}</p>
+                    <p>{dateFormatter(review.createdAt)}</p>
                     <p>{review.comment}</p>
                   </ListGroup.Item>
                 ))}
