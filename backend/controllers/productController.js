@@ -126,6 +126,7 @@ const updateProduct = asyncHandler(async (req, res) => {
 
     const updatedProduct = await product.save();
     res.json(updatedProduct);
+    // res.status(201).send(updatedProduct);
   } else {
     res.status(404);
     throw new Error("Product not found.");

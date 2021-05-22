@@ -65,6 +65,8 @@ const ProductEditScreen = ({ match, history }) => {
   }, [dispatch, history, productID, product, successUpdate]);
 
   const uploadFileHandler = async (event) => {
+    event.preventDefault();
+
     const file = event.target.files[0];
     const formData = new FormData();
     formData.append("image", file);
@@ -77,7 +79,13 @@ const ProductEditScreen = ({ match, history }) => {
         },
       };
 
-      const { data } = await axios.post("/api/upload", formData, config);
+      // const { data } = await axios.post("/api/upload", formData, config);
+
+      const { data } = await axios.post(
+        `/api/upload/${productID}`,
+        formData,
+        config
+      );
 
       setImage(data);
       setUploading(false);
@@ -88,7 +96,6 @@ const ProductEditScreen = ({ match, history }) => {
   };
 
   const submitHandler = (event) => {
-    event.preventDefault();
     dispatch(
       updateProduct({
         _id: productID,
@@ -158,7 +165,7 @@ const ProductEditScreen = ({ match, history }) => {
                 placeholder="Enter image URL"
                 value={image}
                 onChange={(event) => setImage(event.target.value)}
-              ></Form.Control>
+              />
               <Form.File
                 id="image-file"
                 label="Select JPG or PNG file to upload"
