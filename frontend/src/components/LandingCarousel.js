@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Col, Carousel, Button, Form, Modal, Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "./Loader";
@@ -69,11 +70,13 @@ const LandingCarousel = () => {
     <Fragment>
       <Carousel pause="hover" fade className="mb-4 mt-3">
         <Carousel.Item>
-          <Image
-            className="d-block w-100"
-            src="images/girl-and-grandmother-knitting.jpg"
-            alt="Happy girl and grandmother having fun with knitting"
-          />
+          <Link to="/">
+            <Image
+              className="d-block w-100"
+              src="/images/girl-and-grandmother-knitting.jpg"
+              alt="Happy girl and grandmother having fun with knitting"
+            />
+          </Link>
           <Carousel.Caption>
             <h1 className="carousel-caption-heading">All You Knit is Love</h1>
             <p className="carousel-caption-subtitle">
@@ -84,7 +87,7 @@ const LandingCarousel = () => {
         <Carousel.Item>
           <Image
             className="d-block w-100"
-            src="images/teal-yarn.jpg"
+            src="/images/teal-yarn.jpg"
             alt="Close up of teal yarn"
           />
 
@@ -98,7 +101,7 @@ const LandingCarousel = () => {
         <Carousel.Item>
           <Image
             className="d-block w-100"
-            src="images/woman-knitting-pink-yarn.jpg"
+            src="/images/woman-knitting-pink-yarn.jpg"
             alt="Faceless woman knitting pink yarn with needles"
           />
 
