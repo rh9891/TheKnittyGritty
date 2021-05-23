@@ -8,17 +8,19 @@ const storage = multer.diskStorage({
     cb(null, "frontend/public/images");
   },
   filename(req, file, cb) {
-    console.log(file);
-    cb(null, `${file.originalname}`);
+    cb(
+      null,
+      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
+    );
   },
 });
 
 function checkFileType(file, cb) {
-  const fileTypes = /jpg|jpeg|png/;
-  const extname = fileTypes.test(path.extname(file.originalname).toLowerCase());
-  const mimeType = fileTypes.test(file.mimetype);
+  const filetypes = /jpg|jpeg|png/;
+  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  const mimetype = filetypes.test(file.mimetype);
 
-  if (extname && mimeType) {
+  if (extname && mimetype) {
     return cb(null, true);
   } else {
     return cb("Only image files accepted.");

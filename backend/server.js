@@ -41,7 +41,6 @@ app.use(
   "/frontend/public/images",
   express.static(path.join(__dirname, "/frontend/public/images"))
 );
-// app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 app.use(notFound);
 

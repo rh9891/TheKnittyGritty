@@ -79,13 +79,7 @@ const ProductEditScreen = ({ match, history }) => {
         },
       };
 
-      // const { data } = await axios.post("/api/upload", formData, config);
-
-      const { data } = await axios.post(
-        `/api/upload/${productID}`,
-        formData,
-        config
-      );
+      const { data } = await axios.post("/api/upload", formData, config);
 
       setImage(data);
       setUploading(false);
@@ -96,6 +90,7 @@ const ProductEditScreen = ({ match, history }) => {
   };
 
   const submitHandler = (event) => {
+    event.preventDefault();
     dispatch(
       updateProduct({
         _id: productID,
