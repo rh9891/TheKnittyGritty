@@ -4,7 +4,7 @@ import Order from "../models/orderModel.js";
 
 // Route to fetch all products. GET request to "/api/products". Public route.
 const getProducts = asyncHandler(async (req, res) => {
-  const pageSize = 4;
+  const pageSize = 8;
   const page = Number(req.query.pageNumber) || 1;
 
   const keyword = req.query.keyword
