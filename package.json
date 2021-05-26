@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/rh9891/TheKnittyGritty#readme",
   "dependencies": {
-    "aws-sdk": "^2.906.0",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",
@@ -32,8 +31,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.2",
     "morgan": "^1.10.0",
-    "multer": "^1.4.2",
-    "multer-s3": "^2.9.0"
+    "multer": "^1.4.2"
   },
   "devDependencies": {
     "concurrently": "^6.0.0",
