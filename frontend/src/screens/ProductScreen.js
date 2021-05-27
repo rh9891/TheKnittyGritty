@@ -178,7 +178,7 @@ const ProductScreen = ({ history, match }) => {
           </Row>
           <Row>
             <Col md={6}>
-              <h2>Reviews</h2>
+              <h2>Customer Reviews</h2>
               {product.reviews.length === 0 && (
                 <Message variant="primary">No Reviews</Message>
               )}
@@ -214,15 +214,15 @@ const ProductScreen = ({ history, match }) => {
                               <option value="">
                                 How would you rate the product?
                               </option>
-                              <option value="1">⭐ Poor</option>
-                              <option value="2">⭐⭐ Fair</option>
-                              <option value="3">⭐⭐⭐ Good</option>
-                              <option value="4">⭐⭐⭐⭐ Very Good</option>
-                              <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                              <option value="1">🧶 Poor</option>
+                              <option value="2">🧶🧶 Fair</option>
+                              <option value="3">🧶🧶🧶 Good</option>
+                              <option value="4">🧶🧶🧶🧶 Very Good</option>
+                              <option value="5">🧶🧶🧶🧶🧶 Excellent</option>
                             </Form.Control>
                           </Form.Group>
                           <Form.Group controlId="comment">
-                            <Form.Label>Comment</Form.Label>
+                            <Form.Label>Comment(s)</Form.Label>
                             <Form.Control
                               as="textarea"
                               row="3"
