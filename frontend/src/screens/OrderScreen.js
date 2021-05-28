@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Row, Col, ListGroup, Image, Card, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
+import DismissibleMessage from "../components/DismissibleMessage";
 import Loader from "../components/Loader";
 import {
   getOrderDetails,
@@ -78,7 +79,7 @@ const OrderScreen = ({ match, history }) => {
   return loading ? (
     <Loader />
   ) : error ? (
-    <Message variant="danger">{error}</Message>
+    <DismissibleMessage variant="danger">{error}</DismissibleMessage>
   ) : (
     <Fragment>
       <h1>Order Ref. No. {order._id}</h1>
@@ -138,7 +139,9 @@ const OrderScreen = ({ match, history }) => {
               <h2>Item(s) Ordered</h2>
               {order.orderItems.length === 0 ? (
                 <Message>
-                  Knit happens! Looks like you do not have any recent orders.
+                  Money can’t buy happiness, but it can buy yarn, which is kind
+                  of the same thing. Looks like you do not have any recent
+                  orders.
                 </Message>
               ) : (
                 <ListGroup variant="flush">

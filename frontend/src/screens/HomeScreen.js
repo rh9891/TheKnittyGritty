@@ -5,7 +5,7 @@ import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
 import Loader from "../components/Loader";
 import Paginate from "../components/Paginate";
-import Message from "../components/Message";
+import DismissibleMessage from "../components/DismissibleMessage";
 import LandingCarousel from "../components/LandingCarousel";
 import Meta from "../components/Meta";
 import { listProducts } from "../actions/productActions";
@@ -40,7 +40,7 @@ const HomeScreen = ({ match }) => {
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant="danger">{error}</Message>
+        <DismissibleMessage variant="danger">{error}</DismissibleMessage>
       ) : (
         <Fragment>
           {products.length === 0 && (

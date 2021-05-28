@@ -3,6 +3,7 @@ import { Form, Button, Row, Col, Table } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
+import DismissibleMessage from "../components/DismissibleMessage";
 import Loader from "../components/Loader";
 import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import { listUserOrders } from "../actions/orderActions";
@@ -61,8 +62,12 @@ const ProfileScreen = ({ location, history }) => {
     <Row>
       <Col md={3}>
         <h2>User Profile</h2>
-        {message && <Message variant="danger">{message}</Message>}
-        {error && <Message variant="danger">{error}</Message>}
+        {message && (
+          <DismissibleMessage variant="danger">{message}</DismissibleMessage>
+        )}
+        {error && (
+          <DismissibleMessage variant="danger">{error}</DismissibleMessage>
+        )}
         {success && (
           <Message variant="primary">
             User profile has been successfully updated.
@@ -116,7 +121,9 @@ const ProfileScreen = ({ location, history }) => {
         {loadingOrders ? (
           <Loader />
         ) : errorOrders ? (
-          <Message variant="danger">{errorOrders}</Message>
+          <DismissibleMessage variant="danger">
+            {errorOrders}
+          </DismissibleMessage>
         ) : (
           <Table striped bordered hover responsive className="table-sm">
             <thead>

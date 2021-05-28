@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { Table, Button, Popover, OverlayTrigger } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
+import DismissibleMessage from "../components/DismissibleMessage";
 import Loader from "../components/Loader";
 import { listUsers, deleteUser } from "../actions/userActions";
 
@@ -36,7 +36,7 @@ const UserListScreen = ({ history }) => {
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant="danger">{error}</Message>
+        <DismissibleMessage variant="danger">{error}</DismissibleMessage>
       ) : (
         <Table striped bordered hover responsive className="table-sm">
           <thead>

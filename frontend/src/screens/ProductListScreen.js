@@ -9,7 +9,7 @@ import {
   OverlayTrigger,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
+import DismissibleMessage from "../components/DismissibleMessage";
 import Loader from "../components/Loader";
 import Paginate from "../components/Paginate";
 import {
@@ -88,13 +88,17 @@ const ProductListScreen = ({ history, match }) => {
         </Col>
       </Row>
       {loadingDelete && <Loader />}
-      {errorDelete && <Message variant="danger">{errorDelete}</Message>}
+      {errorDelete && (
+        <DismissibleMessage variant="danger">{errorDelete}</DismissibleMessage>
+      )}
       {loadingCreate && <Loader />}
-      {errorCreate && <Message variant="danger">{errorCreate}</Message>}
+      {errorCreate && (
+        <DismissibleMessage variant="danger">{errorCreate}</DismissibleMessage>
+      )}
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant="danger">{error}</Message>
+        <DismissibleMessage variant="danger">{error}</DismissibleMessage>
       ) : (
         <Fragment>
           <Table striped bordered hover responsive className="table-sm">

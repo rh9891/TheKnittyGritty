@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
+import DismissibleMessage from "../components/DismissibleMessage";
 import Loader from "../components/Loader";
 import FormContainer from "../components/FormContainer";
 import { register } from "../actions/userActions";
@@ -41,9 +41,13 @@ const RegisterScreen = ({ location, history }) => {
   return (
     <FormContainer>
       <h1>Sign Up</h1>
-      {message && <Message variant="danger">{message}</Message>}
-      {error && <Message variant="danger">{error}</Message>}
-      {loading && <Loader></Loader>}
+      {message && (
+        <DismissibleMessage variant="danger">{message}</DismissibleMessage>
+      )}
+      {error && (
+        <DismissibleMessage variant="danger">{error}</DismissibleMessage>
+      )}
+      {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="name">
           <Form.Label>Name</Form.Label>

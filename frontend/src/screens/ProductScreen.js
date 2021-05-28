@@ -15,6 +15,7 @@ import Rating from "../components/Rating";
 import Loader from "../components/Loader";
 import Meta from "../components/Meta";
 import Message from "../components/Message";
+import DismissibleMessage from "../components/DismissibleMessage";
 import {
   listProductDetails,
   createProductReview,
@@ -85,7 +86,7 @@ const ProductScreen = ({ history, match }) => {
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant="danger">{error}</Message>
+        <DismissibleMessage variant="danger">{error}</DismissibleMessage>
       ) : (
         <Fragment>
           <Meta title={product.name} />
@@ -198,7 +199,9 @@ const ProductScreen = ({ history, match }) => {
                     <Fragment>
                       <h2>Write a Customer Review</h2>
                       {errorProductReview && (
-                        <Message variant="danger">{errorProductReview}</Message>
+                        <DismissibleMessage variant="danger">
+                          {errorProductReview}
+                        </DismissibleMessage>
                       )}
                       {userInfo ? (
                         <Form onSubmit={submitHandler}>

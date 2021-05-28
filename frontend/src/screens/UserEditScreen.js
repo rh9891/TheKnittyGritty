@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
+import DismissibleMessage from "../components/DismissibleMessage";
 import Loader from "../components/Loader";
 import FormContainer from "../components/FormContainer";
 import { getUserDetails, updateUser } from "../actions/userActions";
@@ -55,11 +55,15 @@ const UserEditScreen = ({ match, history }) => {
       <FormContainer>
         <h1>Edit User</h1>
         {loadingUpdate && <Loader />}
-        {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
+        {errorUpdate && (
+          <DismissibleMessage variant="danger">
+            {errorUpdate}
+          </DismissibleMessage>
+        )}
         {loading ? (
           <Loader />
         ) : error ? (
-          <Message variant="danger">{error}</Message>
+          <DismissibleMessage variant="danger">{error}</DismissibleMessage>
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name">

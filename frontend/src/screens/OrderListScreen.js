@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { Table, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
+import DismissibleMessage from "../components/DismissibleMessage";
 import Loader from "../components/Loader";
 import { listOrders } from "../actions/orderActions";
 import { dateFormatter } from "../helpers/dateFormatter";
@@ -30,7 +30,7 @@ const OrderListScreen = ({ history }) => {
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant="danger">{error}</Message>
+        <DismissibleMessage variant="danger">{error}</DismissibleMessage>
       ) : (
         <Table striped bordered hover responsive className="table-sm">
           <thead>
