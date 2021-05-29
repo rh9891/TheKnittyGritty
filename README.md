@@ -16,7 +16,7 @@
 
 ## Description
 
-The Knitty Gritty is
+Welcome to The Knitty Gritty, where you can find the yarns and tools to help you create wonderful and inspiring things. The Knitty Gritty is an eCommerce application that...
 
 All product images, graphics, and some content are the copyrights and property of Purl Soho® and [purlsoho.com](https://www.purlsoho.com/), where exquisite yarns, fabrics, and tools can be [purchased](https://www.purlsoho.com/new.html).
 
