@@ -16,7 +16,7 @@
 
 ## Description
 
-Welcome to The Knitty Gritty, where you can find the yarns and tools to help you create wonderful and inspiring things. The Knitty Gritty is an eCommerce application that...
+Welcome to The Knitty Gritty, where you can find the yarns and tools to help you create wonderful and inspiring things. The Knitty Gritty is an eCommerce application that is built using React, Redux, Node, Express, and MongoDB. The application features a fully-functioning shopping cart with PayPal and credit/debit payments, a product rating/review system, and admin capabilities to manage customers, products, and orders.
 
 All product images, graphics, and some content are the copyrights and property of Purl Soho® and [purlsoho.com](https://www.purlsoho.com/), where exquisite yarns, fabrics, and tools can be [purchased](https://www.purlsoho.com/new.html).
 

@@ -159,6 +159,23 @@ const products = [
     price: 37.0,
     countInStock: 8,
   },
+
+  {
+    name: "Montefiore Merino",
+    image: "/images/montefiore-merino.jpeg",
+    description:
+      "Montefiore Merino combines the softness of merino wool with the luster of silk in a beautiful and lightweight yarn. This exquisite yarn is produced by silk worms that feed on oak and similar tree leaves, rich in tannins that give the fiber a gorgeous golden tone. It is dyed using a process that yields complex and subtle colors. Montefiore Merino can be used to make scarves, wraps, baby garments and sweaters.",
+    weight: "100 grams",
+    length: "490 yards",
+    gauge: "6-7 stitches per inch, fingering weight",
+    knitting_needle: "US 3 to 5 (3.25 to 3.75 mm)",
+    crochet_hook: "D to F (3.25 to 3.75 mm)",
+    recommended_care: "Hand wash, lay flat to dry.",
+    content: "Merino/Silk",
+    category: "Yarn",
+    price: 36.0,
+    countInStock: 31,
+  },
 ];
 
 export default products;
