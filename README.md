@@ -96,14 +96,20 @@ Listed below are the frameworks, libraries, and guides that made building this a
 
 ## Usage
 
+Below is a sample customer login for accessing most features of the application:
+
 ```
-Below are sample customer logins for accessing most features of the application:
+The Knitty Gritty Customer Login:
 
-spetrillo@example.com (Customer)
-goldengirl1
+Email: spetrillo@example.com
+Password: GoldenGirl1
+```
 
-rnylund@example.com (Customer)
-goldengirl2
+```
+PayPal Sandbox Account Login:
+
+Email: spetrillo@example.com
+Password: uhKH1z<.
 ```
 
 ## License

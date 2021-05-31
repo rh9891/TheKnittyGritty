@@ -19,6 +19,9 @@ import {
   PRODUCT_CREATE_REVIEW_SUCCESS,
   PRODUCT_CREATE_REVIEW_FAIL,
   PRODUCT_CREATE_REVIEW_RESET,
+  PRODUCT_DELETE_REVIEW_REQUEST,
+  PRODUCT_DELETE_REVIEW_SUCCESS,
+  PRODUCT_DELETE_REVIEW_FAIL,
   PRODUCT_TOP_RATED_REQUEST,
   PRODUCT_TOP_RATED_SUCCESS,
   PRODUCT_TOP_RATED_FAIL,
@@ -208,6 +211,42 @@ export const createProductReview = (productID, review) => async (
   } catch (error) {
     dispatch({
       type: PRODUCT_CREATE_REVIEW_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const deleteProductReview = (productID, review) => async (
+  dispatch,
+  getState
+) => {
+  try {
+    dispatch({
+      type: PRODUCT_DELETE_REVIEW_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    await axios.delete(`/api/products/${productID}/reviews`, review, config);
+
+    dispatch({
+      type: PRODUCT_DELETE_REVIEW_SUCCESS,
+    });
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_DELETE_REVIEW_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
