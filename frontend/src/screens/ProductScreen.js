@@ -10,6 +10,8 @@ import {
   Button,
   Form,
   Modal,
+  Popover,
+  OverlayTrigger,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
@@ -76,6 +78,10 @@ const ProductScreen = ({ history, match }) => {
         comment,
       })
     );
+  };
+
+  const deleteReviewHandler = () => {
+    console.log("You have successfully deleted your review.");
   };
 
   return (
@@ -190,6 +196,70 @@ const ProductScreen = ({ history, match }) => {
                     <Rating value={review.rating} />
                     <p>{dateFormatter(review.createdAt)}</p>
                     <p>{review.comment}</p>
+                    {userInfo
+                      ? userInfo._id === review.user && (
+                          <Fragment>
+                            <OverlayTrigger
+                              rootClose
+                              trigger="click"
+                              placement="right"
+                              overlay={
+                                <Popover
+                                  id="popover-basic"
+                                  style={{
+                                    position: "relative",
+                                    justifyContent: "space-evenly",
+                                  }}
+                                >
+                                  <Popover.Title as="h3">
+                                    Are you sure?
+                                  </Popover.Title>
+                                  <Popover.Content>
+                                    This review will be deleted promptly. You
+                                    cannot undo this action.
+                                  </Popover.Content>
+                                  <Button
+                                    variant="secondary"
+                                    className="btn-sm"
+                                    style={{
+                                      position: "relative",
+                                      marginLeft: "1.5rem",
+                                      marginRight: "1rem",
+                                      marginBottom: ".5rem",
+                                    }}
+                                    onClick={() => document.body.click()}
+                                  >
+                                    Cancel
+                                  </Button>
+                                  <Button
+                                    variant="primary"
+                                    className="btn-sm"
+                                    style={{
+                                      position: "relative",
+                                      marginLeft: ".5rem",
+                                      marginRight: "1rem",
+                                      marginBottom: ".5rem",
+                                    }}
+                                    onClick={deleteReviewHandler}
+                                  >
+                                    Delete Review
+                                  </Button>
+                                </Popover>
+                              }
+                            >
+                              <Button
+                                variant="primary"
+                                className="btn-sm"
+                                style={{
+                                  position: "relative",
+                                }}
+                              >
+                                Delete Review
+                              </Button>
+                            </OverlayTrigger>
+                          </Fragment>
+                        )
+                      : null}
                   </ListGroup.Item>
                 ))}
                 <ListGroup.Item>
