@@ -192,6 +192,30 @@ const createProductReview = asyncHandler(async (req, res) => {
   }
 });
 
+// Route to delete a review. DELETE request to "/api/products/:id/reviews/:id". Private route.
+const deleteProductReview = asyncHandler(async (req, res) => {
+  const product = await Product.findById(req.params.id);
+
+  if (product) {
+    const alreadyReviewed = product.reviews.find(
+      (review) => review.user.toString() === req.user._id.toString()
+    );
+
+    await alreadyReviewed.remove();
+
+    product.reviews.push(review);
+
+    await product.save();
+
+    res
+      .status(201)
+      .json({ message: "Product review has been successfully deleted." });
+  } else {
+    res.status(404);
+    throw new Error("Product review could not be found.");
+  }
+});
+
 // Route to get the top-rated products. GET request to "/api/products/top". Public route.
 const getTopRatedProducts = asyncHandler(async (req, res) => {
   const products = await Product.find({}).sort({ rating: -1 }).limit(3);
@@ -206,5 +230,6 @@ export {
   createProduct,
   updateProduct,
   createProductReview,
+  deleteProductReview,
   getTopRatedProducts,
 };

@@ -219,7 +219,7 @@ export const createProductReview = (productID, review) => async (
   }
 };
 
-export const deleteProductReview = (productID, review) => async (
+export const deleteProductReview = (productID, reviewID) => async (
   dispatch,
   getState
 ) => {
@@ -239,7 +239,10 @@ export const deleteProductReview = (productID, review) => async (
       },
     };
 
-    await axios.delete(`/api/products/${productID}/reviews`, review, config);
+    await axios.delete(
+      `/api/products/${productID}/reviews/${reviewID}`,
+      config
+    );
 
     dispatch({
       type: PRODUCT_DELETE_REVIEW_SUCCESS,

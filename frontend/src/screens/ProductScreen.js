@@ -21,6 +21,7 @@ import DismissibleMessage from "../components/DismissibleMessage";
 import {
   listProductDetails,
   createProductReview,
+  deleteProductReview,
 } from "../actions/productActions";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
 import { dateFormatter } from "../helpers/dateFormatter";
@@ -80,8 +81,8 @@ const ProductScreen = ({ history, match }) => {
     );
   };
 
-  const deleteReviewHandler = () => {
-    console.log("You have successfully deleted your review.");
+  const deleteReviewHandler = (review) => {
+    dispatch(deleteProductReview(review));
   };
 
   return (
@@ -240,7 +241,9 @@ const ProductScreen = ({ history, match }) => {
                                       marginRight: "1rem",
                                       marginBottom: ".5rem",
                                     }}
-                                    onClick={deleteReviewHandler}
+                                    onClick={() =>
+                                      deleteReviewHandler(review._id)
+                                    }
                                   >
                                     Delete Review
                                   </Button>
