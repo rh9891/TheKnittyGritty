@@ -23,7 +23,10 @@ import {
   createProductReview,
   deleteProductReview,
 } from "../actions/productActions";
-import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
+import {
+  PRODUCT_CREATE_REVIEW_RESET,
+  PRODUCT_DELETE_REVIEW_RESET,
+} from "../constants/productConstants";
 import { dateFormatter } from "../helpers/dateFormatter";
 
 const ProductScreen = ({ history, match }) => {
@@ -41,9 +44,15 @@ const ProductScreen = ({ history, match }) => {
 
   const productReviewCreate = useSelector((state) => state.productReviewCreate);
   const {
-    success: successProductReview,
-    error: errorProductReview,
+    success: successProductReviewCreate,
+    error: errorProductReviewCreate,
   } = productReviewCreate;
+
+  const productReviewDelete = useSelector((state) => state.productReviewDelete);
+  const {
+    success: successProductReviewDelete,
+    error: errorProductReviewDelete,
+  } = productReviewDelete;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -58,14 +67,23 @@ const ProductScreen = ({ history, match }) => {
   product.priceDisplay = formatter.format(product.price);
 
   useEffect(() => {
-    if (successProductReview) {
+    if (successProductReviewCreate) {
       handleShow();
       setRating(0);
       setComment("");
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
     }
     dispatch(listProductDetails(match.params.id));
-  }, [dispatch, match, successProductReview]);
+  }, [dispatch, match, successProductReviewCreate]);
+
+  useEffect(() => {
+    if (successProductReviewDelete) {
+      setRating(0);
+      setComment("");
+      dispatch({ type: PRODUCT_DELETE_REVIEW_RESET });
+    }
+    dispatch(listProductDetails(match.params.id));
+  }, [dispatch, match, successProductReviewDelete]);
 
   const addToCartHandler = () => {
     history.push(`/cart/${match.params.id}?quantity=${quantity}`);
@@ -81,8 +99,15 @@ const ProductScreen = ({ history, match }) => {
     );
   };
 
-  const deleteReviewHandler = (review) => {
-    dispatch(deleteProductReview(review));
+  const deleteReviewHandler = (reviewID) => (event) => {
+    event.preventDefault();
+    dispatch(
+      deleteProductReview(match.params.id, {
+        rating,
+        comment,
+        reviewID,
+      })
+    );
   };
 
   return (
@@ -241,9 +266,7 @@ const ProductScreen = ({ history, match }) => {
                                       marginRight: "1rem",
                                       marginBottom: ".5rem",
                                     }}
-                                    onClick={() =>
-                                      deleteReviewHandler(review._id)
-                                    }
+                                    onClick={deleteReviewHandler(review._id)}
                                   >
                                     Delete Review
                                   </Button>
@@ -271,9 +294,14 @@ const ProductScreen = ({ history, match }) => {
                   ) && (
                     <Fragment>
                       <h2>Write a Customer Review</h2>
-                      {errorProductReview && (
+                      {errorProductReviewCreate && (
                         <DismissibleMessage variant="danger">
-                          {errorProductReview}
+                          {errorProductReviewCreate}
+                        </DismissibleMessage>
+                      )}
+                      {errorProductReviewDelete && (
+                        <DismissibleMessage variant="danger">
+                          {errorProductReviewDelete}
                         </DismissibleMessage>
                       )}
                       {userInfo ? (

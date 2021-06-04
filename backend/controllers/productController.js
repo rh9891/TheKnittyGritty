@@ -192,18 +192,24 @@ const createProductReview = asyncHandler(async (req, res) => {
   }
 });
 
-// Route to delete a review. DELETE request to "/api/products/:id/reviews/:id". Private route.
+// Route to delete a review. DELETE request to "/api/products/:id/reviews/". Private route.
 const deleteProductReview = asyncHandler(async (req, res) => {
+  const { reviewID } = req.body;
+
   const product = await Product.findById(req.params.id);
 
   if (product) {
-    const alreadyReviewed = product.reviews.find(
-      (review) => review.user.toString() === req.user._id.toString()
+    product.reviews = product.reviews.filter(
+      (review) => review._id.toString() !== reviewID
     );
 
-    await alreadyReviewed.remove();
+    product.numReviews = product.reviews.length;
 
-    product.reviews.push(review);
+    product.rating =
+      product.reviews.length > 0
+        ? product.reviews.reduce((acc, item) => item.rating + acc, 0) /
+          product.reviews.length
+        : 0;
 
     await product.save();
 
@@ -212,7 +218,7 @@ const deleteProductReview = asyncHandler(async (req, res) => {
       .json({ message: "Product review has been successfully deleted." });
   } else {
     res.status(404);
-    throw new Error("Product review could not be found.");
+    throw new Error("Review could not be deleted.");
   }
 });
 
