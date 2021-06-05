@@ -159,7 +159,6 @@ const products = [
     price: 37.0,
     countInStock: 8,
   },
-
   {
     name: "Montefiore Merino",
     image: "/images/montefiore-merino.jpeg",
@@ -175,6 +174,55 @@ const products = [
     category: "Yarn",
     price: 36.0,
     countInStock: 31,
+  },
+  {
+    name: "Browning Wool",
+    image: "/images/browning-wool.jpeg",
+    description:
+      "Quickly becoming an American classic, Browning Wool is inspired by Shetland wools. Entirely homegrown, the wool comes from the Targhee-Columbia sheep in Wyoming. Browning Wool is a featherlight, fingering wool that is both bouncy and fluid for delicate lace fabrics. The wool can also be used to make sweaters, wraps, hats, and mittens.",
+    weight: "50 grams",
+    length: "275 yards",
+    gauge: "6-8 stitches per inch, fingering weight",
+    knitting_needle: "US 0 to 4 (2 to 3.5 mm)",
+    crochet_hook: "A to E (2 to 3.5 mm)",
+    recommended_care: "Hand wash.",
+    content: "Wool",
+    category: "Yarn",
+    price: 21.75,
+    countInStock: 23,
+  },
+  {
+    name: "Walford Wool",
+    image: "/images/walford-wool.jpeg",
+    description:
+      "Walford Wool is an eccentric mélange of neutrals with bits of bright fibers handspun throughout. The finished result is a soft yarn with a ton of subtlety and charisma. The yarn also includes sparkling Angelina fibers and is made from humane non-mulesed wool fiber.",
+    weight: "100 grams",
+    length: "68 yards",
+    gauge: "3-4 stitches per inch, bulky weight",
+    knitting_needle: "US 11 to 15 (8 to 10 mm)",
+    crochet_hook: "L to P (8 to 10 mm)",
+    recommended_care:
+      "Hand wash cold or machine wash delicate cold, lay flat to dry.",
+    content: "Wool/Angelina Fiber",
+    category: "Yarn",
+    price: 44.65,
+    countInStock: 60,
+  },
+  {
+    name: "Norgate Nylon",
+    image: "/images/norgate-nylon.jpeg",
+    description:
+      "Norgate Nylon is a wondrous blend of superwash merino, cashmere and nylon. It is the perfect yarn to make a baby blanket as it is machine washable, super soft, and special enough for heirloom knitting.",
+    weight: "100 grams",
+    length: "200 yards",
+    gauge: "4.5-5 stitches per inch, worsted weight",
+    knitting_needle: "US 6 to 8 (4 to 5 mm)",
+    crochet_hook: "G to H (4 to 5 mm)",
+    recommended_care: "Machine Wash.",
+    content: "Merino/Cashmere/Nylon",
+    category: "Yarn",
+    price: 40.0,
+    countInStock: 65,
   },
 ];
 
