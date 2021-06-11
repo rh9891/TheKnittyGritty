@@ -690,6 +690,39 @@ const products = [
     countInStock: 13,
   },
   {
+    name: "Truth Wool",
+    image: "/images/truth-wool.jpg",
+    description:
+      "Truth Wool is a very special yarn that combines utter simplicity with traditional beauty. It is comprised of three unspun plies of wool, all nestled together to look like one single ply. The result is structural integrity and beautiful stitch definition, all from a roving-inspired yarn. A substantial chunky weight, Truth Wool comes in an earthy color that can be used for big, cozy sweaters, hats, and spectacular scarves!",
+    weight: "100 grams",
+    length: "200 yards",
+    gauge: "3 to 3.5 stitches per inch, bulky weight",
+    knitting_needle: "US 10 to 11 (6 to 8 mm)",
+    crochet_hook: "J to L (6 to 8 mm)",
+    recommended_care: "Hand wash.",
+    content: "Wool",
+    category: "Yarn",
+    price: 26.0,
+    countInStock: 67,
+  },
+  {
+    name: "Stanton Wool",
+    image: "/images/stanton-wool.jpg",
+    description:
+      "Stanton Wool is a blend of wool and mohair mixed with smatterings of magical pixie dust. It is a hand spun, ultra bulky yarn that really sparks the imagination and ignites the creative fires. You can use Stanton Wool for fun, statement-making blankets, coats and hats!",
+    weight: "145 grams",
+    length: "35 yards",
+    gauge: "1 to 1.5 stitches per inch, jumbo weight",
+    knitting_needle: "US 19 (15 mm)",
+    crochet_hook: "P/Q (15 mm)",
+    recommended_care:
+      "Hand wash cold or machine wash delicate cold, lay flat to dry.",
+    content: "Wool/Mohair/Angelina Fiber",
+    category: "Yarn",
+    price: 44.65,
+    countInStock: 75,
+  },
+  {
     name: "Quarton Merino Blanket Bundle",
     image: "/images/quarton-merino-blanket-bundle.jpg",
     description:
