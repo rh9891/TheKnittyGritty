@@ -71,6 +71,12 @@ THEN I will get my order fulfilled in a timely manner.
 
 ## Preview of The Knitty Gritty
 
+![The Knitty Gritty Landing Page](assets/images/theKnittyGrittyLandingPage.png)
+
+![The Knitty Gritty Products Page](assets/images/theKnittyGrittyProductsPage.png)
+
+![The Knitty Gritty Single Product Page](assets/images/theKnittyGrittyProductPage.png)
+
 The following animation demonstrates a preview of the application functionality:
 
 ![The Knitty Gritty Functionality Preview]()
