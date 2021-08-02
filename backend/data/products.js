@@ -212,7 +212,7 @@ const products = [
     name: "Norgate Nylon",
     image: "/images/norgate-nylon.jpg",
     description:
-      "Norgate Nylon is a wondrous blend of superwash merino, cashmere and nylon. It is the PERFECT yarn to use to make a baby blanket as it is machine washable, super soft, and special enough for heirloom knitting.",
+      "Norgate Nylon is a wondrous blend of superwash merino, cashmere, and nylon. It is the PERFECT yarn to use to make a baby blanket as it is machine washable, super soft, and special enough for heirloom knitting.",
     weight: "100 grams",
     length: "200 yards",
     gauge: "4.5 to 5 stitches per inch, worsted weight",
@@ -516,7 +516,7 @@ const products = [
     name: "Fleming Cotton",
     image: "/images/fleming-cotton.jpg",
     description:
-      "Made in Peru with 65% organic cotton and 35% superfine alpaca, Fleming Cotton combines simplicity with elegance and breezy with toasty, a surprising blend, sweet and salty! Fleming Cotton comes in an undyed color, created by fibers that exist in nature. The yarn is a fingering weight that can be used to knit three-season scarves, wraps, and sweaters, or be doubled for cabin blankets.",
+      "Made in Peru with 65% organic cotton and 35% superfine alpaca, Fleming Cotton combines simplicity with elegance and breezy with toasty, a surprising blend of sweet and salty! Fleming Cotton comes in an undyed color, created by fibers that exist in nature. The yarn is a fingering weight that can be used to knit three-season scarves, wraps, and sweaters, or be doubled for cabin blankets.",
     weight: "100 grams",
     length: "437 yards",
     gauge: "6.75 to 7.5 stitches per inch, fingering weight",
@@ -564,7 +564,7 @@ const products = [
     name: "Oliphant Yak",
     image: "/images/oliphant-yak.jpg",
     description:
-      "An unusual blend of organically grown cotton and yak, Oliphant Yak has a satisfying weight, a very soft feel, and an incredibly lovely hand. Oh, and it’s machine washable, too! Oliphant Yak is a light worsted yarn, a perfect mid-weight for hats and scarves, sweaters and blankets.",
+      "An unusual blend of organically grown cotton and yak, Oliphant Yak has a satisfying weight, a very soft feel, and an incredibly lovely hand. Oh, and it’s machine washable too! Oliphant Yak is a light worsted yarn, a perfect mid-weight for hats and scarves, sweaters and blankets.",
     weight: "100 grams",
     length: "191 yards",
     gauge: "5 to 5.5 stitches per inch, light worsted weight",

@@ -40,7 +40,7 @@ WHEN I authenticate myself,
 THEN I can see my account details and past orders.
 
 WHEN trying to register for an account,
-THEN I am informed clearly of any errors, so that I be properly authenticated to create an account.”
+THEN I am informed clearly of any errors, so that I can be properly authenticated to create an account.
 
 WHEN I go to make a purchase,
 THEN I can submit my credit card details or Paypal information and get authorization to complete my checkout.
@@ -62,7 +62,7 @@ THEN I will get my order fulfilled in a timely manner.
 - Secure in-app payments through credit card integration and Paypal.
 - For an optimal checkout process, the user is provided with a detailed invoice of their order.
 - After completing purchase, user is provided with shipping status. (Admin product management allows ability to mark order as delivered upon delivery.)
-- User can get notified about discounts and sales by signing up for mailing list.
+- User can get notified about discounts and sales by signing up for the mailing list.
 - Product reviews and ratings are available for users that want to choose the best product and helps build the company's reliability.
 - Product pagination to aid in user-friendly shopping experience.
 - Admin management for all order details, product inventory, product creation/edit/deletion, and users.
@@ -77,15 +77,9 @@ THEN I will get my order fulfilled in a timely manner.
 
 ![The Knitty Gritty Single Product Page](assets/images/theKnittyGrittyProductPage.png)
 
-The following animation demonstrates a preview of the application functionality:
-
-![The Knitty Gritty Functionality Preview]()
-
-To download the above video file of the application functionality, you may do so [here]().
-
 ## Links
 
-- [Deployed Application](the-knitty-gritty.herokuapp.com)
+- [Deployed Application](https://the-knitty-gritty.herokuapp.com/)
 
 - [Github Repository](https://github.com/rh9891/TheKnittyGritty)
 
