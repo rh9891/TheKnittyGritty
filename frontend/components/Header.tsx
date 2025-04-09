@@ -1,14 +1,14 @@
-import { Navbar, Nav, Container, Collapse } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 
 const Header = () => {
   return (
     <header>
-      <Navbar bg="primary" variant="dark" expand="lg" collapseOnSelect>
+      <Navbar bg="primary" variant="dark" expand="md" collapseOnSelect>
         <Container>
           <Navbar.Brand href="/">The Knitty Gritty</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Collapse id="basic-navbar-nav">
+          <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link href="/cart">
                 <FaShoppingCart /> Cart
@@ -17,7 +17,7 @@ const Header = () => {
                 <FaUser /> Sign In
               </Nav.Link>
             </Nav>
-          </Collapse>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
     </header>
