@@ -1,6 +1,8 @@
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+import Rating from "./Rating.tsx";
+
 type ProductProps = {
   product: {
     _id: string;
@@ -17,6 +19,8 @@ type ProductProps = {
     category: string;
     price: number;
     countInStock: number;
+    rating: number;
+    numReviews: number;
   };
 };
 
@@ -28,10 +32,16 @@ const Product = ({ product }: ProductProps) => {
       </Link>
       <Card.Body>
         <Link to={`/product/${product._id}`}>
-          <Card.Title as="div">
+          <Card.Title as="div" className="product-title">
             <strong>{product.name}</strong>
           </Card.Title>
         </Link>
+        <Card.Text as="div">
+          <Rating
+            value={product.rating}
+            text={`${product.numReviews ?? 0} reviews`}
+          />
+        </Card.Text>
         <Card.Text as="h3">${product.price.toFixed(2)}</Card.Text>
       </Card.Body>
     </Card>

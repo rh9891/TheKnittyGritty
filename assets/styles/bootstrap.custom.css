@@ -73,7 +73,7 @@
     --bs-black-rgb: 0, 0, 0;
     --bs-body-color-rgb: 123, 138, 139;
     --bs-body-bg-rgb: 255, 255, 255;
-    --bs-font-sans-serif: 'Montserrat', sans-serif;
+    --bs-font-sans-serif: "Montserrat", sans-serif;
     --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
     monospace;
     --bs-gradient: linear-gradient(
@@ -374,7 +374,7 @@ sup {
 
 a {
     color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 a:hover {
@@ -4963,8 +4963,8 @@ fieldset:disabled .btn {
     --bs-card-spacer-y: 1.2rem;
     --bs-card-spacer-x: 1.2rem;
     --bs-card-title-spacer-y: 0.6rem;
-    --bs-card-title-color: ;
-    --bs-card-subtitle-color: ;
+    --bs-card-title-color: var(--bs-primary);
+    --bs-card-subtitle-color: var(--bs-gray);
     --bs-card-border-width: var(--bs-border-width);
     --bs-card-border-color: var(--bs-border-color-translucent);
     --bs-card-border-radius: var(--bs-border-radius);
@@ -5028,8 +5028,8 @@ fieldset:disabled .btn {
 }
 
 .card-title {
-    margin-bottom: var(--bs-card-title-spacer-y);
     color: var(--bs-card-title-color);
+    font-size: 1.5rem;
 }
 
 .card-subtitle {
@@ -5039,6 +5039,8 @@ fieldset:disabled .btn {
 }
 
 .card-text:last-child {
+    color: var(--bs-card-subtitle-color);
+    font-size: 1.25rem;
     margin-bottom: 0;
 }
 

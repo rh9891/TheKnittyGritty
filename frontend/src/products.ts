@@ -15,6 +15,8 @@ const products = [
     category: "Yarn",
     price: 24.5,
     countInStock: 47,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "2",
@@ -32,6 +34,8 @@ const products = [
     category: "Yarn",
     price: 33.5,
     countInStock: 40,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "3",
@@ -49,6 +53,8 @@ const products = [
     category: "Yarn",
     price: 28.5,
     countInStock: 10,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "4",
@@ -66,6 +72,8 @@ const products = [
     category: "Yarn",
     price: 41.0,
     countInStock: 47,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "5",
@@ -83,6 +91,8 @@ const products = [
     category: "Yarn",
     price: 28.0,
     countInStock: 66,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "6",
@@ -100,6 +110,8 @@ const products = [
     category: "Yarn",
     price: 23.5,
     countInStock: 65,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "7",
@@ -117,6 +129,8 @@ const products = [
     category: "Yarn",
     price: 33.0,
     countInStock: 56,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "8",
@@ -134,6 +148,8 @@ const products = [
     category: "Yarn",
     price: 21.0,
     countInStock: 46,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "9",
@@ -151,6 +167,8 @@ const products = [
     category: "Yarn",
     price: 33.0,
     countInStock: 0,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "10",
@@ -168,6 +186,8 @@ const products = [
     category: "Yarn",
     price: 37.0,
     countInStock: 8,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "11",
@@ -185,6 +205,8 @@ const products = [
     category: "Yarn",
     price: 36.0,
     countInStock: 31,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "12",
@@ -202,6 +224,8 @@ const products = [
     category: "Yarn",
     price: 21.75,
     countInStock: 23,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "13",
@@ -220,6 +244,8 @@ const products = [
     category: "Yarn",
     price: 44.65,
     countInStock: 60,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "14",
@@ -237,6 +263,8 @@ const products = [
     category: "Yarn",
     price: 40.0,
     countInStock: 65,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "15",
@@ -254,6 +282,8 @@ const products = [
     category: "Yarn",
     price: 79.0,
     countInStock: 45,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "16",
@@ -271,6 +301,8 @@ const products = [
     category: "Yarn",
     price: 33.0,
     countInStock: 2,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "17",
@@ -288,6 +320,8 @@ const products = [
     category: "Yarn",
     price: 50.8,
     countInStock: 72,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "18",
@@ -305,6 +339,8 @@ const products = [
     category: "Yarn",
     price: 40.0,
     countInStock: 33,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "19",
@@ -322,6 +358,8 @@ const products = [
     category: "Yarn",
     price: 43.5,
     countInStock: 42,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "20",
@@ -339,6 +377,8 @@ const products = [
     category: "Yarn",
     price: 24,
     countInStock: 27,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "21",
@@ -356,6 +396,8 @@ const products = [
     category: "Yarn",
     price: 17.4,
     countInStock: 5,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "22",
@@ -373,6 +415,8 @@ const products = [
     category: "Yarn",
     price: 24.5,
     countInStock: 71,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "23",
@@ -390,6 +434,8 @@ const products = [
     category: "Yarn",
     price: 30,
     countInStock: 21,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "24",
@@ -407,6 +453,8 @@ const products = [
     category: "Yarn",
     price: 31,
     countInStock: 23,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "25",
@@ -424,6 +472,8 @@ const products = [
     category: "Yarn",
     price: 33,
     countInStock: 20,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "26",
@@ -441,6 +491,8 @@ const products = [
     category: "Yarn",
     price: 39,
     countInStock: 6,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "27",
@@ -458,6 +510,8 @@ const products = [
     category: "Yarn",
     price: 37,
     countInStock: 34,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "28",
@@ -475,6 +529,8 @@ const products = [
     category: "Yarn",
     price: 30,
     countInStock: 17,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "29",
@@ -492,6 +548,8 @@ const products = [
     category: "Yarn",
     price: 21,
     countInStock: 10,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "30",
@@ -509,6 +567,8 @@ const products = [
     category: "Yarn",
     price: 49,
     countInStock: 56,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "31",
@@ -526,6 +586,8 @@ const products = [
     category: "Yarn",
     price: 55,
     countInStock: 21,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "32",
@@ -543,6 +605,8 @@ const products = [
     category: "Yarn",
     price: 20,
     countInStock: 38,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "33",
@@ -560,6 +624,8 @@ const products = [
     category: "Yarn",
     price: 20,
     countInStock: 22,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "34",
@@ -577,6 +643,8 @@ const products = [
     category: "Yarn",
     price: 34,
     countInStock: 48,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "35",
@@ -594,6 +662,8 @@ const products = [
     category: "Yarn",
     price: 28,
     countInStock: 37,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "36",
@@ -612,6 +682,8 @@ const products = [
     category: "Yarn",
     price: 31,
     countInStock: 47,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "37",
@@ -629,6 +701,8 @@ const products = [
     category: "Yarn",
     price: 19.4,
     countInStock: 51,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "38",
@@ -646,6 +720,8 @@ const products = [
     category: "Yarn",
     price: 21.0,
     countInStock: 65,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "39",
@@ -663,6 +739,8 @@ const products = [
     category: "Yarn",
     price: 21.5,
     countInStock: 49,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "40",
@@ -680,6 +758,8 @@ const products = [
     category: "Yarn",
     price: 26.0,
     countInStock: 4,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "41",
@@ -697,6 +777,8 @@ const products = [
     category: "Yarn",
     price: 14.2,
     countInStock: 27,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "42",
@@ -714,6 +796,8 @@ const products = [
     category: "Yarn",
     price: 44.0,
     countInStock: 10,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "43",
@@ -731,6 +815,8 @@ const products = [
     category: "Yarn",
     price: 40.0,
     countInStock: 13,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "44",
@@ -748,6 +834,8 @@ const products = [
     category: "Yarn",
     price: 26.0,
     countInStock: 67,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "45",
@@ -766,6 +854,8 @@ const products = [
     category: "Yarn",
     price: 44.65,
     countInStock: 75,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "46",
@@ -783,6 +873,8 @@ const products = [
     category: "Yarn",
     price: 437.0,
     countInStock: 7,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "47",
@@ -802,6 +894,8 @@ const products = [
     category: "Yarn",
     price: 155.0,
     countInStock: 7,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "48",
@@ -819,6 +913,8 @@ const products = [
     category: "Yarn",
     price: 101.0,
     countInStock: 42,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "49",
@@ -837,6 +933,8 @@ const products = [
     category: "Yarn",
     price: 261.5,
     countInStock: 23,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
   {
     _id: "50",
@@ -855,6 +953,8 @@ const products = [
     category: "Yarn",
     price: 356.5,
     countInStock: 20,
+    rating: Math.random() * (5.0 - 4.0) + 4.0,
+    numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
   },
 ];
 
