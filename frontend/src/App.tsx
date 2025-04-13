@@ -1,8 +1,8 @@
 import { Container } from "react-bootstrap";
+import { Outlet } from "react-router-dom";
 
 import Header from "./components/Header.tsx";
 import Footer from "./components/Footer.tsx";
-import Home from "./screens/Home.tsx";
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
       <Header />
       <main className="py-3">
         <Container>
-          <Home />
+          <Outlet />
         </Container>
       </main>
       <Footer />
