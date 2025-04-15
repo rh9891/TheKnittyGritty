@@ -2,7 +2,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 
-import TheKnittyGrittyLogo from "../../../assets/images/TheKnittyGrittyLogo.png";
+import TheKnittyGrittyLogo from "../../assets/images/TheKnittyGrittyLogo.png";
 
 const Header = () => {
   return (
