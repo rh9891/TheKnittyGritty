@@ -6,8 +6,8 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import "../../assets/styles/index.css";
-import "../../assets/styles/bootstrap.custom.css";
+import "../assets/styles/index.css";
+import "../assets/styles/bootstrap.custom.css";
 import App from "./App.tsx";
 import Home from "./pages/Home.tsx";
 import Product from "./pages/Product.tsx";
