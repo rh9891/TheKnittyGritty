@@ -1,27 +1,11 @@
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+import { Product as ProductType } from "../types.ts";
 import Rating from "./Rating.tsx";
 
 type ProductProps = {
-  product: {
-    _id: string;
-    name: string;
-    image: string;
-    description: string;
-    weight: string;
-    length: string;
-    gauge: string;
-    knitting_needle: string;
-    crochet_hook: string;
-    recommended_care: string;
-    content: string;
-    category: string;
-    price: number;
-    countInStock: number;
-    rating: number;
-    numReviews: number;
-  };
+  product: ProductType;
 };
 
 const Product = ({ product }: ProductProps) => {
