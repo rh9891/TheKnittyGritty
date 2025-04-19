@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 
 import connectDB from "./config/db.js";
 import products from "./data/products.js";
-// import {Product as ProductType} from "../frontend/src/types";
 
 dotenv.config();
 
