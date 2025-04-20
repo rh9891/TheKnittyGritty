@@ -7,7 +7,7 @@
 - [Description](#description)
 - [User Story](#user-story)
 - [Features of the Application](#features-of-the-application)
-- [Preview of the The Knitty Gritty](#preview-of-the-knitty-gritty)
+- [Preview of The Knitty Gritty](#preview-of-the-knitty-gritty)
 - [Links](#links)
 - [Built Using](#built-using)
 - [Usage](#usage)
@@ -16,11 +16,19 @@
 
 ## Description
 
-Welcome to The Knitty Gritty, where you can find the yarns and tools to help you create wonderful and inspiring things. The Knitty Gritty is an eCommerce application that is built using React, Redux, Node, Express, and MongoDB. The application features a fully-functioning shopping cart with PayPal and credit/debit payments, a product rating/review system, and admin capabilities to manage customers, products, and orders.
+Welcome to The Knitty Gritty, where you can find the yarns and tools to help you create wonderful and inspiring things.
+The Knitty Gritty is an eCommerce application that is built using React, Redux, Node, Express, and MongoDB. The
+application features a fully-functioning shopping cart with PayPal and credit/debit payments, a product rating/review
+system, and admin capabilities to manage customers, products, and orders.
 
-All product images, graphics, and some content are the copyrights and property of Purl Soho® and [purlsoho.com](https://www.purlsoho.com/), where exquisite yarns, fabrics, and tools can be [purchased](https://www.purlsoho.com/new.html).
+All product images, graphics, and some content are the copyrights and property of Purl Soho®
+and [purlsoho.com](https://www.purlsoho.com/), where exquisite yarns, fabrics, and tools can
+be [purchased](https://www.purlsoho.com/new.html).
 
-Although The Knitty Gritty has an inventory of products, full-featured shopping cart, product reviews and ratings, administrative product and user management, and Paypal (sandbox) and credit card integration, this is just a friendly reminder that it is a sample eCommerce application. If any of these products interest you, please do look to make a purchase at [Purl Soho®](https://www.purlsoho.com/).
+Although The Knitty Gritty has an inventory of products, full-featured shopping cart, product reviews and ratings,
+administrative product and user management, and Paypal (sandbox) and credit card integration, this is just a friendly
+reminder that it is a sample eCommerce application. If any of these products interest you, please do look to make a
+purchase at [Purl Soho®](https://www.purlsoho.com/).
 
 ## User Story
 
@@ -61,9 +69,11 @@ THEN I will get my order fulfilled in a timely manner.
 - Order summary page for user to verify purchase before committing to payment.
 - Secure in-app payments through credit card integration and Paypal.
 - For an optimal checkout process, the user is provided with a detailed invoice of their order.
-- After completing purchase, user is provided with shipping status. (Admin product management allows ability to mark order as delivered upon delivery.)
+- After completing purchase, user is provided with shipping status. (Admin product management allows ability to mark
+  order as delivered upon delivery.)
 - User can get notified about discounts and sales by signing up for the mailing list.
-- Product reviews and ratings are available for users that want to choose the best product and helps build the company's reliability.
+- Product reviews and ratings are available for users that want to choose the best product and helps build the company's
+  reliability.
 - Product pagination to aid in user-friendly shopping experience.
 - Admin management for all order details, product inventory, product creation/edit/deletion, and users.
 - Full-featured checkout process (delivery method, payment method/integration, order summary, detailed invoice, etc.)
@@ -79,7 +89,7 @@ THEN I will get my order fulfilled in a timely manner.
 
 ## Links
 
-- [Deployed Application](https://the-knitty-gritty.herokuapp.com/)
+- [Deployed Application](https://the-knitty-gritty.netlify.app)
 
 - [Github Repository](https://github.com/rh9891/TheKnittyGritty)
 
@@ -118,12 +128,20 @@ The MIT License (MIT)
 
 Copyright (c) 2021 Romie Hecdivert
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit
+persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Questions
 
-If you have any questions, comments, or issues regarding this application, please do not hesitate to contact me via [Github](https://github.com/rh9891).
+If you have any questions, comments, or issues regarding this application, please do not hesitate to contact me
+via [Github](https://github.com/rh9891).
