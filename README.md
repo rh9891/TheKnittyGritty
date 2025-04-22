@@ -1,6 +1,15 @@
 # The Knitty Gritty
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Vite](https://img.shields.io/badge/Built%20with-Vite-646CFF.svg)
+![React](https://img.shields.io/badge/Framework-React-61DAFB.svg)
+![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6.svg)
+![Node.js](https://img.shields.io/badge/Backend-Node.js-339933.svg)
+![Express](https://img.shields.io/badge/Server-Express.js-000000.svg)
+![Axios](https://img.shields.io/badge/HTTP%20Client-Axios-5A29E4.svg)
+![Bootstrap](https://img.shields.io/badge/UI-Bootstrap-7952B3.svg)
+![React Router](https://img.shields.io/badge/Router-React%20Router-CA4245.svg)
+![React Icons](https://img.shields.io/badge/Icons-React%20Icons-E91E63.svg)
 
 ## Table of Contents
 
