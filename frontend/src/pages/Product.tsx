@@ -16,6 +16,7 @@ import Rating from "../components/Rating";
 
 const Product = () => {
   const [product, setProduct] = useState<ProductType>();
+  const priceToDisplay = product?.price?.toFixed(2);
   const { id: productId } = useParams();
 
   useEffect(() => {
@@ -65,7 +66,7 @@ const Product = () => {
                 <Row>
                   <Col>Price:</Col>
                   <Col>
-                    <strong>${product?.price.toFixed(2)}</strong>
+                    <strong>${priceToDisplay}</strong>
                   </Col>
                 </Row>
               </ListGroup.Item>

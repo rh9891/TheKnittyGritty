@@ -9,6 +9,8 @@ type ProductProps = {
 };
 
 const Product = ({ product }: ProductProps) => {
+  const priceToDisplay = product.price?.toFixed(2);
+
   return (
     <Card className="my-3 p-3 rounded">
       <Link to={`/product/${product._id}`}>
@@ -26,7 +28,7 @@ const Product = ({ product }: ProductProps) => {
             text={`${product.numReviews ?? 0} reviews`}
           />
         </Card.Text>
-        <Card.Text as="h3">${product.price.toFixed(2)}</Card.Text>
+        <Card.Text as="h3">${priceToDisplay}</Card.Text>
       </Card.Body>
     </Card>
   );
