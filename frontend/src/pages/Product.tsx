@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   Button,
@@ -9,24 +8,36 @@ import {
   ListGroup,
   Row,
 } from "react-bootstrap";
-import axios from "axios";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { SerializedError } from "@reduxjs/toolkit";
 
-import { Product as ProductType } from "../types";
+import { useGetProductByIdQuery } from "../slices/productApiSlice";
 import Rating from "../components/Rating";
+import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
 
 const Product = () => {
-  const [product, setProduct] = useState<ProductType>();
-  const priceToDisplay = product?.price?.toFixed(2);
   const { id: productId } = useParams();
+  const {
+    data: product,
+    isLoading,
+    error,
+  } = useGetProductByIdQuery(productId ?? "");
+  const priceToDisplay = product?.price?.toFixed(2);
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const { data } = await axios.get(`/api/products/${productId}`);
-      setProduct(data);
-    };
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-    fetchProduct();
-  }, [productId]);
+  if (error) {
+    const err = error as FetchBaseQueryError | SerializedError;
+
+    if ("data" in err && typeof err.data === "object" && err.data !== null) {
+      const message =
+        (err.data as { message?: string })?.message || DEFAULT_ERROR_MESSAGE;
+      return <div>{message}</div>;
+    }
+    return <div>{DEFAULT_ERROR_MESSAGE}</div>;
+  }
 
   return (
     <>

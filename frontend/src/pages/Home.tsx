@@ -3,6 +3,7 @@ import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";
 
 import { useGetProductsQuery } from "../slices/productApiSlice.ts";
+import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
 import Product from "../components/Product.tsx";
 
 const Home = () => {
@@ -17,10 +18,10 @@ const Home = () => {
 
     if ("data" in err && typeof err.data === "object" && err.data !== null) {
       const message =
-        (err.data as { message?: string })?.message || "Something went wrong";
+        (err.data as { message?: string })?.message || DEFAULT_ERROR_MESSAGE;
       return <div>{message}</div>;
     }
-    return <div>Yarn it! Something went wrong!</div>;
+    return <div>{DEFAULT_ERROR_MESSAGE}</div>;
   }
 
   return (
