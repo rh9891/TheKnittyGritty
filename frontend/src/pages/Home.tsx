@@ -1,22 +1,27 @@
-import { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
-import axios from "axios";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { SerializedError } from "@reduxjs/toolkit";
 
-import { Product as ProductType } from "../types.ts";
+import { useGetProductsQuery } from "../slices/productApiSlice.ts";
 import Product from "../components/Product.tsx";
 
 const Home = () => {
-  const [products, setProducts] = useState<ProductType[]>([]);
+  const { data: products, isLoading, error } = useGetProductsQuery();
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const { data } = await axios.get<ProductType[]>("/api/products");
-      console.log("Fetched products:", data);
-      setProducts(data);
-    };
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-    fetchProducts();
-  }, []);
+  if (error) {
+    const err = error as FetchBaseQueryError | SerializedError;
+
+    if ("data" in err && typeof err.data === "object" && err.data !== null) {
+      const message =
+        (err.data as { message?: string })?.message || "Something went wrong";
+      return <div>{message}</div>;
+    }
+    return <div>Yarn it! Something went wrong!</div>;
+  }
 
   return (
     <>
