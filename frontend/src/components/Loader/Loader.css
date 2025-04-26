@@ -1,0 +1,76 @@
+.loader {
+    position: relative;
+    width: 100%;
+    top: 100px;
+}
+
+.rollout {
+    background: url("/images/strand-loader.svg") no-repeat 0 120%;
+    background-size: 400px 24px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
+    width: 0;
+    opacity: 0;
+}
+
+.rollout.animate {
+    animation: unrolling-strand 6s cubic-bezier(0.57, 0.27, 0.46, 0.79) 1 forwards;
+}
+
+.yarn {
+    position: absolute;
+    right: -20px;
+    top: 0;
+    width: 40px;
+    opacity: 0;
+}
+
+.yarn.animate {
+    animation: rolling-yarn 6s cubic-bezier(0.57, 0.27, 0.46, 0.79) 1 forwards;
+}
+
+@keyframes unrolling-strand {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+        width: 400px;
+    }
+    70% {
+        opacity: 0;
+        width: 400px;
+    }
+    100% {
+        opacity: 0;
+        width: 400px;
+    }
+}
+
+@keyframes rolling-yarn {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    60% {
+        transform: rotate(1146deg);
+        opacity: 1;
+    }
+    70% {
+        transform: rotate(1146deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+}

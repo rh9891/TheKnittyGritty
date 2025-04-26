@@ -5,12 +5,13 @@ import { SerializedError } from "@reduxjs/toolkit";
 import { useGetProductsQuery } from "../slices/productApiSlice.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
 import Product from "../components/Product.tsx";
+import Loader from "../components/Loader";
 
 const Home = () => {
   const { data: products, isLoading, error } = useGetProductsQuery();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (error) {

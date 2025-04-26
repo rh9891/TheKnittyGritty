@@ -14,6 +14,7 @@ import { SerializedError } from "@reduxjs/toolkit";
 import { useGetProductByIdQuery } from "../slices/productApiSlice";
 import Rating from "../components/Rating";
 import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
+import Loader from "../components/Loader";
 
 const Product = () => {
   const { id: productId } = useParams();
@@ -25,7 +26,7 @@ const Product = () => {
   const priceToDisplay = product?.price?.toFixed(2);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (error) {

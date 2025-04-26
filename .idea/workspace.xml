@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01742179-77e3-431d-b0f9-e2906402e45d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/strand-loader.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/yarn-loader.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Loader/Loader.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Loader/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Product.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Product.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/slices/productApiSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/slices/productApiSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +65,11 @@
       <recent name="$PROJECT_DIR$/backend/data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/public/images" />
       <recent name="$PROJECT_DIR$/frontend/src" />
       <recent name="$PROJECT_DIR$/backend" />
       <recent name="$PROJECT_DIR$/frontend" />
       <recent name="$PROJECT_DIR$/frontend/public" />
-      <recent name="$PROJECT_DIR$/frontend/public/images" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -94,7 +97,7 @@
       <workItem from="1744339215851" duration="67080000" />
       <workItem from="1744763347672" duration="62000" />
       <workItem from="1744818465567" duration="44830000" />
-      <workItem from="1745616098316" duration="580000" />
+      <workItem from="1745616098316" duration="3774000" />
     </task>
     <servers />
   </component>
