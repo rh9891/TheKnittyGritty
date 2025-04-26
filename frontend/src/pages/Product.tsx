@@ -15,6 +15,7 @@ import { useGetProductByIdQuery } from "../slices/productApiSlice";
 import Rating from "../components/Rating";
 import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
 import Loader from "../components/Loader";
+import Message from "../components/Message.tsx";
 
 const Product = () => {
   const { id: productId } = useParams();
@@ -35,9 +36,9 @@ const Product = () => {
     if ("data" in err && typeof err.data === "object" && err.data !== null) {
       const message =
         (err.data as { message?: string })?.message || DEFAULT_ERROR_MESSAGE;
-      return <div>{message}</div>;
+      return <Message variant="danger" text={message} />;
     }
-    return <div>{DEFAULT_ERROR_MESSAGE}</div>;
+    return <Message variant="danger" text={DEFAULT_ERROR_MESSAGE} />;
   }
 
   return (

@@ -6,6 +6,7 @@ import { useGetProductsQuery } from "../slices/productApiSlice.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
 import Product from "../components/Product.tsx";
 import Loader from "../components/Loader";
+import Message from "../components/Message.tsx";
 
 const Home = () => {
   const { data: products, isLoading, error } = useGetProductsQuery();
@@ -20,9 +21,9 @@ const Home = () => {
     if ("data" in err && typeof err.data === "object" && err.data !== null) {
       const message =
         (err.data as { message?: string })?.message || DEFAULT_ERROR_MESSAGE;
-      return <div>{message}</div>;
+      return <Message variant="danger" text={message} />;
     }
-    return <div>{DEFAULT_ERROR_MESSAGE}</div>;
+    return <Message variant="danger" text={DEFAULT_ERROR_MESSAGE} />;
   }
 
   return (
