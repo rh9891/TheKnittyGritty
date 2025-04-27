@@ -12,8 +12,8 @@ import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";
 
 import { useGetProductByIdQuery } from "../slices/productApiSlice";
-import Rating from "../components/Rating";
 import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
+import Rating from "../components/Rating";
 import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";
 
