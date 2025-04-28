@@ -16,3 +16,19 @@ export type Product = {
   rating: number;
   numReviews: number;
 };
+
+export type CartItem = {
+  _id: string;
+  name: string;
+  price: number;
+  quantity: number;
+  image?: string;
+};
+
+export type CartState = {
+  cartItems: CartItem[];
+  itemsPrice: string;
+  shippingPrice: string;
+  taxPrice: string;
+  totalPrice: string;
+};

@@ -1,20 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type CartItem = {
-  _id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  image?: string;
-};
-
-type CartState = {
-  cartItems: CartItem[];
-  itemPrice: string;
-  shippingPrice: string;
-  taxPrice: string;
-  totalPrice: string;
-};
+import { CartItem, CartState } from "../types.ts";
+import { updateCart } from "../utils/cartUtils.ts";
 
 const initialState: CartState = localStorage.getItem("cart")
   ? JSON.parse(localStorage.getItem("cart") as string)
@@ -25,10 +12,6 @@ const initialState: CartState = localStorage.getItem("cart")
       taxPrice: "0.00",
       totalPrice: "0.00",
     };
-
-const addDecimals = (num: number) => {
-  return (Math.round(num * 100) / 100).toFixed(2);
-};
 
 const cartSlice = createSlice({
   name: "cart",
@@ -46,22 +29,7 @@ const cartSlice = createSlice({
         state.cartItems.push(item);
       }
 
-      const itemsPrice = state.cartItems.reduce(
-        (acc, item) => acc + item.price * item.quantity,
-        0,
-      );
-
-      state.itemPrice = addDecimals(itemsPrice);
-      state.shippingPrice = addDecimals(itemsPrice > 100 ? 0 : 10);
-      state.taxPrice = addDecimals(Number((0.15 * itemsPrice).toFixed(2)));
-
-      state.totalPrice = (
-        Number(state.itemPrice) +
-        Number(state.shippingPrice) +
-        Number(state.taxPrice)
-      ).toFixed(2);
-
-      localStorage.setItem("cart", JSON.stringify(state));
+      return updateCart(state);
     },
   },
 });
