@@ -1,4 +1,5 @@
-import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   Button,
   Card,
@@ -8,10 +9,12 @@ import {
   ListGroup,
   Row,
 } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";
 
 import { useGetProductByIdQuery } from "../slices/productApiSlice";
+import { addToCart } from "../slices/cartSlice";
 import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
@@ -19,12 +22,24 @@ import Message from "../components/Message.tsx";
 
 const Product = () => {
   const { id: productId } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [quantity, setQuantity] = useState(1);
   const {
     data: product,
     isLoading,
     error,
   } = useGetProductByIdQuery(productId ?? "");
   const priceToDisplay = product?.price?.toFixed(2);
+
+  const addToCartHandler = () => {
+    if (!product || !product._id || !product.name || !product.price) {
+      return;
+    }
+
+    dispatch(addToCart({ ...product, quantity }));
+    navigate("/cart");
+  };
 
   if (isLoading) {
     return <Loader />;
@@ -100,7 +115,11 @@ const Product = () => {
                   <Row>
                     <Col>Quantity</Col>
                     <Col>
-                      <Form.Control as="select">
+                      <Form.Control
+                        as="select"
+                        value={quantity}
+                        onChange={(e) => setQuantity(Number(e.target.value))}
+                      >
                         {[...Array(product?.countInStock).keys()].map((x) => (
                           <option key={x + 1} value={x + 1}>
                             {x + 1}
@@ -116,6 +135,7 @@ const Product = () => {
                   className="btn-block"
                   type="button"
                   disabled={product?.countInStock === 0}
+                  onClick={addToCartHandler}
                 >
                   Add to Cart
                 </Button>
