@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Button,
@@ -12,16 +12,25 @@ import {
 import { FaTrash } from "react-icons/fa";
 
 import { RootState } from "../store.ts";
-import { addToCart } from "../slices/cartSlice.ts";
+import { addToCart, removeFromCart } from "../slices/cartSlice.ts";
 import { CartItem } from "../types.ts";
 import Message from "../components/Message";
 
 const Cart = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state: RootState) => state.cart);
 
-  const addToCartHandler = (product: CartItem, quantity: number) => {
+  const addToCartHandler = async (product: CartItem, quantity: number) => {
     dispatch(addToCart({ ...product, quantity }));
+  };
+
+  const removeFromCartHandler = async (productId: string) => {
+    dispatch(removeFromCart(productId));
+  };
+
+  const checkoutHandler = () => {
+    navigate("/login?redirect=shipping");
   };
 
   return (
@@ -33,8 +42,8 @@ const Cart = () => {
             variant="danger"
             text={
               <>
-                Knit happens! Looks like your cart is currently empty.{" "}
-                <Link to="/">Browse our collection.</Link>
+                Knit happens! Looks like your cart is currently empty.
+                <Link to="/">&nbsp;Browse our collection.</Link>
               </>
             }
           />
@@ -66,7 +75,11 @@ const Cart = () => {
                     </Form.Control>
                   </Col>
                   <Col md={2}>
-                    <Button type="button" variant="secondary">
+                    <Button
+                      type="button"
+                      variant="secondary"
+                      onClick={() => removeFromCartHandler(item._id)}
+                    >
                       <FaTrash color="white" />
                     </Button>
                   </Col>
@@ -94,9 +107,9 @@ const Cart = () => {
                 type="button"
                 className="btn-block"
                 disabled={cartItems.length === 0}
-                onClick={() => console.log("place order")}
+                onClick={checkoutHandler}
               >
-                Place Order
+                Proceed to Checkout
               </Button>
             </ListGroup.Item>
           </ListGroup>
