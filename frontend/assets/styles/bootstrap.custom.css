@@ -373,7 +373,7 @@ sup {
 }
 
 a {
-    color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+    color: var(--bs-link-color);
     text-decoration: none;
 }
 

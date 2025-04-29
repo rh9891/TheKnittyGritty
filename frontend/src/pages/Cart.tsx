@@ -31,7 +31,12 @@ const Cart = () => {
         {cartItems.length === 0 ? (
           <Message
             variant="danger"
-            text={`Knit happens! Looks like your cart is currently empty. <Link to="/">Go Back</Link>`}
+            text={
+              <>
+                Knit happens! Looks like your cart is currently empty.{" "}
+                <Link to="/">Browse our collection.</Link>
+              </>
+            }
           />
         ) : (
           <ListGroup variant="flush">
