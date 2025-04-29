@@ -17,13 +17,9 @@ export type Product = {
   numReviews: number;
 };
 
-export type CartItem = {
-  _id: string;
-  name: string;
-  price: number;
+export interface CartItem extends Product {
   quantity: number;
-  image?: string;
-};
+}
 
 export type CartState = {
   cartItems: CartItem[];

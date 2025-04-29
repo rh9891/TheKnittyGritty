@@ -1,8 +1,9 @@
+import { ReactNode } from "react";
 import { Alert } from "react-bootstrap";
 
 type MessageProps = {
   variant?: string;
-  text: string;
+  text: string | ReactNode;
 };
 
 const Message = ({ variant = "info", text }: MessageProps) => {
