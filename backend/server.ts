@@ -1,8 +1,8 @@
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 
-import connectDB from "./config/db.js";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
+import connectDB from "./config/db.js";
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 
