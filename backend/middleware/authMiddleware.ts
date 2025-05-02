@@ -24,11 +24,13 @@ const protect = asyncHandler(
       } catch (error) {
         console.log(error);
         res.status(401);
-        throw new Error("Not authorized. Token failed");
+        throw new Error(
+          "Your session has unraveled. Token verification failed.",
+        );
       }
     } else {
       res.status(401);
-      throw new Error("Not authorized. No token");
+      throw new Error("You forgot your yarn! (No token.)");
     }
   },
 );
@@ -42,7 +44,7 @@ const admin = (
     next();
   } else {
     res.status(401);
-    throw new Error("Not authorized as an admin.");
+    throw new Error("You’re not the head knitter here. Admin access only.");
   }
 };
 

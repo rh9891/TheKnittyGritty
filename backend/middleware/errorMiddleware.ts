@@ -7,7 +7,9 @@ interface CustomError extends Error {
 }
 
 const notFound = (req: Request, res: Response, next: NextFunction) => {
-  const error = new Error(`Not Found - ${req.originalUrl}`);
+  const error = new Error(
+    `Dropped stitch! ${req.originalUrl} isn’t on our pattern.`,
+  );
   res.status(404);
   next(error);
 };
@@ -22,7 +24,7 @@ const errorHandler = (
   let message = err.message || "Yarn it! Something went wrong!";
 
   if (err.name === "CastError" && err.kind === "ObjectId") {
-    message = "Product not found.";
+    message = "This yarn is not in our stash. Product not found.";
     statusCode = 404;
   }
 

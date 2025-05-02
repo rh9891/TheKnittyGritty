@@ -17,7 +17,7 @@ const getProductById = asyncHandler(async (req, res) => {
 
   if (!product) {
     res.status(404);
-    throw new Error("Product not found");
+    throw new Error("This yarn is not in our stash. Product not found.");
   }
 
   res.json(product);
