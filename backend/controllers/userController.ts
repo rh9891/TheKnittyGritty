@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 import User, { IUserDocument } from "../models/userModel.js";
-import asyncHandler from "../middleware/asyncHandler.js";
+import asyncHandler from "../middleware/asyncHandler.js"; // @desc    Authorize user and get token
 
 // @desc    Authorize user and get token
 // @route   GET /api/users/login
@@ -50,7 +50,11 @@ const registerUser = asyncHandler(async (req, res) => {
 // @route   POST /api/users/logout
 // @access  Private
 const logoutUser = asyncHandler(async (req, res) => {
-  res.send("Logout user");
+  res.cookie("jwt", "", {
+    httpOnly: true,
+    expires: new Date(0),
+  });
+  res.status(200).json({ message: "Successfully logged out." });
 });
 
 // @desc    Get user profile
