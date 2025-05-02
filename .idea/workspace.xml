@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01742179-77e3-431d-b0f9-e2906402e45d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/middleware/authMiddleware.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/userController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/userRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/userRoutes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -95,7 +96,7 @@
       <workItem from="1744763347672" duration="62000" />
       <workItem from="1744818465567" duration="44830000" />
       <workItem from="1745616098316" duration="4408000" />
-      <workItem from="1745722044931" duration="53447000" />
+      <workItem from="1745722044931" duration="65886000" />
     </task>
     <servers />
   </component>
