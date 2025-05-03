@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import asyncHandler from "./asyncHandler.js";
 import User, { IUserDocument } from "../models/userModel.js";
 
-interface AuthenticatedRequest extends Request {
+export interface AuthenticatedRequest extends Request {
   user?: IUserDocument;
 }
 
