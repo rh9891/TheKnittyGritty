@@ -18,4 +18,5 @@ export const productApiSlice = apiSlice.injectEndpoints({
     }),
   }),
 });
+
 export const { useGetProductsQuery, useGetProductByIdQuery } = productApiSlice;

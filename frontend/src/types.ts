@@ -28,3 +28,15 @@ export type CartState = {
   taxPrice: string;
   totalPrice: string;
 };
+
+export type LoginRequest = {
+  email: string;
+  password: string;
+};
+
+export type UserResponse = {
+  _id: string;
+  name: string;
+  email: string;
+  isAdmin: boolean;
+};
