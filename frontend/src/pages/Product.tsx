@@ -10,8 +10,8 @@ import {
   Row,
 } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
-import { SerializedError } from "@reduxjs/toolkit";
+import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import type { SerializedError } from "@reduxjs/toolkit";
 
 import { useGetProductByIdQuery } from "../slices/productApiSlice";
 import { addToCart } from "../slices/cartSlice";
