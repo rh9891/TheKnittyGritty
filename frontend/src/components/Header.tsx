@@ -1,17 +1,31 @@
 import { Badge, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import type { RootState } from "../store.ts";
+import { useLogoutMutation } from "../slices/usersApiSlice.ts";
+import { logout } from "../slices/authSlice.ts";
 import TheKnittyGrittyLogo from "../../assets/images/TheKnittyGrittyLogo.png";
 
 const Header = () => {
   const { cartItems } = useSelector((state: RootState) => state.cart);
   const { userInfo } = useSelector((state: RootState) => state.auth);
 
-  const logoutHandler = () => {
-    console.log("logout");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [logoutApiCall] = useLogoutMutation();
+
+  const logoutHandler = async () => {
+    try {
+      await logoutApiCall().unwrap();
+      dispatch(logout());
+      navigate("/login");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
