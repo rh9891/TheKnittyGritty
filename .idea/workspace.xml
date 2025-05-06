@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01742179-77e3-431d-b0f9-e2906402e45d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Register.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/slices/authSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/slices/authSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/slices/usersApiSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/slices/usersApiSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +40,7 @@
     "com.codeium.enabled": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/asteria/Documents/Repositories/TheKnittyGritty/backend/data",
+    "last_opened_file_path": "/Users/asteria/Documents/Repositories/TheKnittyGritty/frontend/src/pages",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -59,6 +59,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/pages" />
       <recent name="$PROJECT_DIR$/backend/data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -95,7 +96,7 @@
       <workItem from="1744763347672" duration="62000" />
       <workItem from="1744818465567" duration="44830000" />
       <workItem from="1745616098316" duration="4408000" />
-      <workItem from="1745722044931" duration="95729000" />
+      <workItem from="1745722044931" duration="99095000" />
     </task>
     <servers />
   </component>
