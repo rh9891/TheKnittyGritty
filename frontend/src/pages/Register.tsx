@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
@@ -26,14 +26,16 @@ const Register = () => {
 
   const { userInfo } = useSelector((state: RootState) => state.auth);
 
-  const location = useLocation();
-  const redirect = new URLSearchParams(location.search).get("redirect") || "/";
+  const redirect = new URLSearchParams(location.search).get("redirect");
+  const redirectPath = redirect?.startsWith("/")
+    ? redirect
+    : `/${redirect || ""}`;
 
   useEffect(() => {
     if (userInfo) {
-      navigate(redirect);
+      navigate(redirectPath);
     }
-  }, [navigate, redirect, userInfo]);
+  }, [navigate, redirectPath, userInfo]);
 
   const submitHandler = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -49,7 +51,7 @@ const Register = () => {
           password,
         } as LoginRequest).unwrap();
         dispatch(setCredentials(res));
-        navigate(redirect);
+        navigate(redirectPath);
       } catch (err) {
         const error = err as FetchBaseQueryError | SerializedError;
 
@@ -81,7 +83,6 @@ const Register = () => {
             onChange={(event) => setName(event.target.value)}
           />
         </Form.Group>
-
         <Form.Group className="my-2" controlId="email">
           <Form.Label>Email Address</Form.Label>
           <Form.Control
@@ -91,7 +92,6 @@ const Register = () => {
             onChange={(event) => setEmail(event.target.value)}
           />
         </Form.Group>
-
         <Form.Group className="my-2" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -101,7 +101,6 @@ const Register = () => {
             onChange={(event) => setPassword(event.target.value)}
           />
         </Form.Group>
-
         <Form.Group className="my-2" controlId="password">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
@@ -111,12 +110,10 @@ const Register = () => {
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
         </Form.Group>
-
         <Button type="submit" variant="primary" disabled={isLoading}>
           Sign Up
         </Button>
       </Form>
-
       <Row className="py-3">
         <Col>
           Already have an account?{" "}

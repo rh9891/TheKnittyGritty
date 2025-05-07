@@ -4,3 +4,10 @@ export const USERS_URL = `/api/users`;
 export const ORDERS_URL = `/api/orders`;
 export const PAYPAL_URL = `/api/config/paypal`;
 export const DEFAULT_ERROR_MESSAGE = "Yarn it! Something went wrong!";
+export const DEFAULT_SHIPPING_ADDRESS = {
+  name: "",
+  address: "",
+  city: "",
+  postalCode: "",
+  country: "",
+};

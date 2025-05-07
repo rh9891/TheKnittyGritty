@@ -17,6 +17,14 @@ export type Product = {
   numReviews: number;
 };
 
+export type ShippingAddress = {
+  name: string;
+  address: string;
+  city: string;
+  postalCode: string;
+  country: string;
+};
+
 export interface CartItem extends Product {
   quantity: number;
 }
@@ -27,6 +35,8 @@ export type CartState = {
   shippingPrice: string;
   taxPrice: string;
   totalPrice: string;
+  shippingAddress: ShippingAddress;
+  paymentMethod: string;
 };
 
 export type LoginRequest = {
