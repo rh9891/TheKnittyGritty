@@ -7,6 +7,7 @@ import { saveShippingAddress } from "../slices/cartSlice.ts";
 import { DEFAULT_SHIPPING_ADDRESS } from "../../constants.ts";
 import type { RootState } from "../store.ts";
 import FormContainer from "../components/FormContainer.tsx";
+import CheckoutSteps from "../components/CheckoutSteps.tsx";
 
 const Shipping = () => {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ const Shipping = () => {
 
   return (
     <FormContainer>
+      <CheckoutSteps />
       <h1>Shipping Information</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group className="my-2" controlId="name">
