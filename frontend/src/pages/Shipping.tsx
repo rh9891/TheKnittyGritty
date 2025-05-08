@@ -34,7 +34,7 @@ const Shipping = () => {
 
   return (
     <FormContainer>
-      <CheckoutSteps />
+      <CheckoutSteps step1 step2 />
       <h1>Shipping Information</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group className="my-2" controlId="name">
