@@ -1,5 +1,13 @@
 import mongoose from "mongoose";
 
+export type OrderItem = {
+  _id: string;
+  name: string;
+  quantity: number;
+  image: string;
+  price: number;
+};
+
 const orderSchema = new mongoose.Schema(
   {
     user: {
@@ -10,7 +18,7 @@ const orderSchema = new mongoose.Schema(
     orderItems: [
       {
         name: { type: String, required: true },
-        qty: { type: Number, required: true },
+        quantity: { type: Number, required: true },
         image: { type: String, required: true },
         price: { type: Number, required: true },
         product: {
