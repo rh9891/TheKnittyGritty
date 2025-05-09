@@ -20,7 +20,9 @@ const Shipping = () => {
 
   const [name, setName] = useState(shippingAddress.name || "");
   const [address, setAddress] = useState(shippingAddress.address || "");
+  const [address2, setAddress2] = useState(shippingAddress.address2 || "");
   const [city, setCity] = useState(shippingAddress.city || "");
+  const [state, setState] = useState(shippingAddress.state || "");
   const [postalCode, setPostalCode] = useState(
     shippingAddress.postalCode || "",
   );
@@ -28,7 +30,17 @@ const Shipping = () => {
 
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    dispatch(saveShippingAddress({ name, address, city, postalCode, country }));
+    dispatch(
+      saveShippingAddress({
+        name,
+        address,
+        address2,
+        city,
+        state,
+        postalCode,
+        country,
+      }),
+    );
     navigate("/payment");
   };
 
@@ -56,6 +68,15 @@ const Shipping = () => {
             onChange={(e) => setAddress(e.target.value)}
           ></Form.Control>
         </Form.Group>
+        <Form.Group className="my-2" controlId="address2">
+          <Form.Label>Address Line 2 (Optional)</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter apt, suite, unit, building, etc."
+            value={address2}
+            onChange={(e) => setAddress2(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
         <Form.Group className="my-2" controlId="city">
           <Form.Label>City</Form.Label>
           <Form.Control
@@ -65,11 +86,20 @@ const Shipping = () => {
             onChange={(e) => setCity(e.target.value)}
           ></Form.Control>
         </Form.Group>
+        <Form.Group className="my-2" controlId="state">
+          <Form.Label>State/Province/Region</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter state, province, or region"
+            value={state}
+            onChange={(e) => setState(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
         <Form.Group className="my-2" controlId="postalCode">
           <Form.Label>Postal Code</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter postal code"
+            placeholder="e.g., 12345 or A1A 1A1"
             value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
           ></Form.Control>

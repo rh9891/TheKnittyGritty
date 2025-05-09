@@ -26,3 +26,15 @@ export const updateCart = (state: WritableDraft<CartState>) => {
 
   return state;
 };
+
+export const parseWeightInGrams = (weight: string): number => {
+  const DEFAULT_WEIGHT = 100;
+
+  const regex = /(\d+)\s*(g|gram|grams)?/i;
+  const match = weight.match(regex);
+
+  if (match && match[1]) {
+    return parseInt(match[1], 10);
+  }
+  return DEFAULT_WEIGHT;
+};

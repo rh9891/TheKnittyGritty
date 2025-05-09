@@ -8,6 +8,7 @@ import type { SerializedError } from "@reduxjs/toolkit";
 
 import { useLoginMutation } from "../slices/usersApiSlice.ts";
 import { setCredentials } from "../slices/authSlice.ts";
+import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
 import type { RootState } from "../store.ts";
 import type { LoginRequest } from "../types.ts";
 import Loader from "../components/Loader";
@@ -48,12 +49,12 @@ const Login = () => {
       if ("status" in error) {
         if (error.data && typeof error.data === "object") {
           const data = error.data as { message?: string };
-          toast.error(data?.message || "Something went wrong.");
+          toast.error(data?.message || DEFAULT_ERROR_MESSAGE);
         } else {
-          toast.error("Something went wrong.");
+          toast.error(DEFAULT_ERROR_MESSAGE);
         }
       } else {
-        toast.error(error.message || "Something went wrong.");
+        toast.error(error.message || DEFAULT_ERROR_MESSAGE);
       }
     }
   };

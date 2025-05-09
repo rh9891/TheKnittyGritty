@@ -7,7 +7,9 @@ export const DEFAULT_ERROR_MESSAGE = "Yarn it! Something went wrong!";
 export const DEFAULT_SHIPPING_ADDRESS = {
   name: "",
   address: "",
+  address2: "",
   city: "",
+  state: "",
   postalCode: "",
   country: "",
 };

@@ -1,5 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 
+import { DEFAULT_ERROR_MESSAGE } from "../../frontend/constants.js";
+
 interface CustomError extends Error {
   statusCode?: number;
   kind?: string;
@@ -21,7 +23,7 @@ const errorHandler = (
   next: NextFunction,
 ) => {
   let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
-  let message = err.message || "Yarn it! Something went wrong!";
+  let message = err.message || DEFAULT_ERROR_MESSAGE;
 
   if (err.name === "CastError" && err.kind === "ObjectId") {
     message = "This yarn is not in our stash. Product not found.";

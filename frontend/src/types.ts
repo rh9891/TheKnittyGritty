@@ -20,13 +20,16 @@ export type Product = {
 export type ShippingAddress = {
   name: string;
   address: string;
+  address2?: string;
   city: string;
+  state: string;
   postalCode: string;
   country: string;
 };
 
 export interface CartItem extends Product {
   quantity: number;
+  product: Product;
 }
 
 export type CartState = {
