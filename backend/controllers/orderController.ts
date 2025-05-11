@@ -1,7 +1,8 @@
 import { Response } from "express";
 
 import { AuthenticatedRequest } from "../middleware/authMiddleware.js";
-import Order, { OrderItem } from "../models/orderModel.js";
+import { OrderItem } from "../../frontend/src/types.js";
+import Order from "../models/orderModel.js";
 import asyncHandler from "../middleware/asyncHandler.js";
 
 // @desc    Create new order

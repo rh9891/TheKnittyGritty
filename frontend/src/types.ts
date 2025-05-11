@@ -32,6 +32,15 @@ export interface CartItem extends Product {
   product: Product;
 }
 
+export interface OrderItem extends Product {
+  _id: string;
+  name: string;
+  quantity: number;
+  image: string;
+  price: number;
+  product: string;
+}
+
 export type CartState = {
   cartItems: CartItem[];
   itemsPrice: string;
@@ -52,4 +61,30 @@ export type UserResponse = {
   name: string;
   email: string;
   isAdmin: boolean;
+};
+
+export type OrderResponse = {
+  _id: string;
+  user: {
+    name: string;
+    email: string;
+  };
+  orderItems: OrderItem[];
+  shippingAddress: ShippingAddress;
+  paymentMethod: string;
+  paymentResult?: {
+    id: string;
+    status: string;
+    update_time: string;
+    email_address: string;
+  };
+  itemsPrice: number;
+  taxPrice: number;
+  shippingPrice: number;
+  totalPrice: number;
+  isPaid: boolean;
+  paidAt?: string;
+  isDelivered: boolean;
+  deliveredAt?: string;
+  createdAt: string;
 };

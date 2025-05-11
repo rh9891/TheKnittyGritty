@@ -1,13 +1,5 @@
 import mongoose from "mongoose";
 
-export type OrderItem = {
-  _id: string;
-  name: string;
-  quantity: number;
-  image: string;
-  price: number;
-};
-
 const orderSchema = new mongoose.Schema(
   {
     user: {
@@ -29,8 +21,11 @@ const orderSchema = new mongoose.Schema(
       },
     ],
     shippingAddress: {
+      name: { type: String, required: true },
       address: { type: String, required: true },
+      address2: { type: String },
       city: { type: String, required: true },
+      state: { type: String, required: true },
       postalCode: { type: String, required: true },
       country: { type: String, required: true },
     },
