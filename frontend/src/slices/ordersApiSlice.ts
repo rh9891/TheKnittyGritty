@@ -9,13 +9,15 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
         method: "POST",
         body: { ...order },
       }),
-      invalidatesTags: ["Order"],
     }),
-    getOrders: builder.query({
-      query: () => ORDERS_URL,
-      providesTags: ["Order"],
+    getOrderDetails: builder.query({
+      query: (orderId) => ({
+        url: `${ORDERS_URL}/${orderId}`,
+      }),
+      keepUnusedDataFor: 5,
     }),
   }),
 });
 
-export const { useCreateOrderMutation, useGetOrdersQuery } = ordersApiSlice;
+export const { useCreateOrderMutation, useGetOrderDetailsQuery } =
+  ordersApiSlice;
