@@ -1,13 +1,23 @@
+import { useEffect } from "react";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
 import { Link, useParams } from "react-router-dom";
 import { Button, Card, Col, Image, ListGroup, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { usePayPalScriptReducer } from "@paypal/react-paypal-js";
 
 import type { RootState } from "../store.ts";
-import type { OrderItem, OrderResponse } from "../types.ts";
+import type {
+  OrderItem,
+  OrderResponse,
+  PayPalClientIdResponse,
+} from "../types.ts";
 import { formatDate } from "../utils/sharedUtils.ts";
-import { useGetOrderDetailsQuery } from "../slices/ordersApiSlice.ts";
+import {
+  useGetOrderDetailsQuery,
+  useGetPayPalClientIdQuery,
+  usePayOrderMutation,
+} from "../slices/ordersApiSlice.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
 import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";
@@ -27,6 +37,40 @@ const Invoice = () => {
     error: FetchBaseQueryError | SerializedError;
     refetch: () => void;
   };
+  const [payOrder, { isLoading: loadingPay }] = usePayOrderMutation();
+
+  const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
+
+  const {
+    data: paypal,
+    isLoading: loadingPayPal,
+    error: errorPayPal,
+  } = useGetPayPalClientIdQuery() as {
+    data: PayPalClientIdResponse | undefined;
+    isLoading: boolean;
+    error: FetchBaseQueryError | SerializedError;
+  };
+
+  useEffect(() => {
+    if (!errorPayPal && !loadingPayPal && paypal?.clientId) {
+      const loadPayPalScript = async () => {
+        paypalDispatch({
+          type: "resetOptions",
+          value: {
+            "client-id": paypal.clientId,
+            currency: "USD",
+          },
+        });
+        paypalDispatch({ type: "setLoadingStatus", value: "pending" });
+      };
+
+      if (order && !order.isPaid) {
+        if (!window.paypal) {
+          loadPayPalScript();
+        }
+      }
+    }
+  }, [errorPayPal, loadingPayPal, order, paypal, paypalDispatch]);
 
   if (isLoading) {
     return <Loader />;

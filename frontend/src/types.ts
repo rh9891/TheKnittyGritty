@@ -88,3 +88,16 @@ export type OrderResponse = {
   deliveredAt?: string;
   createdAt: string;
 };
+
+export type PaymentDetails = {
+  id: string;
+  status: string;
+  update_time: string;
+  payer: {
+    email_address: string;
+  };
+};
+
+export type PayPalClientIdResponse = {
+  clientId: string;
+};
