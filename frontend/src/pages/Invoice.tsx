@@ -17,6 +17,7 @@ import type { RootState } from "../store.ts";
 import type {
   OrderItem,
   OrderResponse,
+  PaymentDetails,
   PayPalClientIdResponse,
   PayPalError,
 } from "../types.ts";
@@ -106,7 +107,7 @@ const Invoice = () => {
       }
 
       try {
-        await payOrder({ orderId, details });
+        await payOrder({ orderId, details: details as PaymentDetails });
         refetch();
         toast.success("Order paid successfully.");
       } catch (err) {
@@ -124,12 +125,6 @@ const Invoice = () => {
         }
       }
     });
-  };
-
-  const onApproveTest = async (): Promise<void> => {
-    await payOrder({ orderId, details: { payer: {} } });
-    refetch();
-    toast.success("Order paid successfully.");
   };
 
   const onError = async (err: PayPalError): Promise<void> => {
@@ -150,9 +145,11 @@ const Invoice = () => {
   ): Promise<string> => {
     return actions.order
       .create({
+        intent: "CAPTURE",
         purchase_units: [
           {
             amount: {
+              currency_code: "USD",
               value: order.totalPrice.toString(),
             },
           },
@@ -319,18 +316,16 @@ const Invoice = () => {
                   {isPending ? (
                     <Loader />
                   ) : (
-                    <div>
-                      <Button className="mb-3" onClick={onApproveTest}>
-                        Test Pay Order
-                      </Button>
-                      <div>
-                        <PayPalButtons
-                          createOrder={createOrder}
-                          onApprove={onApprove}
-                          onError={onError}
-                        />
-                      </div>
-                    </div>
+                    <PayPalButtons
+                      style={{
+                        layout: "vertical",
+                        height: 40,
+                        disableMaxWidth: true,
+                      }}
+                      createOrder={createOrder}
+                      onApprove={onApprove}
+                      onError={onError}
+                    />
                   )}
                 </ListGroup.Item>
               )}

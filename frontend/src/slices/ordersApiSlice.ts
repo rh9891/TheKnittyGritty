@@ -1,6 +1,6 @@
 import { apiSlice } from "./apiSlice.ts";
 import { ORDERS_URL, PAYPAL_URL } from "../../constants.ts";
-import { PaymentDetails } from "../types.ts";
+import { PaymentDetails, PayPalClientIdResponse } from "../types.ts";
 
 export const ordersApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -27,7 +27,7 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
         body: details,
       }),
     }),
-    getPayPalClientId: builder.query({
+    getPayPalClientId: builder.query<PayPalClientIdResponse, void>({
       query: () => ({
         url: PAYPAL_URL,
       }),
