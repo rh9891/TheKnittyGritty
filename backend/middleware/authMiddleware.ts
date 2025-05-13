@@ -21,8 +21,8 @@ const protect = asyncHandler(
         const decoded = jwt.verify(token, jwtSecret) as { userId: string };
         req.user = await User.findById(decoded.userId).select("-password");
         next();
-      } catch (error) {
-        console.log(error);
+      } catch (err) {
+        console.log(err);
         res.status(401);
         throw new Error(
           "Your session has unraveled. Token verification failed.",

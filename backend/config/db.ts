@@ -10,9 +10,9 @@ const connectDB = async (): Promise<void> => {
 
     const conn = await mongoose.connect(mongoURI);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.log(`Error: ${error.message}`);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      console.log(`Error: ${err.message}`);
     } else {
       console.log("Unknown error during DB connection");
     }

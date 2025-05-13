@@ -27,8 +27,8 @@ const importData = async () => {
     await Product.insertMany(sampleProducts);
     console.log(colors.green.inverse("Data imported."));
     process.exit();
-  } catch (error) {
-    console.error(colors.red.inverse(`${error}`));
+  } catch (err) {
+    console.error(colors.red.inverse(`${err}`));
     process.exit(1);
   }
 };
@@ -41,8 +41,8 @@ const destroyData = async () => {
 
     console.log(colors.red.inverse("Data destroyed."));
     process.exit();
-  } catch (error) {
-    console.error(colors.red.inverse(`${error}`));
+  } catch (err) {
+    console.error(colors.red.inverse(`${err}`));
     process.exit(1);
   }
 };

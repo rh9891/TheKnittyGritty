@@ -101,3 +101,5 @@ export type PaymentDetails = {
 export type PayPalClientIdResponse = {
   clientId: string;
 };
+
+export type PayPalError = Record<string, unknown>;

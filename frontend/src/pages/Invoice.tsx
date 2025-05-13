@@ -1,16 +1,24 @@
-import { useEffect } from "react";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
+import type {
+  CreateOrderActions,
+  CreateOrderData,
+  OnApproveActions,
+  OnApproveData,
+} from "@paypal/paypal-js/types/components/buttons";
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Button, Card, Col, Image, ListGroup, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import { toast } from "react-toastify";
 
 import type { RootState } from "../store.ts";
 import type {
   OrderItem,
   OrderResponse,
   PayPalClientIdResponse,
+  PayPalError,
 } from "../types.ts";
 import { formatDate } from "../utils/sharedUtils.ts";
 import {
@@ -31,12 +39,13 @@ const Invoice = () => {
     isLoading,
     error,
     refetch,
-  } = useGetOrderDetailsQuery(orderId) as {
+  } = useGetOrderDetailsQuery(orderId!, { skip: !orderId }) as {
     data: OrderResponse;
     isLoading: boolean;
     error: FetchBaseQueryError | SerializedError;
     refetch: () => void;
   };
+
   const [payOrder, { isLoading: loadingPay }] = usePayOrderMutation();
 
   const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
@@ -57,11 +66,11 @@ const Invoice = () => {
         paypalDispatch({
           type: "resetOptions",
           value: {
-            "client-id": paypal.clientId,
+            clientId: paypal.clientId,
             currency: "USD",
           },
-        });
-        paypalDispatch({ type: "setLoadingStatus", value: "pending" });
+        } as never);
+        paypalDispatch({ type: "setLoadingStatus", value: "pending" } as never);
       };
 
       if (order && !order.isPaid) {
@@ -72,13 +81,87 @@ const Invoice = () => {
     }
   }, [errorPayPal, loadingPayPal, order, paypal, paypalDispatch]);
 
-  if (isLoading) {
+  if (!orderId) {
+    return (
+      <Message variant="danger" text="Yarn it! Your order ID is missing." />
+    );
+  }
+
+  if (isLoading || loadingPay) {
     return <Loader />;
   }
 
   if (error) {
     return <Message variant="danger" text={DEFAULT_ERROR_MESSAGE} />;
   }
+
+  const onApprove = async (
+    _data: OnApproveData,
+    actions: OnApproveActions,
+  ): Promise<void> => {
+    return actions.order!.capture().then(async function (details) {
+      if (!details.id) {
+        toast.error("Payment failed. Please try again.");
+        return;
+      }
+
+      try {
+        await payOrder({ orderId, details });
+        refetch();
+        toast.success("Order paid successfully.");
+      } catch (err) {
+        const error = err as FetchBaseQueryError | SerializedError;
+
+        if ("status" in error) {
+          if (error.data && typeof error.data === "object") {
+            const data = error.data as { message?: string };
+            toast.error(data?.message || DEFAULT_ERROR_MESSAGE);
+          } else {
+            toast.error(DEFAULT_ERROR_MESSAGE);
+          }
+        } else {
+          toast.error(error.message || DEFAULT_ERROR_MESSAGE);
+        }
+      }
+    });
+  };
+
+  const onApproveTest = async (): Promise<void> => {
+    await payOrder({ orderId, details: { payer: {} } });
+    refetch();
+    toast.success("Order paid successfully.");
+  };
+
+  const onError = async (err: PayPalError): Promise<void> => {
+    const message =
+      typeof err === "object" &&
+      err !== null &&
+      "message" in err &&
+      typeof err.message === "string"
+        ? err.message
+        : DEFAULT_ERROR_MESSAGE;
+
+    toast.error(message);
+  };
+
+  const createOrder = async (
+    _data: CreateOrderData,
+    actions: CreateOrderActions,
+  ): Promise<string> => {
+    return actions.order
+      .create({
+        purchase_units: [
+          {
+            amount: {
+              value: order.totalPrice.toString(),
+            },
+          },
+        ],
+      })
+      .then((orderId: string) => {
+        return orderId;
+      });
+  };
 
   return (
     <>
@@ -230,7 +313,27 @@ const Invoice = () => {
                   <Col>${order.totalPrice.toFixed(2)}</Col>
                 </Row>
               </ListGroup.Item>
-              {/*PAY ORDER PLACEHOLDER*/}
+              {!order.isPaid && (
+                <ListGroup.Item>
+                  {/*{loadingPay && <Loader />}*/}
+                  {isPending ? (
+                    <Loader />
+                  ) : (
+                    <div>
+                      <Button className="mb-3" onClick={onApproveTest}>
+                        Test Pay Order
+                      </Button>
+                      <div>
+                        <PayPalButtons
+                          createOrder={createOrder}
+                          onApprove={onApprove}
+                          onError={onError}
+                        />
+                      </div>
+                    </div>
+                  )}
+                </ListGroup.Item>
+              )}
               {/*MARK AS DELIVERED PLACEHOLDER*/}
               {userInfo &&
                 userInfo.isAdmin &&
