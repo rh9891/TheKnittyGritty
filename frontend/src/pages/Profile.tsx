@@ -1,9 +1,9 @@
+import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import type { SerializedError } from "@reduxjs/toolkit";
 import { FormEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
-import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
-import type { SerializedError } from "@reduxjs/toolkit";
 
 import type { RootState } from "../store.ts";
 import { useProfileMutation } from "../slices/usersApiSlice.ts";

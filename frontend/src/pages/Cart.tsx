@@ -42,7 +42,8 @@ const Cart = () => {
             variant="danger"
             text={
               <>
-                Knit happens! Looks like your cart is currently empty.
+                Money can’t buy happiness, but it can buy yarn, which is kind of
+                the same thing. Looks like your cart is currently empty.
                 <Link to="/">&nbsp;Browse our collection.</Link>
               </>
             }
