@@ -13,7 +13,7 @@ import {
   MISMATCH_ERROR_MESSAGE,
 } from "../../constants.ts";
 import Loader from "../components/Loader";
-import OrdersTable from "../components/OrdersTable.tsx";
+import UserOrdersTable from "../components/UserOrdersTable.tsx";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -113,7 +113,7 @@ const Profile = () => {
       </Col>
       <Col md={9}>
         <h2>Your Orders</h2>
-        <OrdersTable />
+        <UserOrdersTable />
       </Col>
     </Row>
   );

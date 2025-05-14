@@ -14,7 +14,7 @@ import {
 import Loader from "./Loader";
 import Message from "./Message.tsx";
 
-const OrdersTable = () => {
+const UserOrdersTable = () => {
   const {
     data: orders,
     isLoading: loadingOrders,
@@ -93,4 +93,4 @@ const OrdersTable = () => {
   );
 };
 
-export default OrdersTable;
+export default UserOrdersTable;

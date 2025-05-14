@@ -10,8 +10,6 @@ import { Provider } from "react-redux";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 import store from "./store.ts";
-import "../assets/styles/index.css";
-import "../assets/styles/bootstrap.custom.css";
 import App from "./App.tsx";
 import Home from "./pages/Home.tsx";
 import Product from "./pages/Product.tsx";
@@ -23,7 +21,12 @@ import Payment from "./pages/Payment.tsx";
 import Order from "./pages/Order.tsx";
 import Invoice from "./pages/Invoice.tsx";
 import Profile from "./pages/Profile.tsx";
+import UsersOrders from "./pages/UsersOrders.tsx";
 import PrivateRoute from "./components/PrivateRoute.tsx";
+import AdminRoute from "./components/AdminRoute.tsx";
+
+import "../assets/styles/index.css";
+import "../assets/styles/bootstrap.custom.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,6 +42,9 @@ const router = createBrowserRouter(
         <Route path="/place-order" element={<Order />} />
         <Route path="/order/:id" element={<Invoice />} />
         <Route path="/profile" element={<Profile />} />
+      </Route>
+      <Route path="" element={<AdminRoute />}>
+        <Route path="/admin/orders" element={<UsersOrders />} />
       </Route>
     </Route>,
   ),
