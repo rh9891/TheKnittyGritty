@@ -1,18 +1,19 @@
 import { FormEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Col, Form, Row, Table } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
 
 import type { RootState } from "../store.ts";
 import { useProfileMutation } from "../slices/usersApiSlice.ts";
+import { setCredentials } from "../slices/authSlice.ts";
 import {
   DEFAULT_ERROR_MESSAGE,
   MISMATCH_ERROR_MESSAGE,
 } from "../../constants.ts";
-import { setCredentials } from "../slices/authSlice.ts";
 import Loader from "../components/Loader";
+import OrdersTable from "../components/OrdersTable.tsx";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -112,17 +113,7 @@ const Profile = () => {
       </Col>
       <Col md={9}>
         <h2>Your Orders</h2>
-        <Table striped bordered hover responsive className="table-sm">
-          <thead>
-            <tr>
-              <th>Order Ref. No.</th>
-              <th>Date</th>
-              <th>Total</th>
-              <th>Payment Date</th>
-              <th>Delivery Date</th>
-            </tr>
-          </thead>
-        </Table>
+        <OrdersTable />
       </Col>
     </Row>
   );

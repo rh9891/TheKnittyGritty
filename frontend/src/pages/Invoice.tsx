@@ -27,7 +27,11 @@ import {
   useGetPayPalClientIdQuery,
   usePayOrderMutation,
 } from "../slices/ordersApiSlice.ts";
-import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
+import {
+  DEFAULT_ERROR_MESSAGE,
+  UNDELIVERED_ORDER_MESSAGE,
+  UNPAID_ORDER_MESSAGE,
+} from "../../constants.ts";
 import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";
 
@@ -200,10 +204,7 @@ const Invoice = () => {
                   text={`Delivered on ${formatDate(order.deliveredAt)}.`}
                 />
               ) : (
-                <Message
-                  variant="danger"
-                  text="Order has not yet been delivered."
-                />
+                <Message variant="danger" text={UNDELIVERED_ORDER_MESSAGE} />
               )}
             </ListGroup.Item>
             <ListGroup.Item>
@@ -215,10 +216,7 @@ const Invoice = () => {
                   text={`Paid on ${formatDate(order.paidAt)}`}
                 />
               ) : (
-                <Message
-                  variant="danger"
-                  text="Payment is unpaid and has not been processed."
-                />
+                <Message variant="danger" text={UNPAID_ORDER_MESSAGE} />
               )}
             </ListGroup.Item>
             <ListGroup.Item>
