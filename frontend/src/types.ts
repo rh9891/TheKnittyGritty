@@ -29,7 +29,6 @@ export type ShippingAddress = {
 
 export interface CartItem extends Product {
   quantity: number;
-  product: Product;
 }
 
 export interface OrderItem extends Product {
