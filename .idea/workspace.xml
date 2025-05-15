@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01742179-77e3-431d-b0f9-e2906402e45d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/AdminRoute.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/UsersOrdersTable.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/UsersOrders.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/OrdersPreview.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/orderController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/orderController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/OrdersTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UserOrdersTable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/slices/ordersApiSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/slices/ordersApiSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/UsersOrdersTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UsersOrdersTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/UsersOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/UsersOrders.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +97,7 @@
       <workItem from="1744763347672" duration="62000" />
       <workItem from="1744818465567" duration="44830000" />
       <workItem from="1745616098316" duration="4408000" />
-      <workItem from="1745722044931" duration="200433000" />
+      <workItem from="1745722044931" duration="208543000" />
     </task>
     <servers />
   </component>

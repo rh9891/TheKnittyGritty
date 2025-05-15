@@ -6,7 +6,6 @@ import { FaExclamationCircle } from "react-icons/fa";
 
 import type { OrderResponse } from "../types.ts";
 import { formatDate } from "../utils/sharedUtils.ts";
-import { useGetOrdersQuery } from "../slices/ordersApiSlice.ts";
 import {
   DEFAULT_ERROR_MESSAGE,
   UNDELIVERED_ORDER_MESSAGE,
@@ -15,9 +14,17 @@ import {
 import Loader from "./Loader";
 import Message from "./Message.tsx";
 
-const UsersOrdersTable = () => {
-  const { data: orders, isLoading, error } = useGetOrdersQuery(undefined);
+type UsersOrdersTableProps = {
+  orders: OrderResponse[];
+  isLoading: boolean;
+  error: FetchBaseQueryError | SerializedError | undefined;
+};
 
+const UsersOrdersTable = ({
+  orders,
+  isLoading,
+  error,
+}: UsersOrdersTableProps) => {
   if (isLoading) {
     return <Loader />;
   }
