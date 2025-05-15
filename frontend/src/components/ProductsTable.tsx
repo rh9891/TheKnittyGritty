@@ -1,7 +1,7 @@
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
 import { useState } from "react";
-import { Button, Table } from "react-bootstrap";
+import { Badge, Button, Table } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
@@ -58,6 +58,8 @@ const ProductsTable = () => {
           <tr>
             <th>Product ID</th>
             <th>Name</th>
+            <th>Status</th>
+            <th>Stock</th>
             <th>Price</th>
             <th>Category</th>
             <th>Content</th>
@@ -69,6 +71,16 @@ const ProductsTable = () => {
             <tr key={product._id}>
               <td>{product._id}</td>
               <td>{product.name}</td>
+              <td>
+                {product.countInStock > 0 && product.countInStock >= 20 ? (
+                  <Badge bg="primary">In Stock</Badge>
+                ) : product.countInStock === 0 ? (
+                  <Badge bg="danger">Out of Stock</Badge>
+                ) : (
+                  <Badge bg="warning">Low Stock</Badge>
+                )}
+              </td>
+              <td>{product.countInStock}</td>
               <td>${product.price.toFixed(2)}</td>
               <td>{product.category}</td>
               <td>{product.content}</td>
