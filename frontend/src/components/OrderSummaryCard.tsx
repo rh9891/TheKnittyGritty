@@ -22,6 +22,7 @@ import type {
 import { formatDate } from "../utils/sharedUtils.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
 import {
+  useDeliverOrderMutation,
   useGetPayPalClientIdQuery,
   usePayOrderMutation,
 } from "../slices/ordersApiSlice.ts";
@@ -41,6 +42,9 @@ const OrderSummaryCard = ({
   const { userInfo } = useSelector((state: RootState) => state.auth);
 
   const [payOrder, { isLoading: loadingPay }] = usePayOrderMutation();
+
+  const [deliverOrder, { isLoading: loadingDeliver }] =
+    useDeliverOrderMutation();
 
   const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
 
@@ -139,9 +143,30 @@ const OrderSummaryCard = ({
       });
   };
 
-  if (loadingPay || loadingPayPal) {
+  if (loadingPay || loadingPayPal || loadingDeliver) {
     return <Loader />;
   }
+
+  const deliverOrderHandler = async () => {
+    try {
+      await deliverOrder(orderId);
+      refetch();
+      toast.success("Order delivered successfully.");
+    } catch (err) {
+      const error = err as FetchBaseQueryError | SerializedError;
+
+      if ("status" in error) {
+        if (error.data && typeof error.data === "object") {
+          const data = error.data as { message?: string };
+          toast.error(data?.message || DEFAULT_ERROR_MESSAGE);
+        } else {
+          toast.error(DEFAULT_ERROR_MESSAGE);
+        }
+      } else {
+        toast.error(error.message || DEFAULT_ERROR_MESSAGE);
+      }
+    }
+  };
 
   return (
     <Card>
@@ -213,13 +238,12 @@ const OrderSummaryCard = ({
             )}
           </ListGroup.Item>
         )}
-        {/*MARK AS DELIVERED PLACEHOLDER*/}
         {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
           <ListGroup.Item>
             <Button
               type="button"
               className="btn btn-block"
-              onClick={() => console.log("mark as delivered")}
+              onClick={deliverOrderHandler}
             >
               Mark Order As Delivered
             </Button>
