@@ -15,7 +15,19 @@ type EndpointBuilder = ReduxEndpointBuilder<
   "api"
 >;
 
-const baseQuery = fetchBaseQuery({ baseUrl: BASE_URL });
+const baseQuery = fetchBaseQuery({
+  baseUrl: BASE_URL,
+  prepareHeaders: (headers, { getState }) => {
+    const token = (getState() as { auth: { userInfo?: { token?: string } } })
+      .auth.userInfo?.token;
+
+    if (token) {
+      headers.set("Authorization", `Bearer ${token}`);
+    }
+
+    return headers;
+  },
+});
 
 export const apiSlice = createApi({
   baseQuery,

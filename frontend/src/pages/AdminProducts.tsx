@@ -1,16 +1,35 @@
+import { useState } from "react";
 import { Button, Row } from "react-bootstrap";
 import { FaPlus } from "react-icons/fa";
 
-import { useGetProductsQuery } from "../slices/productApiSlice.ts";
+import {
+  useCreateProductMutation,
+  useGetProductsQuery,
+} from "../slices/productApiSlice.ts";
 import ProductsPreview from "../components/ProductsPreview.tsx";
 import ProductsTable from "../components/ProductsTable.tsx";
+import ConfirmModal from "../components/ConfirmModal.tsx";
 
 const AdminProducts = () => {
-  const { data: products, isLoading, error } = useGetProductsQuery();
+  const [show, setShow] = useState(false);
+  const { data: products, isLoading, error, refetch } = useGetProductsQuery();
+  const [createProduct, { isLoading: loadingCreateProduct }] =
+    useCreateProductMutation();
 
-  const createProductHandler = () => {
-    console.log("create product");
+  const handleOnConfirm = () => {
+    createProductHandler();
+    setShow(false);
   };
+
+  const createProductHandler = async () => {
+    try {
+      await createProduct().unwrap();
+      refetch();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div>
       <Row>
@@ -18,7 +37,7 @@ const AdminProducts = () => {
           <h1>Products</h1>
           <Button
             className="my-3 d-flex align-items-center gap-1"
-            onClick={createProductHandler}
+            onClick={() => setShow(true)}
           >
             <FaPlus /> Add Product
           </Button>
@@ -30,6 +49,16 @@ const AdminProducts = () => {
         />
       </Row>
       <ProductsTable />
+      <ConfirmModal
+        show={show}
+        title="Create New Product"
+        body="Are you sure you want to create a new product? A placeholder product (Hurston Heather) will be added, which you can edit with full details afterward."
+        confirmText="Create"
+        onConfirm={handleOnConfirm}
+        onCancel={() => setShow(false)}
+        loading={loadingCreateProduct}
+        error={error}
+      />
     </div>
   );
 };
