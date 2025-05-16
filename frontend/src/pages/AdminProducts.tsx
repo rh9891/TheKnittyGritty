@@ -1,3 +1,5 @@
+import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import type { SerializedError } from "@reduxjs/toolkit";
 import { useState } from "react";
 import { Button, Row } from "react-bootstrap";
 import { FaPlus } from "react-icons/fa";
@@ -12,21 +14,26 @@ import ConfirmModal from "../components/ConfirmModal.tsx";
 
 const AdminProducts = () => {
   const [show, setShow] = useState(false);
+  const [createError, setCreateError] = useState<
+    FetchBaseQueryError | SerializedError | undefined
+  >(undefined);
   const { data: products, isLoading, error, refetch } = useGetProductsQuery();
   const [createProduct, { isLoading: loadingCreateProduct }] =
     useCreateProductMutation();
 
   const handleOnConfirm = () => {
     createProductHandler();
-    setShow(false);
   };
 
   const createProductHandler = async () => {
+    setCreateError(undefined);
     try {
       await createProduct().unwrap();
       refetch();
+      setShow(false);
     } catch (err) {
       console.log(err);
+      setCreateError(err as FetchBaseQueryError | SerializedError);
     }
   };
 
@@ -55,9 +62,12 @@ const AdminProducts = () => {
         body="Are you sure you want to create a new product? A placeholder product (Hurston Heather) will be added, which you can edit with full details afterward."
         confirmText="Create"
         onConfirm={handleOnConfirm}
-        onCancel={() => setShow(false)}
+        onCancel={() => {
+          setShow(false);
+          setCreateError(undefined);
+        }}
         loading={loadingCreateProduct}
-        error={error}
+        error={createError}
       />
     </div>
   );
