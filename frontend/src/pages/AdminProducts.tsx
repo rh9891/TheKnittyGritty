@@ -21,10 +21,6 @@ const AdminProducts = () => {
   const [createProduct, { isLoading: loadingCreateProduct }] =
     useCreateProductMutation();
 
-  const handleOnConfirm = () => {
-    createProductHandler();
-  };
-
   const createProductHandler = async () => {
     setCreateError(undefined);
     try {
@@ -61,7 +57,7 @@ const AdminProducts = () => {
         title="Create New Product"
         body="Are you sure you want to create a new product? A placeholder product (Hurston Heather) will be added, which you can edit with full details afterward."
         confirmText="Create"
-        onConfirm={handleOnConfirm}
+        onConfirm={createProductHandler}
         onCancel={() => {
           setShow(false);
           setCreateError(undefined);
