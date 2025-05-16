@@ -17,6 +17,8 @@ export type Product = {
   numReviews: number;
 };
 
+export type ProductUpdateInput = Omit<Product, "rating" | "numReviews">;
+
 export type ShippingAddress = {
   name: string;
   address: string;

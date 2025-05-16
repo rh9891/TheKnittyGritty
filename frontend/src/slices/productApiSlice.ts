@@ -1,6 +1,6 @@
 import { PRODUCTS_URL } from "../../constants.ts";
 import { apiSlice } from "./apiSlice.ts";
-import { Product } from "../types.ts";
+import { Product, ProductUpdateInput } from "../types.ts";
 
 export const productApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -8,6 +8,7 @@ export const productApiSlice = apiSlice.injectEndpoints({
       query: () => ({
         url: PRODUCTS_URL,
       }),
+      providesTags: ["Product"],
       keepUnusedDataFor: 5,
     }),
     getProductById: builder.query<Product, string>({
@@ -23,6 +24,14 @@ export const productApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Product"],
     }),
+    updateProduct: builder.mutation<ProductUpdateInput, ProductUpdateInput>({
+      query: (product) => ({
+        url: `${PRODUCTS_URL}/${product._id}`,
+        method: "PUT",
+        body: product,
+      }),
+      invalidatesTags: ["Product"],
+    }),
   }),
 });
 
@@ -30,4 +39,5 @@ export const {
   useGetProductsQuery,
   useGetProductByIdQuery,
   useCreateProductMutation,
+  useUpdateProductMutation,
 } = productApiSlice;

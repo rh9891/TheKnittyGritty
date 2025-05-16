@@ -1,6 +1,6 @@
 import asyncHandler from "../middleware/asyncHandler.js";
 import Product from "../models/productModel.js";
-import { AuthenticatedRequest } from "../middleware/authMiddleware.js";
+import { AuthenticatedRequest } from "../middleware/authMiddleware.js"; // @desc    Fetch all products
 
 // @desc    Fetch all products
 // @route   GET /api/products
@@ -51,4 +51,49 @@ const createProduct = asyncHandler(async (req: AuthenticatedRequest, res) => {
   res.status(201).json(createdProduct);
 });
 
-export { getProducts, getProductById, createProduct };
+// @desc    Update a product
+// @route   PUT /api/products/:id
+// @access  Private/Admin
+const updateProduct = asyncHandler(async (req: AuthenticatedRequest, res) => {
+  const {
+    name,
+    image,
+    description,
+    weight,
+    length,
+    gauge,
+    knitting_needle,
+    crochet_hook,
+    recommended_care,
+    content,
+    category,
+    price,
+    countInStock,
+  } = req.body;
+
+  const product = await Product.findById(req.params.id);
+
+  if (product) {
+    product.name = name;
+    product.image = image;
+    product.description = description;
+    product.weight = weight;
+    product.length = length;
+    product.gauge = gauge;
+    product.knitting_needle = knitting_needle;
+    product.crochet_hook = crochet_hook;
+    product.recommended_care = recommended_care;
+    product.content = content;
+    product.category = category;
+    product.price = price;
+    product.countInStock = countInStock;
+
+    const updatedProduct = await product.save();
+    res.json(updatedProduct);
+  } else {
+    res.status(404);
+    throw new Error("Product not successfully updated.");
+  }
+});
+
+export { getProducts, getProductById, createProduct, updateProduct };
