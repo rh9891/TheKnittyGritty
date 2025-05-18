@@ -2,16 +2,11 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import { Product as ProductType } from "../types.ts";
+import { imageSrc } from "../utils/sharedUtils.ts";
 import Rating from "./Rating.tsx";
 
 type ProductProps = {
   product: ProductType;
-};
-
-const imageSrc = (product: ProductType) => {
-  return product.image.startsWith("/images")
-    ? product.image
-    : `${import.meta.env.VITE_API_URL}${product.image}`;
 };
 
 const Product = ({ product }: ProductProps) => {

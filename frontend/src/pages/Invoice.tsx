@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { Col, Image, ListGroup, Row } from "react-bootstrap";
 
 import type { OrderItem, OrderResponse } from "../types.ts";
-import { formatDate } from "../utils/sharedUtils.ts";
+import { formatDate, imageSrc } from "../utils/sharedUtils.ts";
 import { useGetOrderDetailsQuery } from "../slices/ordersApiSlice.ts";
 import {
   DEFAULT_ERROR_MESSAGE,
@@ -106,7 +106,12 @@ const Invoice = () => {
                   <ListGroup.Item key={i}>
                     <Row>
                       <Col md={1}>
-                        <Image src={item.image} alt={item.name} fluid rounded />
+                        <Image
+                          src={imageSrc(item)}
+                          alt={item.name}
+                          fluid
+                          rounded
+                        />
                       </Col>
                       <Col>
                         <Link to={`/product/${item.product}`}>{item.name}</Link>

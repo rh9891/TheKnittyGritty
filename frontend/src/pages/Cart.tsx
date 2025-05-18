@@ -13,6 +13,7 @@ import { FaTrash } from "react-icons/fa";
 
 import { RootState } from "../store.ts";
 import { addToCart, removeFromCart } from "../slices/cartSlice.ts";
+import { imageSrc } from "../utils/sharedUtils.ts";
 import { CartItem } from "../types.ts";
 import Message from "../components/Message";
 
@@ -54,7 +55,7 @@ const Cart = () => {
               <ListGroup.Item key={item._id}>
                 <Row>
                   <Col md={2}>
-                    <Image src={item.image} alt={item.name} fluid rounded />
+                    <Image src={imageSrc(item)} alt={item.name} fluid rounded />
                   </Col>
                   <Col md={3}>
                     <Link to={`/product/${item._id}`}>{item.name}</Link>

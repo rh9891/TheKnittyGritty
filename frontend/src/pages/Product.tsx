@@ -15,6 +15,7 @@ import type { SerializedError } from "@reduxjs/toolkit";
 
 import { useGetProductByIdQuery } from "../slices/productApiSlice";
 import { addToCart } from "../slices/cartSlice";
+import { imageSrc } from "../utils/sharedUtils.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
@@ -63,7 +64,11 @@ const Product = () => {
       </Link>
       <Row>
         <Col md={6}>
-          <Image src={product?.image} alt={product?.name} fluid />
+          <Image
+            src={product ? imageSrc(product) : ""}
+            alt={product?.name}
+            fluid
+          />
         </Col>
         <Col md={3}>
           <ListGroup variant="flush">

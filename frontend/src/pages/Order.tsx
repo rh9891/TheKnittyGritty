@@ -8,6 +8,7 @@ import type { SerializedError } from "@reduxjs/toolkit";
 
 import type { RootState } from "../store.ts";
 import { clearCartItems } from "../slices/cartSlice.ts";
+import { imageSrc } from "../utils/sharedUtils.ts";
 import { parseWeightInGrams } from "../utils/cartUtils.ts";
 import { useCreateOrderMutation } from "../slices/ordersApiSlice.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
@@ -132,16 +133,14 @@ const Order = () => {
                       <Row>
                         <Col md={1}>
                           <Image
-                            src={item.image}
+                            src={imageSrc(item)}
                             alt={item.name}
                             fluid
                             rounded
                           />
                         </Col>
                         <Col>
-                          <Link to={`/product/${item.product}`}>
-                            {item.name}
-                          </Link>
+                          <Link to={`/product/${item._id}`}>{item.name}</Link>
                         </Col>
                         <Col md={4}>
                           {item.quantity} x ${item.price.toFixed(2)} = $

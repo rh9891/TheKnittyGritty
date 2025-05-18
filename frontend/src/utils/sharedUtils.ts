@@ -1,3 +1,5 @@
+import { Product as ProductType } from "../types.ts";
+
 export const formatDate = (dateInput?: string | number | Date): string => {
   if (!dateInput) return "Invalid date";
 
@@ -10,4 +12,17 @@ export const formatDate = (dateInput?: string | number | Date): string => {
   };
 
   return date.toLocaleDateString("en-US", options);
+};
+
+export const imageSrc = (product: ProductType) => {
+  const baseUrl = import.meta.env.VITE_API_URL?.replace(/\/$/, "");
+  const normalizedImage = product.image.replace(/^\/?backend/, "");
+
+  const finalPath = normalizedImage.startsWith("/")
+    ? normalizedImage
+    : `/${normalizedImage}`;
+
+  return product.image.startsWith("/images")
+    ? finalPath
+    : `${baseUrl}${finalPath}`;
 };
