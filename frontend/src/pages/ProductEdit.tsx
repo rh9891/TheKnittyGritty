@@ -38,7 +38,11 @@ const ProductEdit = () => {
       <Link to="/admin/products" className="btn btn-primary my-3">
         Go Back
       </Link>
-      <ProductEditForm product={product} productId={productId} />
+      <ProductEditForm
+        refetch={refetch}
+        product={product}
+        productId={productId}
+      />
     </>
   );
 };

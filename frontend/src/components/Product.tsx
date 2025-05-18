@@ -8,13 +8,19 @@ type ProductProps = {
   product: ProductType;
 };
 
+const imageSrc = (product: ProductType) => {
+  return product.image.startsWith("/images")
+    ? product.image
+    : `${import.meta.env.VITE_API_URL}${product.image}`;
+};
+
 const Product = ({ product }: ProductProps) => {
   const priceToDisplay = product.price?.toFixed(2);
 
   return (
     <Card className="my-3 p-3 rounded">
       <Link to={`/product/${product._id}`}>
-        <Card.Img src={product.image} variant="top" />
+        <Card.Img src={imageSrc(product)} variant="top" />
       </Link>
       <Card.Body>
         <Link to={`/product/${product._id}`}>

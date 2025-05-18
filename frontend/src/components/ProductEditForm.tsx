@@ -1,22 +1,29 @@
-import { FormEvent, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import type { SerializedError } from "@reduxjs/toolkit";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 
 import type { Product, ProductUpdateInput } from "../types.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
-import { useUpdateProductMutation } from "../slices/productApiSlice.ts";
+import {
+  useUpdateProductMutation,
+  useUploadProductImageMutation,
+} from "../slices/productApiSlice.ts";
 import FormContainer from "./FormContainer.tsx";
 import Loader from "./Loader";
 
 type ProductEditFormProps = {
   product?: Product;
   productId?: string;
+  refetch: () => void;
 };
 
-const ProductEditForm = ({ product, productId }: ProductEditFormProps) => {
-  const navigate = useNavigate();
-
+const ProductEditForm = ({
+  product,
+  productId,
+  refetch,
+}: ProductEditFormProps) => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
@@ -33,6 +40,9 @@ const ProductEditForm = ({ product, productId }: ProductEditFormProps) => {
 
   const [updateProduct, { isLoading: loadingUpdateProduct }] =
     useUpdateProductMutation();
+
+  const [uploadProductImage, { isLoading: loadingUploadProductImage }] =
+    useUploadProductImageMutation();
 
   const submitHandler = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -53,9 +63,10 @@ const ProductEditForm = ({ product, productId }: ProductEditFormProps) => {
       countInStock,
     };
 
-    const result = await updateProduct(updatedProduct);
-    if ("error" in result && result.error) {
-      const err = result.error;
+    const res = await updateProduct(updatedProduct);
+
+    if ("error" in res && res.error) {
+      const err = res.error;
       const message =
         "status" in err &&
         typeof err.data === "object" &&
@@ -67,12 +78,35 @@ const ProductEditForm = ({ product, productId }: ProductEditFormProps) => {
       toast.error(message);
     } else {
       toast.success("Product updated successfully.");
-      navigate("/admin/products");
+      refetch();
     }
   };
 
-  const uploadFileHandler = () => {
-    console.log("upload");
+  const uploadFileHandler = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    try {
+      const res = await uploadProductImage(formData).unwrap();
+      toast.success("Image uploaded successfully.");
+      setImage(res.image);
+    } catch (err) {
+      const error = err as FetchBaseQueryError | SerializedError;
+
+      if ("status" in error) {
+        if (error.data && typeof error.data === "object") {
+          const data = error.data as { message?: string };
+          toast.error(data?.message || DEFAULT_ERROR_MESSAGE);
+        } else {
+          toast.error(DEFAULT_ERROR_MESSAGE);
+        }
+      } else {
+        toast.error(error.message || DEFAULT_ERROR_MESSAGE);
+      }
+    }
   };
 
   useEffect(() => {
@@ -93,7 +127,7 @@ const ProductEditForm = ({ product, productId }: ProductEditFormProps) => {
     }
   }, [product]);
 
-  if (loadingUpdateProduct) {
+  if (loadingUpdateProduct || loadingUploadProductImage) {
     return <Loader />;
   }
 
@@ -125,22 +159,19 @@ const ProductEditForm = ({ product, productId }: ProductEditFormProps) => {
             onChange={(event) => setDescription(event.target.value)}
           ></Form.Control>
         </Form.Group>
-        {/*<Form.Group controlId="image" className="my-3">*/}
-        {/*  <Form.Label>Image</Form.Label>*/}
-        {/*  <Form.Control*/}
-        {/*    type="text"*/}
-        {/*    placeholder="Enter image URL"*/}
-        {/*    value={image}*/}
-        {/*    onChange={(event) => setImage(event.target.value)}*/}
-        {/*  />*/}
-        {/*  <Form.File*/}
-        {/*    id="image-file"*/}
-        {/*    label="Select JPG or PNG file to upload"*/}
-        {/*    custom*/}
-        {/*    onChange={uploadFileHandler}*/}
-        {/*  ></Form.File>*/}
-        {/*  {uploading && <Loader />}*/}
-        {/*</Form.Group>*/}
+        <Form.Group controlId="image" className="my-3">
+          <Form.Label>Image</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter image URL"
+            value={image}
+            onChange={(event) => setImage(event.target.value)}
+          />
+          <Form.Label className="my-2">
+            Select JPG or PNG file to upload
+          </Form.Label>
+          <Form.Control type="file" onChange={uploadFileHandler} />
+        </Form.Group>
         <Form.Group controlId="category" className="my-3">
           <Form.Label>Category</Form.Label>
           <Form.Control
