@@ -2,7 +2,7 @@ import User, { IUserDocument } from "../models/userModel.js";
 import { AuthenticatedRequest } from "../middleware/authMiddleware.js";
 import { USER_NOT_FOUND_ERROR_MESSAGE } from "../../frontend/constants.js";
 import asyncHandler from "../middleware/asyncHandler.js";
-import generateToken from "../utils/generateToken.js";
+import generateToken from "../utils/generateToken.js"; // @desc    Authorize user and get token
 
 // @desc    Authorize user and get token
 // @route   GET /api/users/login
@@ -161,7 +161,7 @@ const deleteUser = asyncHandler(async (req, res) => {
       throw new Error("You can’t delete an admin user.");
     }
     await User.deleteOne({ _id: user._id });
-    res.status(200).json({ message: "User successfully deleted." });
+    res.status(200).json({ message: "User deleted successfully." });
   } else {
     res.status(404);
     throw new Error(USER_NOT_FOUND_ERROR_MESSAGE);

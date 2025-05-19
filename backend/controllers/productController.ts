@@ -92,7 +92,7 @@ const updateProduct = asyncHandler(async (req: AuthenticatedRequest, res) => {
     res.json(updatedProduct);
   } else {
     res.status(404);
-    throw new Error("Product not successfully updated.");
+    throw new Error("Product not updated successfully.");
   }
 });
 
@@ -104,10 +104,10 @@ const deleteProduct = asyncHandler(async (req: AuthenticatedRequest, res) => {
 
   if (product) {
     await Product.deleteOne({ _id: product._id });
-    res.json({ message: "Product successfully deleted." });
+    res.json({ message: "Product deleted successfully." });
   } else {
     res.status(404);
-    throw new Error("Product not successfully deleted.");
+    throw new Error("Product not deleted successfully.");
   }
 });
 
