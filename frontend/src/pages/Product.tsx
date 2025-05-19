@@ -1,3 +1,5 @@
+import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import type { SerializedError } from "@reduxjs/toolkit";
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {
@@ -10,8 +12,6 @@ import {
   Row,
 } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
-import type { SerializedError } from "@reduxjs/toolkit";
 
 import { useGetProductByIdQuery } from "../slices/productApiSlice";
 import { addToCart } from "../slices/cartSlice";

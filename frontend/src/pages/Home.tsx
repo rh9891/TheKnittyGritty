@@ -1,6 +1,6 @@
-import { Col, Row } from "react-bootstrap";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
+import { Col, Row } from "react-bootstrap";
 
 import { useGetProductsQuery } from "../slices/productApiSlice.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";

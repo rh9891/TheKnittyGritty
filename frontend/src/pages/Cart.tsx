@@ -11,10 +11,10 @@ import {
 } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 
-import { RootState } from "../store.ts";
+import type { RootState } from "../store.ts";
+import type { CartItem } from "../types.ts";
 import { addToCart, removeFromCart } from "../slices/cartSlice.ts";
 import { imageSrc } from "../utils/sharedUtils.ts";
-import { CartItem } from "../types.ts";
 import Message from "../components/Message";
 
 const Cart = () => {
