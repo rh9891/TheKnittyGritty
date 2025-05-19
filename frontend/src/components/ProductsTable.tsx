@@ -4,9 +4,13 @@ import { useState } from "react";
 import { Badge, Button, Table } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
-import { useGetProductsQuery } from "../slices/productApiSlice.ts";
+import {
+  useDeleteProductMutation,
+  useGetProductsQuery,
+} from "../slices/productApiSlice.ts";
 import Loader from "./Loader";
 import Message from "./Message.tsx";
 import ConfirmModal from "./ConfirmModal.tsx";
@@ -30,10 +34,32 @@ const ProductsTable = () => {
     setShow(true);
   };
 
-  const { data: products, isLoading, error } = useGetProductsQuery();
+  const { data: products, isLoading, error, refetch } = useGetProductsQuery();
 
-  const deleteHandler = (id: string) => {
-    console.log("Deleting:", id);
+  const [
+    deleteProduct,
+    { isLoading: loadingDeleteProduct, error: deleteError },
+  ] = useDeleteProductMutation();
+
+  const deleteHandler = async (id: string) => {
+    try {
+      await deleteProduct(id);
+      toast.success("Product deleted successfully.");
+      refetch();
+    } catch (err) {
+      const error = err as FetchBaseQueryError | SerializedError;
+
+      if ("status" in error) {
+        if (error.data && typeof error.data === "object") {
+          const data = error.data as { message?: string };
+          toast.error(data?.message || DEFAULT_ERROR_MESSAGE);
+        } else {
+          toast.error(DEFAULT_ERROR_MESSAGE);
+        }
+      } else {
+        toast.error(error.message || DEFAULT_ERROR_MESSAGE);
+      }
+    }
   };
 
   if (isLoading) {
@@ -111,6 +137,8 @@ const ProductsTable = () => {
         confirmText="Delete"
         onConfirm={handleOnConfirm}
         onCancel={handleOnCancel}
+        loading={loadingDeleteProduct}
+        error={deleteError}
       />
     </>
   );
