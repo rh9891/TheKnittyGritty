@@ -25,6 +25,7 @@ import UsersOrders from "./pages/UsersOrders.tsx";
 import AdminProducts from "./pages/AdminProducts.tsx";
 import ProductEdit from "./pages/ProductEdit.tsx";
 import AdminUsers from "./pages/AdminUsers.tsx";
+import UserEdit from "./pages/UserEdit.tsx";
 import PrivateRoute from "./components/PrivateRoute.tsx";
 import AdminRoute from "./components/AdminRoute.tsx";
 
@@ -51,6 +52,7 @@ const router = createBrowserRouter(
         <Route path="/admin/products" element={<AdminProducts />} />
         <Route path="/admin/product/:id/edit" element={<ProductEdit />} />
         <Route path="/admin/users" element={<AdminUsers />} />
+        <Route path="/admin/user/:id/edit" element={<UserEdit />} />
       </Route>
     </Route>,
   ),
