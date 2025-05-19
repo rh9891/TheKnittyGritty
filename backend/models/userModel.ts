@@ -1,4 +1,4 @@
-import mongoose, { Document, Model } from "mongoose";
+import mongoose, { Document, Model, Types } from "mongoose";
 import bcrypt from "bcryptjs";
 
 export interface IUser {
@@ -9,6 +9,12 @@ export interface IUser {
 }
 
 export interface IUserDocument extends IUser, Document {
+  _id: Types.ObjectId;
+  name: string;
+  email: string;
+  password: string;
+  isAdmin: boolean;
+
   matchPassword(enteredPassword: string): Promise<boolean>;
 }
 
