@@ -8,7 +8,7 @@ import type { SerializedError } from "@reduxjs/toolkit";
 
 import { useLoginMutation } from "../slices/usersApiSlice.ts";
 import { setCredentials } from "../slices/authSlice.ts";
-import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
+import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import type { RootState } from "../store.ts";
 import type { LoginRequest } from "../types.ts";
 import Loader from "../components/Loader";

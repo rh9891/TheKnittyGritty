@@ -10,7 +10,7 @@ import {
   DEFAULT_ERROR_MESSAGE,
   UNDELIVERED_ORDER_MESSAGE,
   UNPAID_ORDER_MESSAGE,
-} from "../../constants.ts";
+} from "../../../shared/constants.ts";
 import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";
 import OrderSummaryCard from "../components/OrderSummaryCard.tsx";

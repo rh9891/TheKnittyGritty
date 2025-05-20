@@ -7,7 +7,7 @@ import {
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query/react";
 
-import { BASE_URL } from "../../constants.ts";
+import { BASE_URL } from "../../../shared/constants.ts";
 
 type EndpointBuilder = ReduxEndpointBuilder<
   BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError>,

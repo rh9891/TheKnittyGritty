@@ -16,7 +16,7 @@ import { useDispatch } from "react-redux";
 import { useGetProductByIdQuery } from "../slices/productApiSlice";
 import { addToCart } from "../slices/cartSlice";
 import { imageSrc } from "../utils/sharedUtils.ts";
-import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
+import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";

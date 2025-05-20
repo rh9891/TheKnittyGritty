@@ -20,7 +20,7 @@ import type {
   PayPalError,
 } from "../types.ts";
 import { formatDate } from "../utils/sharedUtils.ts";
-import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
+import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import {
   useDeliverOrderMutation,
   useGetPayPalClientIdQuery,

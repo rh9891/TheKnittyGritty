@@ -6,7 +6,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
 
-import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
+import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import {
   useDeleteProductMutation,
   useGetProductsQuery,

@@ -11,7 +11,7 @@ import { clearCartItems } from "../slices/cartSlice.ts";
 import { imageSrc } from "../utils/sharedUtils.ts";
 import { parseWeightInGrams } from "../utils/cartUtils.ts";
 import { useCreateOrderMutation } from "../slices/ordersApiSlice.ts";
-import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
+import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import Message from "../components/Message.tsx";
 import CheckoutSteps from "../components/CheckoutSteps.tsx";
 import Loader from "../components/Loader";

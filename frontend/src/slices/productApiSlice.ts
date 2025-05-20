@@ -1,4 +1,4 @@
-import { PRODUCTS_URL, UPLOAD_URL } from "../../constants.ts";
+import { PRODUCTS_URL, UPLOAD_URL } from "../../../shared/constants.ts";
 import { apiSlice } from "./apiSlice.ts";
 import { Product, ProductUpdateInput } from "../types.ts";
 

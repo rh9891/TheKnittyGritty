@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-import { DEFAULT_ERROR_MESSAGE } from "../../frontend/constants.js";
+import { DEFAULT_ERROR_MESSAGE } from "../../shared/constants.js";
 
 interface CustomError extends Error {
   statusCode?: number;

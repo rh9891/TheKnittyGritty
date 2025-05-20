@@ -2,7 +2,7 @@ import { Button, Modal } from "react-bootstrap";
 
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
-import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
+import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import Loader from "./Loader";
 import Message from "./Message";
 

@@ -2,7 +2,7 @@ import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
 import { Link, useParams } from "react-router-dom";
 
-import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
+import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import { useGetProductByIdQuery } from "../slices/productApiSlice.ts";
 import Loader from "../components/Loader";
 import ProductEditForm from "../components/ProductEditForm.tsx";

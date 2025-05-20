@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { CartItem, CartState, ShippingAddress } from "../types.ts";
 import { updateCart } from "../utils/cartUtils.ts";
-import { DEFAULT_SHIPPING_ADDRESS } from "../../constants.ts";
+import { DEFAULT_SHIPPING_ADDRESS } from "../../../shared/constants.ts";
 
 const initialState: CartState = localStorage.getItem("cart")
   ? JSON.parse(localStorage.getItem("cart") as string)

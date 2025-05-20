@@ -5,8 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01742179-77e3-431d-b0f9-e2906402e45d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/userModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/userModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/userController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/middleware/errorMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/middleware/errorMiddleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ConfirmModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ConfirmModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/OrderSummaryCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/OrderSummaryCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ProductEditForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ProductEditForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ProductsTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ProductsTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/UserEditForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UserEditForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/UserOrdersTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UserOrdersTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/UsersOrdersTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UsersOrdersTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/UsersTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UsersTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Invoice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Invoice.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Order.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Order.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Product.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Product.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/ProductEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ProductEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Shipping.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Shipping.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/UserEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/UserEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/slices/apiSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/slices/apiSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/slices/cartSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/slices/cartSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/slices/ordersApiSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/slices/ordersApiSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/slices/productApiSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/slices/productApiSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/slices/usersApiSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/slices/usersApiSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +87,11 @@
       <recent name="$PROJECT_DIR$/backend/data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/shared" />
       <recent name="$PROJECT_DIR$/frontend/public/images" />
       <recent name="$PROJECT_DIR$/frontend/src" />
       <recent name="$PROJECT_DIR$/backend" />
       <recent name="$PROJECT_DIR$/frontend" />
-      <recent name="$PROJECT_DIR$/frontend/public" />
     </key>
   </component>
   <component name="SharedIndexes">

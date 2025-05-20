@@ -5,7 +5,7 @@ import { Button, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 
 import type { Product, ProductUpdateInput } from "../types.ts";
-import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
+import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import {
   useUpdateProductMutation,
   useUploadProductImageMutation,

@@ -7,7 +7,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 import type { UserResponse } from "../types.ts";
-import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
+import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import { useDeleteUserMutation } from "../slices/usersApiSlice.ts";
 import Loader from "./Loader";
 import Message from "./Message.tsx";

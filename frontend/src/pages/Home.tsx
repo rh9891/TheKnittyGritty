@@ -3,7 +3,7 @@ import type { SerializedError } from "@reduxjs/toolkit";
 import { Col, Row } from "react-bootstrap";
 
 import { useGetProductsQuery } from "../slices/productApiSlice.ts";
-import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
+import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import Product from "../components/Product.tsx";
 import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";

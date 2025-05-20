@@ -1,6 +1,6 @@
 import User, { IUserDocument } from "../models/userModel.js";
 import { AuthenticatedRequest } from "../middleware/authMiddleware.js";
-import { USER_NOT_FOUND_ERROR_MESSAGE } from "../../frontend/constants.js";
+import { USER_NOT_FOUND_ERROR_MESSAGE } from "../../shared/constants.js";
 import asyncHandler from "../middleware/asyncHandler.js";
 import generateToken from "../utils/generateToken.js"; // @desc    Authorize user and get token
 

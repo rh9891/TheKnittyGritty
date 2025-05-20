@@ -1,4 +1,4 @@
-import { USERS_URL } from "../../constants.ts";
+import { USERS_URL } from "../../../shared/constants.ts";
 import { apiSlice } from "./apiSlice.ts";
 import type { LoginRequest, UserResponse } from "../types.ts";
 

@@ -10,7 +10,7 @@ import {
   PRODUCTS_URL,
   UPLOAD_URL,
   USERS_URL,
-} from "../frontend/constants.js";
+} from "../shared/constants.js";
 import connectDB from "./config/db.js";
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";

@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 
 import type { UserResponse } from "../types.ts";
-import { DEFAULT_ERROR_MESSAGE } from "../../constants.ts";
+import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import { useUpdateUserMutation } from "../slices/usersApiSlice.ts";
 import FormContainer from "./FormContainer.tsx";
 import Loader from "./Loader";

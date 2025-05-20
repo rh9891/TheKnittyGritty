@@ -11,7 +11,7 @@ import { setCredentials } from "../slices/authSlice.ts";
 import {
   DEFAULT_ERROR_MESSAGE,
   MISMATCH_ERROR_MESSAGE,
-} from "../../constants.ts";
+} from "../../../shared/constants.ts";
 import Loader from "../components/Loader";
 import UserOrdersTable from "../components/UserOrdersTable.tsx";
 

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { saveShippingAddress } from "../slices/cartSlice.ts";
-import { DEFAULT_SHIPPING_ADDRESS } from "../../constants.ts";
+import { DEFAULT_SHIPPING_ADDRESS } from "../../../shared/constants.ts";
 import type { RootState } from "../store.ts";
 import FormContainer from "../components/FormContainer.tsx";
 import CheckoutSteps from "../components/CheckoutSteps.tsx";
