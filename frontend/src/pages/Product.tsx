@@ -20,6 +20,8 @@ import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";
+import Review from "../components/Review.tsx";
+import CustomerReview from "../components/CustomerReview.tsx";
 
 const Product = () => {
   const { id: productId } = useParams();
@@ -30,6 +32,7 @@ const Product = () => {
     data: product,
     isLoading,
     error,
+    refetch,
   } = useGetProductByIdQuery(productId ?? "");
   const priceToDisplay = product?.price?.toFixed(2);
 
@@ -147,6 +150,18 @@ const Product = () => {
               </ListGroup.Item>
             </ListGroup>
           </Card>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={6}>
+          <Review product={product} productId={productId} refetch={refetch} />
+        </Col>
+        <Col md={6}>
+          <CustomerReview
+            product={product}
+            productId={productId}
+            refetch={refetch}
+          />
         </Col>
       </Row>
     </>

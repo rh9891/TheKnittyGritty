@@ -2,7 +2,7 @@ import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 type RatingProps = {
   value: number;
-  text: string;
+  text?: string;
 };
 
 const Rating = ({ value, text }: RatingProps) => {
@@ -53,7 +53,7 @@ const Rating = ({ value, text }: RatingProps) => {
           <FaRegStar />
         )}
       </span>
-      <span className="rating-text">{text && text}</span>
+      {text && <span className="rating-text">{text}</span>}
     </div>
   );
 };

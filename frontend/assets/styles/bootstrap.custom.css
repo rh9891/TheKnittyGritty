@@ -62,7 +62,7 @@
     --bs-light-bg-subtle: #f1f3f5;
     --bs-dark-bg-subtle: #dee2e6;
     --bs-primary-border-subtle: #b1b7be;
-    --bs-secondary-border-subtle: #bdcecf;
+    --bs-secondary-border-subtle: #a3e4d7;
     --bs-success-border-subtle: #a3e4d7;
     --bs-info-border-subtle: #aed6f1;
     --bs-warning-border-subtle: #fad7a0;
@@ -90,7 +90,7 @@
     --bs-emphasis-color-rgb: 0, 0, 0;
     --bs-secondary-color: rgba(123, 138, 139, 0.75);
     --bs-secondary-color-rgb: 123, 138, 139;
-    --bs-secondary-bg: #bdcecf;
+    --bs-secondary-bg: #dff2ec;
     --bs-secondary-bg-rgb: 189, 206, 207;
     --bs-tertiary-color: rgba(123, 138, 139, 0.5);
     --bs-tertiary-color-rgb: 123, 138, 139;
@@ -3903,7 +3903,7 @@ fieldset:disabled .btn {
     --bs-dropdown-link-hover-color: var(--bs-body-color);
     --bs-dropdown-link-hover-bg: var(--bs-tertiary-bg);
     --bs-dropdown-link-active-color: #fff;
-    --bs-dropdown-link-active-bg: #3c4c5d;
+    --bs-dropdown-link-active-bg: #78c2ad;
     --bs-dropdown-link-disabled-color: #7b8a8b;
     --bs-dropdown-item-padding-x: 1.2rem;
     --bs-dropdown-item-padding-y: 0.3rem;
@@ -9665,7 +9665,7 @@ fieldset:disabled .btn {
 
 .bg-dark {
     --bs-bg-opacity: 1;
-    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+    background-color: #78c2ad
 }
 
 .bg-black {
