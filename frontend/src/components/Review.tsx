@@ -1,20 +1,9 @@
 import { ListGroup } from "react-bootstrap";
 
-import type { Product as IProduct } from "../types.ts";
+import type { IProduct as Product } from "../types.ts";
 import { formatDate } from "../utils/sharedUtils.ts";
 import Rating from "./Rating.tsx";
-
-type Review = {
-  _id: string;
-  name: string;
-  rating: number;
-  comment: string;
-  createdAt: string;
-};
-
-interface Product extends IProduct {
-  reviews?: Review[];
-}
+import Message from "./Message.tsx";
 
 type ReviewProps = {
   product?: Product;
@@ -37,6 +26,11 @@ const Review = ({ product }: ReviewProps) => {
             <p>{review.comment}</p>
           </ListGroup.Item>
         ))}
+        {product?.reviews?.length === 0 && (
+          <ListGroup.Item>
+            <Message text="No Reviews" variant="success" />
+          </ListGroup.Item>
+        )}
       </ListGroup>
     </>
   );

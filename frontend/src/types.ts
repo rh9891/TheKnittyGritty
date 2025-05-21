@@ -19,6 +19,19 @@ export type Product = {
 
 export type ProductUpdateInput = Omit<Product, "rating" | "numReviews">;
 
+type Review = {
+  _id: string;
+  user: string;
+  name: string;
+  rating: number;
+  comment: string;
+  createdAt: string;
+};
+
+export interface IProduct extends Product {
+  reviews?: Review[];
+}
+
 export type ShippingAddress = {
   name: string;
   address: string;

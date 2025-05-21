@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01742179-77e3-431d-b0f9-e2906402e45d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/RatingPreview.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Review.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/ReviewModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/styles/bootstrap.custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/assets/styles/bootstrap.custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Rating.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Rating.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Product.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Product.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/slices/productApiSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/slices/productApiSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CustomerReview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CustomerReview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Review.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Review.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/UserOrdersTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UserOrdersTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

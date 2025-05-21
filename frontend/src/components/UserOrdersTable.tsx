@@ -49,45 +49,54 @@ const UserOrdersTable = () => {
         </tr>
       </thead>
       <tbody>
-        {Array.isArray(orders) &&
-          orders.map((order) => (
-            <tr className="table-light" key={order._id}>
-              <td>{order._id}</td>
-              <td>{formatDate(order.createdAt)}</td>
-              <td>${order.totalPrice}</td>
-              <td>
-                {order.isPaid ? (
-                  formatDate(order.paidAt)
-                ) : (
-                  <OverlayTrigger
-                    placement="top"
-                    overlay={<Tooltip>{UNPAID_ORDER_MESSAGE}</Tooltip>}
-                  >
-                    <FaExclamationCircle color="#ffce67" />
-                  </OverlayTrigger>
-                )}
-              </td>
-              <td>
-                {order.isDelivered ? (
-                  formatDate(order.deliveredAt)
-                ) : (
-                  <OverlayTrigger
-                    placement="top"
-                    overlay={<Tooltip>{UNDELIVERED_ORDER_MESSAGE}</Tooltip>}
-                  >
-                    <FaExclamationCircle color="#ffce67" />
-                  </OverlayTrigger>
-                )}
-              </td>
-              <td>
-                <LinkContainer to={`/order/${order._id}`}>
-                  <Button className="btn-sm" variant="primary">
-                    See Invoice
-                  </Button>
-                </LinkContainer>
-              </td>
-            </tr>
-          ))}
+        {Array.isArray(orders) && orders.length > 0 ? (
+          <>
+            {orders.map((order) => (
+              <tr className="table-light" key={order._id}>
+                <td>{order._id}</td>
+                <td>{formatDate(order.createdAt)}</td>
+                <td>${order.totalPrice}</td>
+                <td>
+                  {order.isPaid ? (
+                    formatDate(order.paidAt)
+                  ) : (
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={<Tooltip>{UNPAID_ORDER_MESSAGE}</Tooltip>}
+                    >
+                      <FaExclamationCircle color="#ffce67" />
+                    </OverlayTrigger>
+                  )}
+                </td>
+                <td>
+                  {order.isDelivered ? (
+                    formatDate(order.deliveredAt)
+                  ) : (
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={<Tooltip>{UNDELIVERED_ORDER_MESSAGE}</Tooltip>}
+                    >
+                      <FaExclamationCircle color="#ffce67" />
+                    </OverlayTrigger>
+                  )}
+                </td>
+                <td>
+                  <LinkContainer to={`/order/${order._id}`}>
+                    <Button className="btn-sm" variant="primary">
+                      See Invoice
+                    </Button>
+                  </LinkContainer>
+                </td>
+              </tr>
+            ))}
+          </>
+        ) : (
+          <tr className="table-light">
+            <td colSpan={6} className="text-center text-muted py-4">
+              No orders found.
+            </td>
+          </tr>
+        )}
       </tbody>
     </Table>
   );
