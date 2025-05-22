@@ -11,11 +11,15 @@ import Message from "../components/Message.tsx";
 import Paginate from "../components/Paginate.tsx";
 
 const Home = () => {
-  const { pageNumber } = useParams();
-  const { data, isLoading, error } = useGetProductsQuery({ pageNumber });
-  const products = data?.products;
-  const pages = data?.pages;
-  const page = data?.page;
+  const { pageNumber } = useParams<{ pageNumber?: string }>();
+  const parsedPageNumber = pageNumber ? parseInt(pageNumber, 10) : 1;
+
+  const { data, isLoading, error } = useGetProductsQuery({
+    pageNumber: parsedPageNumber,
+  });
+  const products = data?.products ?? [];
+  const pages = data?.pages ?? 1;
+  const page = data?.page ?? 1;
 
   if (isLoading) {
     return <Loader />;
