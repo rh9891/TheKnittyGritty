@@ -12,6 +12,12 @@ type GetProductsResponse = {
   pages: number;
 };
 
+type ProductStatsResponse = {
+  totalProducts: number;
+  lowStockCount: number;
+  outOfStockCount: number;
+};
+
 export const productApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getProducts: builder.query<GetProductsResponse, GetProductsQueryArgs>({
@@ -20,6 +26,13 @@ export const productApiSlice = apiSlice.injectEndpoints({
         params: {
           pageNumber,
         },
+      }),
+      providesTags: ["Product"],
+      keepUnusedDataFor: 5,
+    }),
+    getProductStats: builder.query<ProductStatsResponse, void>({
+      query: () => ({
+        url: `${PRODUCTS_URL}?preview=true`,
       }),
       providesTags: ["Product"],
       keepUnusedDataFor: 5,
@@ -74,6 +87,7 @@ export const productApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useGetProductsQuery,
+  useGetProductStatsQuery,
   useGetProductByIdQuery,
   useCreateProductMutation,
   useUpdateProductMutation,

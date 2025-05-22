@@ -8,9 +8,30 @@ import { AuthenticatedRequest } from "../middleware/authMiddleware.js"; // @desc
 // @route   GET /api/products
 // @access  Public
 const getProducts = asyncHandler(async (req, res) => {
+  const previewMode = req.query.preview === "true";
   const pageSize = 8;
   const page = Number(req.query.pageNumber || 1);
   const count = await Product.countDocuments({});
+
+  if (previewMode) {
+    const allProducts = await Product.find({});
+    const totalProducts = allProducts.length;
+    const lowStockThreshold = 20;
+
+    const lowStockCount = allProducts.filter(
+      (p) => p.countInStock > 0 && p.countInStock <= lowStockThreshold,
+    ).length;
+
+    const outOfStockCount = allProducts.filter(
+      (p) => p.countInStock === 0,
+    ).length;
+
+    return res.json({
+      totalProducts,
+      lowStockCount,
+      outOfStockCount,
+    });
+  }
 
   const products = await Product.find({})
     .limit(pageSize)

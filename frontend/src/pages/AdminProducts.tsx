@@ -1,7 +1,8 @@
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
 import { useState } from "react";
-import { Button, Row } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import { FaPlus } from "react-icons/fa";
 
 import {
@@ -11,13 +12,24 @@ import {
 import ProductsPreview from "../components/ProductsPreview.tsx";
 import ProductsTable from "../components/ProductsTable.tsx";
 import ConfirmModal from "../components/ConfirmModal.tsx";
+import Paginate from "../components/Paginate.tsx";
 
 const AdminProducts = () => {
+  const { pageNumber } = useParams<{ pageNumber?: string }>();
+  const parsedPageNumber = pageNumber ? parseInt(pageNumber, 10) : 1;
   const [show, setShow] = useState(false);
   const [createError, setCreateError] = useState<
     FetchBaseQueryError | SerializedError | undefined
   >(undefined);
-  const { data: products, isLoading, error, refetch } = useGetProductsQuery();
+
+  const { data, isLoading, error, refetch } = useGetProductsQuery({
+    pageNumber: parsedPageNumber,
+  });
+
+  const products = data?.products ?? [];
+  const pages = data?.pages ?? 1;
+  const page = data?.page ?? 1;
+
   const [createProduct, { isLoading: loadingCreateProduct }] =
     useCreateProductMutation();
 
@@ -34,24 +46,26 @@ const AdminProducts = () => {
   };
 
   return (
-    <div>
-      <Row>
-        <div className="d-flex justify-content-between align-items-center">
-          <h1>Products</h1>
-          <Button
-            className="my-3 d-flex align-items-center gap-1"
-            onClick={() => setShow(true)}
-          >
-            <FaPlus /> Add Product
-          </Button>
-        </div>
-        <ProductsPreview
-          products={products}
-          isLoading={isLoading}
-          error={error}
-        />
-      </Row>
-      <ProductsTable />
+    <>
+      <div className="d-flex justify-content-between align-items-center">
+        <h1>Products</h1>
+        <Button
+          className="my-3 d-flex align-items-center gap-1"
+          onClick={() => setShow(true)}
+        >
+          <FaPlus /> Add Product
+        </Button>
+      </div>
+      <ProductsPreview />
+      <ProductsTable
+        products={products}
+        isLoading={isLoading}
+        error={error}
+        refetch={refetch}
+      />
+      <div className="d-flex justify-content-center my-2">
+        <Paginate pages={pages} page={page} isAdmin={true} />
+      </div>
       <ConfirmModal
         show={show}
         title="Create New Product"
@@ -65,7 +79,7 @@ const AdminProducts = () => {
         loading={loadingCreateProduct}
         error={createError}
       />
-    </div>
+    </>
   );
 };
 

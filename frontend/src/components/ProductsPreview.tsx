@@ -1,27 +1,17 @@
-import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
-import type { SerializedError } from "@reduxjs/toolkit";
 import { Card, Col, Row } from "react-bootstrap";
 
-import type { Product } from "../types.ts";
+import { useGetProductStatsQuery } from "../slices/productApiSlice.ts";
 import Message from "./Message.tsx";
 import Loader from "./Loader";
 
-type ProductsPreviewProps = {
-  products?: Product[];
-  isLoading: boolean;
-  error: FetchBaseQueryError | SerializedError | undefined;
-};
+const ProductsPreview = () => {
+  const { data, isLoading, error } = useGetProductStatsQuery();
 
-const ProductsPreview = ({
-  products,
-  isLoading,
-  error,
-}: ProductsPreviewProps) => {
   if (isLoading) {
     return <Loader />;
   }
 
-  if (!products || error) {
+  if (error) {
     return (
       <Message
         variant="danger"
@@ -30,15 +20,9 @@ const ProductsPreview = ({
     );
   }
 
-  const totalProducts = products.length;
-  const lowStockThreshold = 20;
-  const totalLowStockProducts = products.filter(
-    (product) =>
-      product.countInStock > 0 && product.countInStock <= lowStockThreshold,
-  ).length;
-  const outOfStockCount = products.filter(
-    (product) => product.countInStock === 0,
-  ).length;
+  const totalProducts = data?.totalProducts;
+  const lowStockCount = data?.lowStockCount;
+  const outOfStockCount = data?.outOfStockCount;
 
   return (
     <Row className="mb-4">
@@ -57,7 +41,7 @@ const ProductsPreview = ({
           <Card.Body>
             <Card.Subtitle className="mb-2 text-dark">Low Count</Card.Subtitle>
             <Card.Title className="mb-0 text-warning">
-              {totalLowStockProducts}
+              {lowStockCount}
             </Card.Title>
           </Card.Body>
         </Card>

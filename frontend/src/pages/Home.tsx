@@ -47,7 +47,9 @@ const Home = () => {
             </Col>
           ))}
       </Row>
-      <Paginate pages={pages} page={page} />
+      <div className="d-flex justify-content-center my-2">
+        <Paginate pages={pages} page={page} />
+      </div>
     </>
   );
 };

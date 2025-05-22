@@ -7,15 +7,25 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
-import {
-  useDeleteProductMutation,
-  useGetProductsQuery,
-} from "../slices/productApiSlice.ts";
+import { useDeleteProductMutation } from "../slices/productApiSlice.ts";
 import Loader from "./Loader";
 import Message from "./Message.tsx";
 import ConfirmModal from "./ConfirmModal.tsx";
+import type { Product } from "../types.ts";
 
-const ProductsTable = () => {
+type ProductsTableProps = {
+  products?: Product[];
+  isLoading: boolean;
+  error: FetchBaseQueryError | SerializedError | undefined;
+  refetch: () => void;
+};
+
+const ProductsTable = ({
+  products,
+  isLoading,
+  error,
+  refetch,
+}: ProductsTableProps) => {
   const [show, setShow] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState<string | null>(
     null,
@@ -33,8 +43,6 @@ const ProductsTable = () => {
     setSelectedProductId(id);
     setShow(true);
   };
-
-  const { data: products, isLoading, error, refetch } = useGetProductsQuery();
 
   const [
     deleteProduct,
