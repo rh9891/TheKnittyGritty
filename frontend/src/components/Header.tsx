@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import type { RootState } from "../store.ts";
 import { useLogoutMutation } from "../slices/usersApiSlice.ts";
 import { logout } from "../slices/authSlice.ts";
+import SearchBox from "./SearchBox.tsx";
 import TheKnittyGrittyLogo from "../../assets/images/TheKnittyGrittyLogo.png";
 
 const Header = () => {
@@ -46,6 +47,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
+              <SearchBox />
               <LinkContainer to="/cart">
                 <Nav.Link>
                   <FaShoppingCart /> Cart

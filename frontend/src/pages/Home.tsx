@@ -1,7 +1,7 @@
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
 import { Col, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { useGetProductsQuery } from "../slices/productApiSlice.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
@@ -42,7 +42,15 @@ const Home = () => {
 
   return (
     <>
-      <h1>Latest Products</h1>
+      {keyword && (
+        <>
+          <Link to="/" className="btn btn-primary my-3">
+            Go Back
+          </Link>
+          <h1>Search Results for "{keyword}":</h1>
+        </>
+      )}
+      {!keyword && <h1>Latest Products</h1>}
       <Row>
         {Array.isArray(products) &&
           products.map((product) => (
