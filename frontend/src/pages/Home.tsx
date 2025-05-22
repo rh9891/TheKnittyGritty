@@ -11,10 +11,14 @@ import Message from "../components/Message.tsx";
 import Paginate from "../components/Paginate.tsx";
 
 const Home = () => {
-  const { pageNumber } = useParams<{ pageNumber?: string }>();
+  const { pageNumber, keyword } = useParams<{
+    pageNumber?: string;
+    keyword?: string;
+  }>();
   const parsedPageNumber = pageNumber ? parseInt(pageNumber, 10) : 1;
 
   const { data, isLoading, error } = useGetProductsQuery({
+    keyword,
     pageNumber: parsedPageNumber,
   });
   const products = data?.products ?? [];
@@ -48,7 +52,7 @@ const Home = () => {
           ))}
       </Row>
       <div className="d-flex justify-content-center my-2">
-        <Paginate pages={pages} page={page} />
+        <Paginate pages={pages} page={page} keyword={keyword ?? ""} />
       </div>
     </>
   );

@@ -1,8 +1,8 @@
 import { Response } from "express";
 
+import { AuthenticatedRequest } from "../middleware/authMiddleware.js";
 import asyncHandler from "../middleware/asyncHandler.js";
 import Product from "../models/productModel.js";
-import { AuthenticatedRequest } from "../middleware/authMiddleware.js"; // @desc    Fetch all products
 
 // @desc    Fetch all products
 // @route   GET /api/products
@@ -10,8 +10,11 @@ import { AuthenticatedRequest } from "../middleware/authMiddleware.js"; // @desc
 const getProducts = asyncHandler(async (req, res) => {
   const previewMode = req.query.preview === "true";
   const pageSize = 8;
+  const keyword = req.query.keyword
+    ? { name: { $regex: req.query.keyword, $options: "i" } }
+    : {};
   const page = Number(req.query.pageNumber || 1);
-  const count = await Product.countDocuments({});
+  const count = await Product.countDocuments({ ...keyword });
 
   if (previewMode) {
     const allProducts = await Product.find({});
@@ -33,7 +36,7 @@ const getProducts = asyncHandler(async (req, res) => {
     });
   }
 
-  const products = await Product.find({})
+  const products = await Product.find({ ...keyword })
     .limit(pageSize)
     .skip(pageSize * (page - 1));
   res.json({ products, page, pages: Math.ceil(count / pageSize) });

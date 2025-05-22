@@ -4,6 +4,7 @@ import { Product, ProductUpdateInput } from "../types.ts";
 
 type GetProductsQueryArgs = {
   pageNumber?: number;
+  keyword?: string;
 };
 
 type GetProductsResponse = {
@@ -21,9 +22,10 @@ type ProductStatsResponse = {
 export const productApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getProducts: builder.query<GetProductsResponse, GetProductsQueryArgs>({
-      query: ({ pageNumber }) => ({
+      query: ({ keyword, pageNumber }) => ({
         url: PRODUCTS_URL,
         params: {
+          keyword,
           pageNumber,
         },
       }),
