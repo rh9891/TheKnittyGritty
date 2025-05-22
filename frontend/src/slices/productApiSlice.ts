@@ -2,11 +2,24 @@ import { PRODUCTS_URL, UPLOAD_URL } from "../../../shared/constants.ts";
 import { apiSlice } from "./apiSlice.ts";
 import { Product, ProductUpdateInput } from "../types.ts";
 
+type GetProductsQueryArgs = {
+  pageNumber?: number;
+};
+
+type GetProductsResponse = {
+  products: Product[];
+  page: number;
+  pages: number;
+};
+
 export const productApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getProducts: builder.query<Product[], void>({
-      query: () => ({
+    getProducts: builder.query<GetProductsResponse, GetProductsQueryArgs>({
+      query: ({ pageNumber }) => ({
         url: PRODUCTS_URL,
+        params: {
+          pageNumber,
+        },
       }),
       providesTags: ["Product"],
       keepUnusedDataFor: 5,

@@ -1,15 +1,21 @@
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
 import { Col, Row } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
 import { useGetProductsQuery } from "../slices/productApiSlice.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import Product from "../components/Product.tsx";
 import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";
+import Paginate from "../components/Paginate.tsx";
 
 const Home = () => {
-  const { data: products, isLoading, error } = useGetProductsQuery();
+  const { pageNumber } = useParams();
+  const { data, isLoading, error } = useGetProductsQuery({ pageNumber });
+  const products = data?.products;
+  const pages = data?.pages;
+  const page = data?.page;
 
   if (isLoading) {
     return <Loader />;
@@ -37,6 +43,7 @@ const Home = () => {
             </Col>
           ))}
       </Row>
+      <Paginate pages={pages} page={page} />
     </>
   );
 };
