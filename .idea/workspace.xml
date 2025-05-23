@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01742179-77e3-431d-b0f9-e2906402e45d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/SearchBox.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Carousel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/SignUpModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/girl-and-grandmother-knitting.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/assets/images/GirlAndGrandmotherKnitting.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/teal-yarn.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/assets/images/TealYarn.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/woman-knitting-pink-yarn.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/assets/images/WomanKnittingPinkYarn.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,11 +67,11 @@
       <recent name="$PROJECT_DIR$/backend/data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/assets/images" />
       <recent name="$PROJECT_DIR$/shared" />
       <recent name="$PROJECT_DIR$/frontend/public/images" />
       <recent name="$PROJECT_DIR$/frontend/src" />
       <recent name="$PROJECT_DIR$/backend" />
-      <recent name="$PROJECT_DIR$/frontend" />
     </key>
   </component>
   <component name="SharedIndexes">

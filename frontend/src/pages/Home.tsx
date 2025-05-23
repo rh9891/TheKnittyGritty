@@ -9,6 +9,7 @@ import Product from "../components/Product.tsx";
 import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";
 import Paginate from "../components/Paginate.tsx";
+import Carousel from "../components/Carousel.tsx";
 
 const Home = () => {
   const { pageNumber, keyword } = useParams<{
@@ -50,7 +51,7 @@ const Home = () => {
           <h1>Search Results for "{keyword}":</h1>
         </>
       )}
-      {!keyword && <h1>Latest Products</h1>}
+      {!keyword && <Carousel />}
       <Row>
         {Array.isArray(products) &&
           products.map((product) => (
