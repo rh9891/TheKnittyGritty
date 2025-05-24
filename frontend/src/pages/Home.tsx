@@ -10,6 +10,7 @@ import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";
 import Paginate from "../components/Paginate.tsx";
 import Carousel from "../components/Carousel.tsx";
+import NewsletterSignUp from "../components/NewsletterSignUp.tsx";
 
 const Home = () => {
   const { pageNumber, keyword } = useParams<{
@@ -63,6 +64,7 @@ const Home = () => {
       <div className="d-flex justify-content-center my-2">
         <Paginate pages={pages} page={page} keyword={keyword ?? ""} />
       </div>
+      <NewsletterSignUp />
     </>
   );
 };

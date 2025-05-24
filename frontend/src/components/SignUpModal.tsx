@@ -16,7 +16,7 @@ const SignUpModal = ({ show, handleClose }: SignUpModalProps) => {
       >
         <Modal.Header className="bg-primary" closeButton>
           <Modal.Title className="text-white">
-            <strong>Thank You (From the Bottom of Our Yarn Stash)</strong>
+            <strong>Thank You</strong>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -26,8 +26,8 @@ const SignUpModal = ({ show, handleClose }: SignUpModalProps) => {
             offers.
           </p>
           <p className="text-primary">
-            As a thank you for signing up, check your inbox to enjoy{" "}
-            <strong>15% off</strong> your next purchase.
+            As a thank you for signing up, check your inbox to enjoy
+            <strong>&nbsp;15% off</strong> your next purchase.
           </p>
         </Modal.Body>
         <Modal.Footer>
