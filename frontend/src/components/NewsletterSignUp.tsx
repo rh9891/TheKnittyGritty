@@ -35,7 +35,7 @@ const NewsletterSignup = () => {
     <Container className="py-5 bg-body-tertiary">
       <Row className="justify-content-center text-center">
         <Col md={8}>
-          <h3 className="mb-4">Join our Newsletter</h3>
+          <h3 className="mb-4">Join Our Newsletter</h3>
           <Form onSubmit={handleSubmit}>
             <Row className="g-2 align-items-center">
               <Col xs={12} md={8}>

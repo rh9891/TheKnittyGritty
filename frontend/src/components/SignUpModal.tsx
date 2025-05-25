@@ -16,18 +16,18 @@ const SignUpModal = ({ show, handleClose }: SignUpModalProps) => {
       >
         <Modal.Header className="bg-primary" closeButton>
           <Modal.Title className="text-white">
-            <strong>Thank You</strong>
+            <strong>You're In!</strong>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p className="text-primary">
-            You've been added to our mailing list and will now be among the
-            first to hear about our new arrivals, sale events, and exclusive
-            offers.
+            You're all signed up! Keep an eye on your inbox for exclusive
+            offers, early access to new arrivals, and special subscriber-only
+            perks.
           </p>
           <p className="text-primary">
-            As a thank you for signing up, check your inbox to enjoy
-            <strong>&nbsp;15% off</strong> your next purchase.
+            As a little thank you, we’ve sent you a <strong>15% off</strong>
+            &nbsp;discount code to use on your next purchase.
           </p>
         </Modal.Body>
         <Modal.Footer>
