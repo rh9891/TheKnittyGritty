@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import type { RootState } from "../store.ts";
 import { useLogoutMutation } from "../slices/usersApiSlice.ts";
 import { logout } from "../slices/authSlice.ts";
+import { resetCart } from "../slices/cartSlice.ts";
 import SearchBox from "./SearchBox.tsx";
 import TheKnittyGrittyLogo from "../../assets/images/TheKnittyGrittyLogo.png";
 
@@ -25,6 +26,7 @@ const Header = () => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
+      dispatch(resetCart());
       navigate("/login");
     } catch (err) {
       console.log(err);
