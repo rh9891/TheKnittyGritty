@@ -2,7 +2,7 @@ import { Response } from "express";
 
 import { AuthenticatedRequest } from "../middleware/authMiddleware.js";
 import asyncHandler from "../middleware/asyncHandler.js";
-import Product from "../models/productModel.js";
+import Product from "../models/productModel.js"; // @desc    Fetch all products
 
 // @desc    Fetch all products
 // @route   GET /api/products
@@ -186,6 +186,31 @@ const createProductReview = asyncHandler(
   },
 );
 
+// @desc    Get top-rated products
+// @route   GET /api/products/top-rated
+// @access  Public
+const getTopRatedProducts = asyncHandler(async (req, res) => {
+  const keyword = req.query.keyword
+    ? { name: { $regex: req.query.keyword, $options: "i" } }
+    : {};
+  const pageSize = 8;
+  const page = Number(req.query.pageNumber || 1);
+
+  const topProducts = await Product.find({ ...keyword })
+    .sort({ rating: -1 })
+    .limit(16);
+
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  const paginatedProducts = topProducts.slice(start, end);
+
+  res.json({
+    products: paginatedProducts,
+    page,
+    pages: Math.ceil(topProducts.length / pageSize),
+  });
+});
+
 export {
   getProducts,
   getProductById,
@@ -193,4 +218,5 @@ export {
   updateProduct,
   deleteProduct,
   createProductReview,
+  getTopRatedProducts,
 };

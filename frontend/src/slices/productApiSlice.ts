@@ -13,6 +13,9 @@ type GetProductsResponse = {
   pages: number;
 };
 
+type GetTopRatedProductsQueryArgs = GetProductsQueryArgs;
+type GetTopRatedProductsResponse = GetProductsResponse;
+
 type ProductStatsResponse = {
   totalProducts: number;
   lowStockCount: number;
@@ -84,6 +87,19 @@ export const productApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Product"],
     }),
+    getTopRatedProducts: builder.query<
+      GetTopRatedProductsResponse,
+      GetTopRatedProductsQueryArgs
+    >({
+      query: ({ keyword, pageNumber }) => ({
+        url: `${PRODUCTS_URL}/top-rated`,
+        params: {
+          keyword,
+          pageNumber,
+        },
+      }),
+      keepUnusedDataFor: 5,
+    }),
   }),
 });
 
@@ -96,4 +112,5 @@ export const {
   useUploadProductImageMutation,
   useDeleteProductMutation,
   useCreateReviewMutation,
+  useGetTopRatedProductsQuery,
 } = productApiSlice;

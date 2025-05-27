@@ -32,7 +32,7 @@ const NewsletterSignup = () => {
   const handleClose = () => setShowModal(false);
 
   return (
-    <Container className="py-5 bg-body-tertiary">
+    <Container className="py-5 bg-body-tertiary" id="newsletter">
       <Row className="justify-content-center text-center">
         <Col md={8}>
           <h3 className="mb-4">Join Our Newsletter</h3>

@@ -1,41 +1,31 @@
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
-import { useEffect } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Carousel, Col, Image, Row } from "react-bootstrap";
 import { Link, useLocation, useParams } from "react-router-dom";
 
-import { useGetProductsQuery } from "../slices/productApiSlice.ts";
+import { useGetTopRatedProductsQuery } from "../slices/productApiSlice.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
-import { scrollToId } from "../utils/sharedUtils.ts";
 import Product from "../components/Product.tsx";
 import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";
 import Paginate from "../components/Paginate.tsx";
-import Carousel from "../components/Carousel.tsx";
-import NewsletterSignUp from "../components/NewsletterSignUp.tsx";
+import ColorfulPinkYarn from "../../assets/images/ColorfulPinkYarn.jpg";
 
-const Home = () => {
+const TopRated = () => {
   const location = useLocation();
-  const hash = location.hash;
   const { pageNumber, keyword } = useParams<{
     pageNumber?: string;
     keyword?: string;
   }>();
   const parsedPageNumber = pageNumber ? parseInt(pageNumber, 10) : 1;
 
-  const { data, isLoading, error } = useGetProductsQuery({
+  const { data, isLoading, error } = useGetTopRatedProductsQuery({
     keyword,
     pageNumber: parsedPageNumber,
   });
   const products = data?.products ?? [];
   const pages = data?.pages ?? 1;
   const page = data?.page ?? 1;
-
-  useEffect(() => {
-    if (hash === "#newsletter") {
-      scrollToId("newsletter");
-    }
-  }, [hash]);
 
   if (isLoading) {
     return <Loader />;
@@ -54,15 +44,28 @@ const Home = () => {
 
   return (
     <>
-      {keyword && (
-        <>
-          <Link to="/" className="btn btn-primary my-3">
-            Go Back
-          </Link>
-          <h1>Search Results for "{keyword}":</h1>
-        </>
+      <Link to={keyword ? "/top-rated" : "/"} className="btn btn-primary my-3">
+        Go Back
+      </Link>
+      {keyword && <h1>Search Results for "{keyword}":</h1>}
+      {!keyword && (
+        <Carousel controls={false} indicators={false}>
+          <Carousel.Item>
+            <Image
+              className="d-block w-100"
+              src={ColorfulPinkYarn}
+              alt="Colorful pink yarn and needles"
+            />
+            <Carousel.Caption className="w-auto">
+              <h1>Top Picks You’ll Love</h1>
+              <p>
+                Our highest-rated yarns, chosen by makers like you. Ready to
+                elevate your next project?
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
       )}
-      {!keyword && <Carousel />}
       <Row>
         {Array.isArray(products) &&
           products.map((product) => (
@@ -72,11 +75,15 @@ const Home = () => {
           ))}
       </Row>
       <div className="d-flex justify-content-center my-2">
-        <Paginate pages={pages} page={page} keyword={keyword ?? ""} />
+        <Paginate
+          pages={pages}
+          page={page}
+          keyword={keyword ?? ""}
+          currentPath={location.pathname}
+        />
       </div>
-      <NewsletterSignUp />
     </>
   );
 };
 
-export default Home;
+export default TopRated;

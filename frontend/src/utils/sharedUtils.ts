@@ -26,3 +26,10 @@ export const imageSrc = (product: ProductType) => {
     ? finalPath
     : `${baseUrl}${finalPath}`;
 };
+
+export const scrollToId = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};

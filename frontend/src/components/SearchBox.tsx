@@ -2,7 +2,11 @@ import { Button, Form } from "react-bootstrap";
 import { FormEvent, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const SearchBox = () => {
+type SearchBoxProps = {
+  currentPath: string;
+};
+
+const SearchBox = ({ currentPath }: SearchBoxProps) => {
   const navigate = useNavigate();
   const { keyword: urlKeyword } = useParams<{ keyword?: string }>();
   const [keyword, setKeyword] = useState<string>(urlKeyword ?? "");
@@ -12,7 +16,12 @@ const SearchBox = () => {
 
     if (keyword.trim()) {
       setKeyword("");
-      navigate(`/search/${keyword}`);
+
+      if (currentPath.includes("/top-rated")) {
+        navigate(`/top-rated/search/${keyword}`);
+      } else {
+        navigate(`/search/${keyword}`);
+      }
     } else {
       navigate("/");
     }

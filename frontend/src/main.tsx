@@ -20,6 +20,7 @@ import Shipping from "./pages/Shipping.tsx";
 import Payment from "./pages/Payment.tsx";
 import Order from "./pages/Order.tsx";
 import Invoice from "./pages/Invoice.tsx";
+import TopRated from "./pages/TopRated.tsx";
 import Profile from "./pages/Profile.tsx";
 import UsersOrders from "./pages/UsersOrders.tsx";
 import AdminProducts from "./pages/AdminProducts.tsx";
@@ -40,6 +41,13 @@ const router = createBrowserRouter(
       <Route path="/search/:keyword" element={<Home />} />
       <Route path="/search/:keyword/page/:pageNumber" element={<Home />} />
       <Route path="/product/:id" element={<Product />} />
+      <Route path="/top-rated" element={<TopRated />} />
+      <Route path="/top-rated/page/:pageNumber" element={<TopRated />} />
+      <Route path="/top-rated/search/:keyword" element={<TopRated />} />
+      <Route
+        path="/top-rated/search/:keyword/page/:pageNumber"
+        element={<TopRated />}
+      />
       <Route path="/cart" element={<Cart />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />

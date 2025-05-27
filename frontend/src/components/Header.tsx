@@ -2,7 +2,7 @@ import { Badge, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import type { RootState } from "../store.ts";
 import { useLogoutMutation } from "../slices/usersApiSlice.ts";
@@ -11,6 +11,8 @@ import SearchBox from "./SearchBox.tsx";
 import TheKnittyGrittyLogo from "../../assets/images/TheKnittyGrittyLogo.png";
 
 const Header = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
   const { cartItems } = useSelector((state: RootState) => state.cart);
   const { userInfo } = useSelector((state: RootState) => state.auth);
 
@@ -47,7 +49,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <SearchBox />
+              <SearchBox currentPath={currentPath} />
               <LinkContainer to="/cart">
                 <Nav.Link>
                   <FaShoppingCart /> Cart
