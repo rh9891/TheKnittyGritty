@@ -9,6 +9,7 @@ import {
   useCreateProductMutation,
   useGetProductsQuery,
 } from "../slices/productApiSlice.ts";
+import Meta from "../components/Meta.tsx";
 import ProductsPreview from "../components/ProductsPreview.tsx";
 import ProductsTable from "../components/ProductsTable.tsx";
 import ConfirmModal from "../components/ConfirmModal.tsx";
@@ -47,6 +48,11 @@ const AdminProducts = () => {
 
   return (
     <>
+      <Meta
+        title="Admin | Manage Products | The Knitty Gritty"
+        description="Admin dashboard page for managing yarn products on The Knitty Gritty. Create, preview, and update product listings."
+        keywords="admin, product management, yarn inventory, create products, The Knitty Gritty"
+      />
       <div className="d-flex justify-content-between align-items-center">
         <h1>Products</h1>
         <Button

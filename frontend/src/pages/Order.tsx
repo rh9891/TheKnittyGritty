@@ -13,6 +13,7 @@ import { parseWeightInGrams } from "../utils/cartUtils.ts";
 import { useCreateOrderMutation } from "../slices/ordersApiSlice.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import Message from "../components/Message.tsx";
+import Meta from "../components/Meta.tsx";
 import CheckoutSteps from "../components/CheckoutSteps.tsx";
 import Loader from "../components/Loader";
 
@@ -92,6 +93,11 @@ const Order = () => {
 
   return (
     <>
+      <Meta
+        title="Confirm Your Order | The Knitty Gritty"
+        description="Review your shipping info, payment method, and items before placing your order."
+        keywords="yarn shop checkout, knitting supplies order, wool delivery, place yarn order"
+      />
       <CheckoutSteps step1 step2 step3 step4 />
       <Row>
         <Col md={8}>

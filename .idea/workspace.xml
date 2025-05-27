@@ -5,18 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01742179-77e3-431d-b0f9-e2906402e45d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/assets/images/ColorfulPinkYarn.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/TopRated.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Meta.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/productController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/productController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/productRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/productRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Carousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Carousel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/NewsletterSignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/NewsletterSignUp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Paginate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Paginate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/SearchBox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SearchBox.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/slices/productApiSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/slices/productApiSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/AdminProducts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AdminProducts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/AdminUsers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AdminUsers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Cart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Cart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Invoice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Invoice.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Order.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Order.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Payment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Payment.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Product.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Product.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/ProductEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ProductEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Shipping.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Shipping.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/TopRated.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/TopRated.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/UserEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/UserEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/UsersOrders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/UsersOrders.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

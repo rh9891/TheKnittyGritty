@@ -7,6 +7,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { useGetProductsQuery } from "../slices/productApiSlice.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import { scrollToId } from "../utils/sharedUtils.ts";
+import Meta from "../components/Meta.tsx";
 import Product from "../components/Product.tsx";
 import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";
@@ -54,9 +55,14 @@ const Home = () => {
 
   return (
     <>
+      <Meta
+        title="Welcome to The Knitty Gritty"
+        description="Browse the best yarns, discover top-rated knitting supplies, and get inspired. The Knitty Gritty is your cozy corner for all things fiber arts."
+        keywords="yarn, knitting, crochet, knitting supplies, yarn store, The Knitty Gritty, hand-dyed yarn, knitting inspiration"
+      />
       {keyword && (
         <>
-          <Link to="/" className="btn btn-primary my-3">
+          <Link to="/" className="btn btn-light my-3">
             Go Back
           </Link>
           <h1>Search Results for "{keyword}":</h1>

@@ -13,6 +13,7 @@ import {
   MISMATCH_ERROR_MESSAGE,
 } from "../../../shared/constants.ts";
 import Loader from "../components/Loader";
+import Meta from "../components/Meta.tsx";
 import UserOrdersTable from "../components/UserOrdersTable.tsx";
 
 const Profile = () => {
@@ -70,52 +71,59 @@ const Profile = () => {
   }
 
   return (
-    <Row>
-      <Col md={3}>
-        <h2>User Profile</h2>
-        <Form onSubmit={submitHandler}>
-          <Form.Group controlId="name" className="my-2">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="name"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-            ></Form.Control>
-          </Form.Group>
-          <Form.Group controlId="email" className="my-2">
-            <Form.Label>Email Address</Form.Label>
-            <Form.Control
-              type="email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            ></Form.Control>
-          </Form.Group>
-          <Form.Group controlId="password" className="my-2">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            ></Form.Control>
-          </Form.Group>
-          <Form.Group controlId="confirmPassword" className="my-2">
-            <Form.Label>Confirm Password</Form.Label>
-            <Form.Control
-              type="password"
-              value={confirmPassword}
-              onChange={(event) => setConfirmPassword(event.target.value)}
-            ></Form.Control>
-          </Form.Group>
-          <Button type="submit" variant="primary" className="my-2">
-            Update
-          </Button>
-        </Form>
-      </Col>
-      <Col md={9}>
-        <h2>Your Orders</h2>
-        <UserOrdersTable />
-      </Col>
-    </Row>
+    <>
+      <Meta
+        title="Your Profile | The Knitty Gritty"
+        description="Manage your account information and view past orders. Update your details and keep your yarn stash dreams alive!"
+        keywords="user profile, yarn account, knitting order history, profile page, The Knitty Gritty"
+      />
+      <Row>
+        <Col md={3}>
+          <h2>User Profile</h2>
+          <Form onSubmit={submitHandler}>
+            <Form.Group controlId="name" className="my-2">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group controlId="email" className="my-2">
+              <Form.Label>Email Address</Form.Label>
+              <Form.Control
+                type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group controlId="password" className="my-2">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group controlId="confirmPassword" className="my-2">
+              <Form.Label>Confirm Password</Form.Label>
+              <Form.Control
+                type="password"
+                value={confirmPassword}
+                onChange={(event) => setConfirmPassword(event.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            <Button type="submit" variant="primary" className="my-2">
+              Update
+            </Button>
+          </Form>
+        </Col>
+        <Col md={9}>
+          <h2>Your Orders</h2>
+          <UserOrdersTable />
+        </Col>
+      </Row>
+    </>
   );
 };
 

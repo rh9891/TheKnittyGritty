@@ -13,6 +13,7 @@ import {
 } from "../../../shared/constants.ts";
 import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";
+import Meta from "../components/Meta.tsx";
 import OrderSummaryCard from "../components/OrderSummaryCard.tsx";
 
 const Invoice = () => {
@@ -46,6 +47,11 @@ const Invoice = () => {
 
   return (
     <>
+      <Meta
+        title={`Invoice #${order._id} | The Knitty Gritty`}
+        description={`Detailed invoice for order ${order._id} from The Knitty Gritty. Includes shipping, billing, payment, and itemized order summary.`}
+        keywords="invoice, yarn order, The Knitty Gritty invoice, order summary, knitting supplies, receipt, order details"
+      />
       <h1>Invoice. No. {order._id}</h1>
       <Row>
         <Col md={8}>

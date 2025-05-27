@@ -19,6 +19,7 @@ import { imageSrc } from "../utils/sharedUtils.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
+import Meta from "../components/Meta.tsx";
 import Message from "../components/Message.tsx";
 import Review from "../components/Review.tsx";
 import CustomerReview from "../components/CustomerReview.tsx";
@@ -62,6 +63,13 @@ const Product = () => {
 
   return (
     <>
+      {product && (
+        <Meta
+          title={`${product.name} | The Knitty Gritty`}
+          description={`Buy ${product.name} – ${product.description}. Perfect for knitting and crochet projects. Weight: ${product.weight}, Length: ${product.length}, Gauge: ${product.gauge}.`}
+          keywords={`buy ${product.name}, yarn for knitting, crochet yarn, ${product.weight} yarn, The Knitty Gritty`}
+        />
+      )}
       <Link className="btn btn-light my-3" to="/">
         Go Back
       </Link>

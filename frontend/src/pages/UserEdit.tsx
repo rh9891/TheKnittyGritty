@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
 import { useGetUserByIdQuery } from "../slices/usersApiSlice.ts";
 import Loader from "../components/Loader";
+import Meta from "../components/Meta.tsx";
 import UserEditForm from "../components/UserEditForm.tsx";
 import Message from "../components/Message.tsx";
 
@@ -35,7 +36,12 @@ const UserEdit = () => {
 
   return (
     <>
-      <Link to="/admin/users" className="btn btn-primary my-3">
+      <Meta
+        title="Admin | Edit User | The Knitty Gritty"
+        description="Update user account details including name, email, and admin access. Manage your community from The Knitty Gritty dashboard."
+        keywords="admin user edit, edit user details, The Knitty Gritty admin, user management, update user profile"
+      />
+      <Link to="/admin/users" className="btn btn-light my-3">
         Go Back
       </Link>
       <UserEditForm refetch={refetch} user={user} userId={userId} />

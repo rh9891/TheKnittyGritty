@@ -5,6 +5,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 
 import { useGetTopRatedProductsQuery } from "../slices/productApiSlice.ts";
 import { DEFAULT_ERROR_MESSAGE } from "../../../shared/constants.ts";
+import Meta from "../components/Meta.tsx";
 import Product from "../components/Product.tsx";
 import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";
@@ -44,7 +45,12 @@ const TopRated = () => {
 
   return (
     <>
-      <Link to={keyword ? "/top-rated" : "/"} className="btn btn-primary my-3">
+      <Meta
+        title="Top-Rated Yarns | The Knitty Gritty"
+        description="Explore the most loved yarns by fellow makers. These top-rated picks are perfect for your next knitting or crochet project."
+        keywords="top yarns, best rated yarns, favorite knitting yarns, customer favorites, The Knitty Gritty top products, best crochet yarns"
+      />
+      <Link to={keyword ? "/top-rated" : "/"} className="btn btn-light my-3">
         Go Back
       </Link>
       {keyword && <h1>Search Results for "{keyword}":</h1>}
