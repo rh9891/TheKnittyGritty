@@ -17,7 +17,6 @@ import Cart from "./pages/Cart.tsx";
 import Login from "./pages/Login.tsx";
 import Register from "./pages/Register.tsx";
 import Shipping from "./pages/Shipping.tsx";
-import Payment from "./pages/Payment.tsx";
 import Order from "./pages/Order.tsx";
 import Invoice from "./pages/Invoice.tsx";
 import TopRated from "./pages/TopRated.tsx";
@@ -53,7 +52,6 @@ const router = createBrowserRouter(
       <Route path="/register" element={<Register />} />
       <Route path="" element={<PrivateRoute />}>
         <Route path="/shipping" element={<Shipping />} />
-        <Route path="/payment" element={<Payment />} />
         <Route path="/place-order" element={<Order />} />
         <Route path="/order/:id" element={<Invoice />} />
         <Route path="/profile" element={<Profile />} />

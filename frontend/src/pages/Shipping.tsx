@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import type { RootState } from "../store.ts";
-import { saveShippingAddress } from "../slices/cartSlice.ts";
+import { savePaymentMethod, saveShippingAddress } from "../slices/cartSlice.ts";
 import { DEFAULT_SHIPPING_ADDRESS } from "../../../shared/constants.ts";
 import Meta from "../components/Meta.tsx";
 import FormContainer from "../components/FormContainer.tsx";
@@ -42,7 +42,8 @@ const Shipping = () => {
         country,
       }),
     );
-    navigate("/payment");
+    dispatch(savePaymentMethod("PayPal"));
+    navigate("/place-order");
   };
 
   return (

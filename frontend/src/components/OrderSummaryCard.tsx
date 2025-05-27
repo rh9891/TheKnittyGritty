@@ -143,7 +143,7 @@ const OrderSummaryCard = ({
       });
   };
 
-  if (loadingPay || loadingPayPal || loadingDeliver) {
+  if (loadingPay || loadingPayPal) {
     return <Loader />;
   }
 
@@ -244,6 +244,7 @@ const OrderSummaryCard = ({
               type="button"
               className="btn btn-block"
               onClick={deliverOrderHandler}
+              disabled={loadingDeliver}
             >
               Mark Order As Delivered
             </Button>

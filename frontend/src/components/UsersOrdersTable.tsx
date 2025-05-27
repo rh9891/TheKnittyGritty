@@ -59,7 +59,7 @@ const UsersOrdersTable = ({
             <td>{order._id}</td>
             <td>{order.user && order.user.name}</td>
             <td>{formatDate(order.createdAt)}</td>
-            <td>${order.totalPrice}</td>
+            <td>${order.totalPrice.toFixed(2)}</td>
             <td>
               {order.isPaid ? (
                 formatDate(order.paidAt)

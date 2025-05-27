@@ -13,7 +13,7 @@ const initialState: CartState = localStorage.getItem("cart")
       taxPrice: "0.00",
       totalPrice: "0.00",
       shippingAddress: DEFAULT_SHIPPING_ADDRESS,
-      paymentMethod: "Paypal",
+      paymentMethod: "PayPal",
     };
 
 const cartSlice = createSlice({
@@ -46,8 +46,9 @@ const cartSlice = createSlice({
       state.paymentMethod = action.payload;
       return updateCart(state);
     },
-    clearCartItems: (state) => {
+    clearCart: (state) => {
       state.cartItems = [];
+      state.shippingAddress = DEFAULT_SHIPPING_ADDRESS;
       return updateCart(state);
     },
     resetCart: () => initialState,
@@ -59,7 +60,7 @@ export const {
   removeFromCart,
   saveShippingAddress,
   savePaymentMethod,
-  clearCartItems,
+  clearCart,
   resetCart,
 } = cartSlice.actions;
 

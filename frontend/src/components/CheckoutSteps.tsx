@@ -5,10 +5,9 @@ type CheckoutStepsProps = {
   step1?: boolean;
   step2?: boolean;
   step3?: boolean;
-  step4?: boolean;
 };
 
-const CheckoutSteps = ({ step1, step2, step3, step4 }: CheckoutStepsProps) => {
+const CheckoutSteps = ({ step1, step2, step3 }: CheckoutStepsProps) => {
   return (
     <Nav className="justify-content-center mb-4">
       <Nav.Item>
@@ -33,16 +32,6 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }: CheckoutStepsProps) => {
 
       <Nav.Item>
         {step3 ? (
-          <LinkContainer to="/payment">
-            <Nav.Link>Payment</Nav.Link>
-          </LinkContainer>
-        ) : (
-          <Nav.Link disabled>Payment</Nav.Link>
-        )}
-      </Nav.Item>
-
-      <Nav.Item>
-        {step4 ? (
           <LinkContainer to="/place-order">
             <Nav.Link>Review & Order</Nav.Link>
           </LinkContainer>

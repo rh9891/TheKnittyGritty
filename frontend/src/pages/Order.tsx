@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 import type { RootState } from "../store.ts";
-import { clearCartItems } from "../slices/cartSlice.ts";
+import { clearCart } from "../slices/cartSlice.ts";
 import { imageSrc } from "../utils/sharedUtils.ts";
 import { parseWeightInGrams } from "../utils/cartUtils.ts";
 import { useCreateOrderMutation } from "../slices/ordersApiSlice.ts";
@@ -53,10 +53,8 @@ const Order = () => {
   useEffect(() => {
     if (!shippingAddress || !shippingAddress.address) {
       navigate("/shipping");
-    } else if (!paymentMethod) {
-      navigate("/payment");
     }
-  }, [navigate, paymentMethod, shippingAddress]);
+  }, [navigate, shippingAddress]);
 
   const placeOrderHandler = async () => {
     try {
@@ -69,7 +67,7 @@ const Order = () => {
         taxPrice,
         totalPrice,
       }).unwrap();
-      dispatch(clearCartItems());
+      dispatch(clearCart());
       navigate(`/order/${res._id}`);
     } catch (err) {
       const error = err as FetchBaseQueryError | SerializedError;
@@ -95,10 +93,10 @@ const Order = () => {
     <>
       <Meta
         title="Confirm Your Order | The Knitty Gritty"
-        description="Review your shipping info, payment method, and items before placing your order."
+        description="Review your shipping info, payment disclosure, and items before placing your order."
         keywords="yarn shop checkout, knitting supplies order, wool delivery, place yarn order"
       />
-      <CheckoutSteps step1 step2 step3 step4 />
+      <CheckoutSteps step1 step2 step3 />
       <Row>
         <Col md={8}>
           <ListGroup variant="flush">
@@ -126,7 +124,7 @@ const Order = () => {
             </ListGroup.Item>
             <ListGroup.Item>
               <h2>Payment Method</h2>
-              {paymentMethod}
+              <Message text="You’ll complete your secure payment after placing the order. We use PayPal to process all transactions — you can pay with your PayPal account or any major credit/debit card." />
             </ListGroup.Item>
             <ListGroup.Item>
               <h2>Review Items</h2>
