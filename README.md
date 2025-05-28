@@ -7,9 +7,13 @@
 ![Node.js](https://img.shields.io/badge/Backend-Node.js-339933.svg)
 ![Express](https://img.shields.io/badge/Server-Express.js-000000.svg)
 ![Axios](https://img.shields.io/badge/HTTP%20Client-Axios-5A29E4.svg)
-![Bootstrap](https://img.shields.io/badge/UI-Bootstrap-7952B3.svg)
 ![React Router](https://img.shields.io/badge/Router-React%20Router-CA4245.svg)
 ![React Icons](https://img.shields.io/badge/Icons-React%20Icons-E91E63.svg)
+![MongoDB](https://img.shields.io/badge/Database-MongoDB-47A248.svg)
+![Mongoose](https://img.shields.io/badge/ODM-Mongoose-880000.svg)
+![Redux Toolkit](https://img.shields.io/badge/State-Redux%20Toolkit-764ABC.svg)
+![RTK Query](https://img.shields.io/badge/Data%20Fetching-RTK%20Query-764ABC.svg)
+![React Bootstrap](https://img.shields.io/badge/UI%20Library-React%20Bootstrap-563D7C.svg)
 
 ## Table of Contents
 
@@ -25,19 +29,16 @@
 
 ## Description
 
-Welcome to The Knitty Gritty, where you can find the yarns and tools to help you create wonderful and inspiring things.
-The Knitty Gritty is an eCommerce application that is built using React, Redux, Node, Express, and MongoDB. The
-application features a fully-functioning shopping cart with PayPal and credit/debit payments, a product rating/review
-system, and admin capabilities to manage customers, products, and orders.
+Welcome to The Knitty Gritty – your cozy corner of the internet for all things yarn. Whether you're a seasoned stitcher
+or just starting your fiber journey, we've got the yarns, tools, and inspiration you need to create something beautiful.
 
-All product images, graphics, and some content are the copyrights and property of Purl Soho®
-and [purlsoho.com](https://www.purlsoho.com/), where exquisite yarns, fabrics, and tools can
-be [purchased](https://www.purlsoho.com/new.html).
+The Knitty Gritty is a full-stack eCommerce application built with React, Redux Toolkit, Node.js, Express, and MongoDB.
+It features:
 
-Although The Knitty Gritty has an inventory of products, full-featured shopping cart, product reviews and ratings,
-administrative product and user management, and Paypal (sandbox) and credit card integration, this is just a friendly
-reminder that it is a sample eCommerce application. If any of these products interest you, please do look to make a
-purchase at [Purl Soho®](https://www.purlsoho.com/).
+🧺 A fully functional shopping cart with PayPal and credit/debit card payments
+🌟 A product rating and review system to help shoppers choose with confidence
+🛠 Admin tools for managing products, orders, and customers
+Everything’s designed with a yarn-lover’s experience in mind—from browsing to checkout and beyond.
 
 ## User Story
 
