@@ -24,7 +24,7 @@
     "yn": "^3.1.1"
   },
   "scripts": {
-    "build": "npm install && npm install --prefix frontend && tsc --project backend/tsconfig.json && npm run build --prefix frontend",
+    "build": "tsc -p backend/tsconfig.json && npm --prefix frontend run build",
     "start": "node backend/dist/server.js",
     "server": "nodemon",
     "client": "npm start --prefix frontend",
