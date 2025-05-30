@@ -17,3 +17,5 @@ services:
         value: production
       - key: MONGODB_URI
         fromEnvVar: MONGODB_URI
+      - key: NODE_VERSION
+        value: 20.11.0
