@@ -126,26 +126,27 @@ const Product = () => {
                   </Col>
                 </Row>
               </ListGroup.Item>
-              {product?.countInStock && product?.countInStock > 0 && (
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Quantity</Col>
-                    <Col>
-                      <Form.Control
-                        as="select"
-                        value={quantity}
-                        onChange={(e) => setQuantity(Number(e.target.value))}
-                      >
-                        {[...Array(product?.countInStock).keys()].map((x) => (
-                          <option key={x + 1} value={x + 1}>
-                            {x + 1}
-                          </option>
-                        ))}
-                      </Form.Control>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-              )}
+              {typeof product?.countInStock === "number" &&
+                product.countInStock > 0 && (
+                  <ListGroup.Item>
+                    <Row>
+                      <Col>Quantity</Col>
+                      <Col>
+                        <Form.Control
+                          as="select"
+                          value={quantity}
+                          onChange={(e) => setQuantity(Number(e.target.value))}
+                        >
+                          {[...Array(product?.countInStock).keys()].map((x) => (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          ))}
+                        </Form.Control>
+                      </Col>
+                    </Row>
+                  </ListGroup.Item>
+                )}
               <ListGroup.Item>
                 <Button
                   className="btn-block"

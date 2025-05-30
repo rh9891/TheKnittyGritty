@@ -6,14 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="01742179-77e3-431d-b0f9-e2906402e45d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CheckoutSteps.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CheckoutSteps.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/OrderSummaryCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/OrderSummaryCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/UsersOrdersTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UsersOrdersTable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Order.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Order.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Payment.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Shipping.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Shipping.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/slices/cartSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/slices/cartSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Product.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Product.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
