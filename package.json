@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "npm install && npm install --prefix frontend && tsc --project backend/tsconfig.json && npm run build --prefix frontend",
-    "start": "node dist/server.ts",
+    "start": "node dist/server.js",
     "server": "nodemon",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
