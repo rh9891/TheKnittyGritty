@@ -15,7 +15,7 @@ const App = () => {
         </Container>
       </main>
       <Footer />
-      <ToastContainer />
+      <ToastContainer aria-label="Toast Notifications" />
     </>
   );
 };
