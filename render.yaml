@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: knitty-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    rootDir: frontend
+
+  - type: web
+    name: knitty-backend
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    rootDir: backend
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromEnvVar: MONGODB_URI
