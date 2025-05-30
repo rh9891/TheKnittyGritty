@@ -1,6 +1,11 @@
-import jwt from "jsonwebtoken";
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const generateToken = (res, userId, jwtSecret) => {
-    const token = jwt.sign({ userId }, jwtSecret, {
+    const token = jsonwebtoken_1.default.sign({ userId }, jwtSecret, {
         expiresIn: "30d",
     });
     res.cookie("jwt", token, {
@@ -10,4 +15,4 @@ const generateToken = (res, userId, jwtSecret) => {
         maxAge: 30 * 24 * 60 * 60 * 1000,
     });
 };
-export default generateToken;
+exports.default = generateToken;

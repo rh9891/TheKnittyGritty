@@ -1,13 +1,18 @@
-import express from "express";
-import { createProduct, createProductReview, deleteProduct, getProductById, getProducts, getTopRatedProducts, updateProduct, } from "../controllers/productController.js";
-import { admin, protect } from "../middleware/authMiddleware.js";
-const router = express.Router();
-router.route("/").get(getProducts).post(protect, admin, createProduct);
-router.get("/top-rated", getTopRatedProducts);
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const productController_js_1 = require("../controllers/productController.js");
+const authMiddleware_js_1 = require("../middleware/authMiddleware.js");
+const router = express_1.default.Router();
+router.route("/").get(productController_js_1.getProducts).post(authMiddleware_js_1.protect, authMiddleware_js_1.admin, productController_js_1.createProduct);
+router.get("/top-rated", productController_js_1.getTopRatedProducts);
 router
     .route("/:id")
-    .get(getProductById)
-    .put(protect, admin, updateProduct)
-    .delete(protect, admin, deleteProduct);
-router.route("/:id/reviews").post(protect, createProductReview);
-export default router;
+    .get(productController_js_1.getProductById)
+    .put(authMiddleware_js_1.protect, authMiddleware_js_1.admin, productController_js_1.updateProduct)
+    .delete(authMiddleware_js_1.protect, authMiddleware_js_1.admin, productController_js_1.deleteProduct);
+router.route("/:id/reviews").post(authMiddleware_js_1.protect, productController_js_1.createProductReview);
+exports.default = router;

@@ -1,7 +1,13 @@
-import jwt from "jsonwebtoken";
-import asyncHandler from "./asyncHandler.js";
-import User from "../models/userModel.js";
-const protect = asyncHandler(async (req, res, next) => {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.admin = exports.protect = void 0;
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const asyncHandler_js_1 = __importDefault(require("./asyncHandler.js"));
+const userModel_js_1 = __importDefault(require("../models/userModel.js"));
+const protect = (0, asyncHandler_js_1.default)(async (req, res, next) => {
     const token = req.cookies.jwt;
     const jwtSecret = process.env.JWT_SECRET;
     if (!jwtSecret) {
@@ -9,8 +15,8 @@ const protect = asyncHandler(async (req, res, next) => {
     }
     if (token) {
         try {
-            const decoded = jwt.verify(token, jwtSecret);
-            req.user = await User.findById(decoded.userId).select("-password");
+            const decoded = jsonwebtoken_1.default.verify(token, jwtSecret);
+            req.user = await userModel_js_1.default.findById(decoded.userId).select("-password");
             next();
         }
         catch (err) {
@@ -24,6 +30,7 @@ const protect = asyncHandler(async (req, res, next) => {
         throw new Error("You forgot your yarn! (No token.)");
     }
 });
+exports.protect = protect;
 const admin = (req, res, next) => {
     if (req.user && req.user.isAdmin) {
         next();
@@ -33,4 +40,4 @@ const admin = (req, res, next) => {
         throw new Error("You’re not the head knitter here. Admin access only.");
     }
 };
-export { protect, admin };
+exports.admin = admin;
