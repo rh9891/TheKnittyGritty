@@ -6,27 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="01742179-77e3-431d-b0f9-e2906402e45d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/config/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/config/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/controllers/orderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/controllers/orderController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/controllers/productController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/controllers/productController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/controllers/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/data/products.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/data/products.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/data/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/data/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/middleware/asyncHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/middleware/asyncHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/middleware/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/middleware/authMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/middleware/errorMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/middleware/errorMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/models/orderModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/models/orderModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/models/productModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/models/productModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/models/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/models/userModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/routes/orderRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/routes/orderRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/routes/productRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/routes/productRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/routes/uploadRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/routes/uploadRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/routes/userRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/routes/userRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/seeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/seeder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/backend/utils/generateToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/backend/utils/generateToken.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dist/shared/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dist/shared/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
