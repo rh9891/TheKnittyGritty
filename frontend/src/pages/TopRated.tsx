@@ -10,6 +10,7 @@ import Product from "../components/Product.tsx";
 import Loader from "../components/Loader";
 import Message from "../components/Message.tsx";
 import Paginate from "../components/Paginate.tsx";
+import NoSearchResults from "../components/NoSearchResults.tsx";
 import ColorfulPinkYarn from "../../assets/images/ColorfulPinkYarn.jpg";
 
 const TopRated = () => {
@@ -27,6 +28,10 @@ const TopRated = () => {
   const products = data?.products ?? [];
   const pages = data?.pages ?? 1;
   const page = data?.page ?? 1;
+  const isSearch = Boolean(keyword);
+  const noResults =
+    isSearch && Array.isArray(products) && products.length === 0;
+  const hasResults = Array.isArray(products) && products.length > 0;
 
   if (isLoading) {
     return <Loader />;
@@ -53,8 +58,14 @@ const TopRated = () => {
       <Link to={keyword ? "/top-rated" : "/"} className="btn btn-light my-3">
         Go Back
       </Link>
-      {keyword && <h1>Search Results for "{keyword}":</h1>}
-      {!keyword && (
+      {isSearch && (
+        <h1>
+          {noResults
+            ? `No Results for "${keyword}:"`
+            : `Search Results for "${keyword}:"`}
+        </h1>
+      )}
+      {!isSearch && (
         <Carousel controls={false} indicators={false}>
           <Carousel.Item>
             <Image
@@ -73,12 +84,16 @@ const TopRated = () => {
         </Carousel>
       )}
       <Row>
-        {Array.isArray(products) &&
+        {noResults ? (
+          <NoSearchResults />
+        ) : (
+          hasResults &&
           products.map((product) => (
             <Col key={product._id} sm={10} md={6} lg={4} xl={3}>
               <Product product={product} />
             </Col>
-          ))}
+          ))
+        )}
       </Row>
       <div className="d-flex justify-content-center my-2">
         <Paginate
