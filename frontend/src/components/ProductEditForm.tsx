@@ -161,12 +161,7 @@ const ProductEditForm = ({
         </Form.Group>
         <Form.Group controlId="image" className="my-3">
           <Form.Label>Image</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter image URL"
-            value={image}
-            onChange={(event) => setImage(event.target.value)}
-          />
+          <Form.Control type="text" value={image} readOnly />
           <Form.Label className="my-2">
             Select JPG or PNG file to upload
           </Form.Label>

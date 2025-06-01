@@ -15,16 +15,17 @@ export const formatDate = (dateInput?: string | number | Date): string => {
 };
 
 export const imageSrc = (product: ProductType) => {
-  const baseUrl = import.meta.env.VITE_API_URL?.replace(/\/$/, "");
-  const normalizedImage = product.image.replace(/^\/?backend/, "");
+  const image = product.image;
 
+  if (/^https?:\/\//.test(image)) return image;
+
+  const baseUrl = import.meta.env.VITE_API_URL?.replace(/\/$/, "");
+  const normalizedImage = image.replace(/^\/?backend/, "");
   const finalPath = normalizedImage.startsWith("/")
     ? normalizedImage
     : `/${normalizedImage}`;
 
-  return product.image.startsWith("/images")
-    ? finalPath
-    : `${baseUrl}${finalPath}`;
+  return image.startsWith("/images") ? finalPath : `${baseUrl}${finalPath}`;
 };
 
 export const scrollToId = (id: string) => {
