@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const products = [
     {
         name: "Chopin Coorie",
@@ -852,4 +850,4 @@ const products = [
         numReviews: Math.floor(Math.random() * (20 - 2)) + 2,
     },
 ];
-exports.default = products;
+export default products;

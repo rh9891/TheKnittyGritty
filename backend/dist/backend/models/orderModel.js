@@ -1,12 +1,7 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const mongoose_1 = __importDefault(require("mongoose"));
-const orderSchema = new mongoose_1.default.Schema({
+import mongoose from "mongoose";
+const orderSchema = new mongoose.Schema({
     user: {
-        type: mongoose_1.default.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: "User",
     },
@@ -17,7 +12,7 @@ const orderSchema = new mongoose_1.default.Schema({
             image: { type: String, required: true },
             price: { type: Number, required: true },
             product: {
-                type: mongoose_1.default.Schema.Types.ObjectId,
+                type: mongoose.Schema.Types.ObjectId,
                 required: true,
                 ref: "Product",
             },
@@ -81,5 +76,5 @@ const orderSchema = new mongoose_1.default.Schema({
 }, {
     timestamps: true,
 });
-const Order = mongoose_1.default.model("Order", orderSchema);
-exports.default = Order;
+const Order = mongoose.model("Order", orderSchema);
+export default Order;
