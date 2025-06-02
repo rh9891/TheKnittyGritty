@@ -102,8 +102,7 @@ THEN I will get my order fulfilled in a timely manner.
 
 ![The Knitty Gritty Admin Users Page](https://github.com/user-attachments/assets/680a17d8-dcbd-46ea-a3e0-ef05fb5a8b4a")
 
-![The Knitty Gritty Admin Orders Page](ttps:<img width="1788" alt="TheKnittyGrittyAdminUsersPage" src="https://github.com/user-attachments/assets/bebc63a7-e6a7-4643-8549-e5061b0749df" />
-//github.com/user-attachments/assets/8819eee7-c182-4b29-a6ed-a1a2ee6d29a9)
+![The Knitty Gritty Admin Orders Page](https://github.com/user-attachments/assets/bebc63a7-e6a7-4643-8549-e5061b0749df)
 
 ![The Knitty Gritty Admin Products Page](https://github.com/user-attachments/assets/bab2969c-c37c-4bf6-8387-b305665c2073)
 
