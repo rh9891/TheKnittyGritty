@@ -35,10 +35,10 @@ or just starting your fiber journey, we've got the yarns, tools, and inspiration
 The Knitty Gritty is a full-stack eCommerce application built with React, Vite, Redux Toolkit, Node.js, Express, and
 MongoDB. It features:
 
-🧺 A fully functional shopping cart with PayPal and credit/debit card payments
-🌟 A product rating and review system to help shoppers choose with confidence
-🛠 Admin tools for managing products, orders, and customers
-📦 Product pagination for easy navigation
+- 🧺 A fully functional shopping cart with PayPal and credit/debit card payments
+- 🌟 A product rating and review system to help shoppers choose with confidence
+- 🛠 Admin tools for managing products, orders, and customers
+- 📦 Product pagination for easy navigation
 
 Everything’s designed with a yarn-lover’s experience in mind - from browsing to checkout and beyond.
 
