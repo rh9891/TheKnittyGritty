@@ -33,8 +33,7 @@ Welcome to The Knitty Gritty – your cozy corner of the internet for all things
 or just starting your fiber journey, we've got the yarns, tools, and inspiration you need to create something beautiful.
 
 The Knitty Gritty is a full-stack eCommerce application built with React, Vite, Redux Toolkit, Node.js, Express, and
-MongoDB.
-It features:
+MongoDB. It features:
 
 🧺 A fully functional shopping cart with PayPal and credit/debit card payments
 🌟 A product rating and review system to help shoppers choose with confidence
@@ -93,19 +92,20 @@ THEN I will get my order fulfilled in a timely manner.
 
 ## Preview of The Knitty Gritty
 
-![The Knitty Gritty Landing Page]()
+![The Knitty Gritty Landing Page](https://github.com/user-attachments/assets/7b01c427-9814-4ac3-81bb-8a0660b8b397)
 
-![The Knitty Gritty Top-Rated Page]()
+![The Knitty Gritty Top-Rated Page](https://github.com/user-attachments/assets/4c484338-f580-444e-ade0-a149b8673ef6)
 
-![The Knitty Gritty Product Page]()
+![The Knitty Gritty Product Page](https://github.com/user-attachments/assets/2d1d8637-e045-4067-8e7c-f540687ce195)
 
-![The Knitty Gritty Cart Page]()
+![The Knitty Gritty Cart Page](https://github.com/user-attachments/assets/51bec0a8-ca3b-42a8-b5b2-9b8d2aa825be)
 
-![The Knitty Gritty Admin Users Page]()
+![The Knitty Gritty Admin Users Page](https://github.com/user-attachments/assets/680a17d8-dcbd-46ea-a3e0-ef05fb5a8b4a")
 
-![The Knitty Gritty Admin Orders Page]()
+![The Knitty Gritty Admin Orders Page](ttps:<img width="1788" alt="TheKnittyGrittyAdminUsersPage" src="https://github.com/user-attachments/assets/bebc63a7-e6a7-4643-8549-e5061b0749df" />
+//github.com/user-attachments/assets/8819eee7-c182-4b29-a6ed-a1a2ee6d29a9)
 
-![The Knitty Gritty Admin Products Page]()
+![The Knitty Gritty Admin Products Page](https://github.com/user-attachments/assets/bab2969c-c37c-4bf6-8387-b305665c2073)
 
 ## Links
 
