@@ -1,19 +1,20 @@
 # The Knitty Gritty
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Vite](https://img.shields.io/badge/Built%20with-Vite-646CFF.svg)
-![React](https://img.shields.io/badge/Framework-React-61DAFB.svg)
-![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6.svg)
-![Node.js](https://img.shields.io/badge/Backend-Node.js-339933.svg)
-![Express](https://img.shields.io/badge/Server-Express.js-000000.svg)
-![Axios](https://img.shields.io/badge/HTTP%20Client-Axios-5A29E4.svg)
-![React Router](https://img.shields.io/badge/Router-React%20Router-CA4245.svg)
-![React Icons](https://img.shields.io/badge/Icons-React%20Icons-E91E63.svg)
-![MongoDB](https://img.shields.io/badge/Database-MongoDB-47A248.svg)
-![Mongoose](https://img.shields.io/badge/ODM-Mongoose-880000.svg)
-![Redux Toolkit](https://img.shields.io/badge/State-Redux%20Toolkit-764ABC.svg)
-![RTK Query](https://img.shields.io/badge/Data%20Fetching-RTK%20Query-764ABC.svg)
-![React Bootstrap](https://img.shields.io/badge/UI%20Library-React%20Bootstrap-563D7C.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-ff0000.svg)](https://opensource.org/licenses/MIT)
+![Vite](https://img.shields.io/badge/Built%20with-Vite-fd7e14.svg)
+![React](https://img.shields.io/badge/Framework-React-ffce67.svg)
+![TypeScript](https://img.shields.io/badge/Language-TypeScript-228B22.svg)
+![Node.js](https://img.shields.io/badge/Backend-Node.js-007bff.svg)
+![Express](https://img.shields.io/badge/Server-Express.js-4B0082.svg)
+![Axios](https://img.shields.io/badge/HTTP%20Client-Axios-8A2BE2.svg)
+![PayPal](https://img.shields.io/badge/Payments-PayPal-e83e8c.svg)
+![React Router](https://img.shields.io/badge/Router-React%20Router-FF6961.svg)
+![React Icons](https://img.shields.io/badge/Icons-React%20Icons-FFB347.svg)
+![MongoDB](https://img.shields.io/badge/Database-MongoDB-FDFD96.svg)
+![Mongoose](https://img.shields.io/badge/ODM-Mongoose-77DD77.svg)
+![Redux Toolkit](https://img.shields.io/badge/State-Redux%20Toolkit-AEC6CF.svg)
+![React Bootstrap](https://img.shields.io/badge/UI%20Library-React%20Bootstrap-CBAACB.svg)
+![Cloudinary](https://img.shields.io/badge/Media%20Storage-Cloudinary-DCC6E0.svg)
 
 ## Table of Contents
 
@@ -22,23 +23,25 @@
 - [Features of the Application](#features-of-the-application)
 - [Preview of The Knitty Gritty](#preview-of-the-knitty-gritty)
 - [Links](#links)
+- [Quick Start](#quick-start)
 - [Built Using](#built-using)
-- [Usage](#usage)
 - [License](#license)
-- [Questions](#questions)
 
 ## Description
 
 Welcome to The Knitty Gritty – your cozy corner of the internet for all things yarn. Whether you're a seasoned stitcher
 or just starting your fiber journey, we've got the yarns, tools, and inspiration you need to create something beautiful.
 
-The Knitty Gritty is a full-stack eCommerce application built with React, Redux Toolkit, Node.js, Express, and MongoDB.
+The Knitty Gritty is a full-stack eCommerce application built with React, Vite, Redux Toolkit, Node.js, Express, and
+MongoDB.
 It features:
 
 🧺 A fully functional shopping cart with PayPal and credit/debit card payments
 🌟 A product rating and review system to help shoppers choose with confidence
 🛠 Admin tools for managing products, orders, and customers
-Everything’s designed with a yarn-lover’s experience in mind—from browsing to checkout and beyond.
+📦 Product pagination for easy navigation
+
+Everything’s designed with a yarn-lover’s experience in mind - from browsing to checkout and beyond.
 
 ## User Story
 
@@ -48,7 +51,7 @@ I WANT TO search for products,
 SO THAT I CAN find the ones I want to buy.
 
 GIVEN an eCommerce application,
-WHEN I search for a product by name or category,
+WHEN I search for a product by name or description,
 THEN I can view products and their respective images with details for each product.
 
 WHEN I have found a product that I would like to purchase,
@@ -73,7 +76,7 @@ THEN I will get my order fulfilled in a timely manner.
 - Easy login and registration process with simplified forms and authentication.
 - Product search feature for user-friendly filtering.
 - Extensive, detailed product descriptions.
-- Products and adverts featured on carousel to engage the user.
+- Top-rated products, advertisement, and special offers featured on carousel to engage the user.
 - Shopping cart with multiple features that aids user in proceeding to checkout.
 - Shipping process for user to add their shipping address and figure their delivery cost.
 - Order summary page for user to verify purchase before committing to payment.
@@ -81,9 +84,8 @@ THEN I will get my order fulfilled in a timely manner.
 - For an optimal checkout process, the user is provided with a detailed invoice of their order.
 - After completing purchase, user is provided with shipping status. (Admin product management allows ability to mark
   order as delivered upon delivery.)
-- User can get notified about discounts and sales by signing up for the mailing list.
-- Product reviews and ratings are available for users that want to choose the best product and helps build the company's
-  reliability.
+- Users can view product reviews and ratings to make informed purchasing decisions, while also helping build trust and
+  credibility for the company.
 - Product pagination to aid in user-friendly shopping experience.
 - Admin management for all order details, product inventory, product creation/edit/deletion, and users.
 - Full-featured checkout process (delivery method, payment method/integration, order summary, detailed invoice, etc.)
@@ -91,52 +93,72 @@ THEN I will get my order fulfilled in a timely manner.
 
 ## Preview of The Knitty Gritty
 
-![The Knitty Gritty Landing Page](assets/images/theKnittyGrittyLandingPage.png)
+![The Knitty Gritty Landing Page]()
 
-![The Knitty Gritty Products Page](assets/images/theKnittyGrittyProductsPage.png)
+![The Knitty Gritty Top-Rated Page]()
 
-![The Knitty Gritty Single Product Page](assets/images/theKnittyGrittyProductPage.png)
+![The Knitty Gritty Product Page]()
+
+![The Knitty Gritty Cart Page]()
+
+![The Knitty Gritty Admin Users Page]()
+
+![The Knitty Gritty Admin Orders Page]()
+
+![The Knitty Gritty Admin Products Page]()
 
 ## Links
 
-- [Deployed Application](https://the-knitty-gritty.netlify.app)
+- [Deployed Application](https://theknittygritty.onrender.com)
 
 - [Github Repository](https://github.com/rh9891/TheKnittyGritty)
 
-## Built Using
+## Quick Start
 
-Listed below are the frameworks, libraries, and guides that made building this application possible:
+Run the application locally with these steps:
 
-- [Express](https://expressjs.com/)
-- [MongoDB](https://www.mongodb.com/what-is-mongodb)
-- [Node](https://nodejs.org/en/about/)
-- [Purl Soho](https://www.purlsoho.com/)
-- [React](https://reactjs.org/docs/getting-started.html)
-- [Traversy Media Tutorials](https://www.traversymedia.com)
+```
+$ npm install
+```
 
-## Usage
+```
+$ npm run dev
+```
 
 Below is a sample customer login for accessing most features of the application:
 
 ```
 The Knitty Gritty Customer Login:
 
-Email: spetrillo@example.com
+Email: sophia.petrillo@email.com
 Password: GoldenGirl1
 ```
 
 ```
 PayPal Sandbox Account Login:
 
-Email: spetrillo@example.com
-Password: uhKH1z<.
+Email: sophia.petrillo@email.com
+Password: GoldenGirl1
 ```
+
+## Built Using
+
+This project was built using the following technologies:
+
+- [React](https://reactjs.org/docs/getting-started.html)
+- [Vite](https://vitejs.dev/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/what-is-mongodb)
+- [Node](https://nodejs.org/en/about/)
+- [Cloudinary](https://cloudinary.com/)
+- [Traversy Media Tutorials](https://www.traversymedia.com)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2021 Romie Hecdivert
+Copyright (c) 2025 Romie Hecdivert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
@@ -150,8 +172,3 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
 OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-## Questions
-
-If you have any questions, comments, or issues regarding this application, please do not hesitate to contact me
-via [Github](https://github.com/rh9891).
